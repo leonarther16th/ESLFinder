@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city_id: 1
+  num_weeks: 1
+  num_seats: 1
+  start_date: 2014-04-08
+  student_name: MyText
+  program_id: 1
+  user_id: 1
+
+two:
+  city_id: 1
+  num_weeks: 1
+  num_seats: 1
+  start_date: 2014-04-08
+  student_name: MyText
+  program_id: 1
+  user_id: 1

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @search.city_id %>
+</p>
+
+<p>
+  <strong>Num weeks:</strong>
+  <%= @search.num_weeks %>
+</p>
+
+<p>
+  <strong>Num seats:</strong>
+  <%= @search.num_seats %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @search.start_date %>
+</p>
+
+<p>
+  <strong>Student name:</strong>
+  <%= @search.student_name %>
+</p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @search.program_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @search.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_search_path(@search) %> |
+<%= link_to 'Back', searches_path %>
