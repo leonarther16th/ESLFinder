@@ -8,6 +8,7 @@
       <th>Num weeks</th>
       <th>Num seats</th>
       <th>Start date</th>
+      <th>Created at</th>
       <th>Student name</th>
       <th>Program</th>
       <th>User</th>
@@ -23,12 +24,14 @@
         <td><%= search.city_id %></td>
         <td><%= search.num_weeks %></td>
         <td><%= search.num_seats %></td>
-        <td><%= search.start_date %></td>
+        <td><%= time_ago_in_words(search.start_date) if search.start_date %></td>
+        <td><%= time_ago_in_words(search.created_at) %></td>
         <td><%= search.student_name %></td>
-        <td><%= search.program_id %></td>
+        <td><%= truncate(search.course.name) %></td>
         <td><%= search.user_id %></td>
         <td><%= link_to 'Show', search, class: "btn btn-xs" %> 
         <%= link_to 'Edit', edit_search_path(search) , class: "btn btn-xs" %> 
+        <%= link_to 'Check seats', find_path , class: "btn btn-xs btn-primary" %> 
         <%= link_to 'delete', search, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-xs btn-danger" %></td>
       </tr>
     <% end %>

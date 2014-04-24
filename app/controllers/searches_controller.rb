@@ -15,20 +15,27 @@ class SearchesController < ApplicationController
   # GET /searches/new
   def new
     @search = Search.new
+    @courses = Course.all
   end
 
   # GET /searches/1/edit
   def edit
+    @courses = Course.all
+  end
+
+  def find
+    @m = 'welcome rr ff dd'
   end
 
   # POST /searches
   # POST /searches.json
   def create
     @search = Search.new(search_params)
+    
 
     respond_to do |format|
       if @search.save
-        format.html { redirect_to @search, notice: 'Search was successfully created.' }
+        format.html { redirect_to searches_url, notice: 'Search was successfully created.' }
         format.json { render action: 'show', status: :created, location: @search }
       else
         format.html { render action: 'new' }
@@ -69,6 +76,6 @@ class SearchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def search_params
-      params.require(:search).permit(:city_id, :num_weeks, :num_seats, :start_date, :student_name, :program_id, :user_id)
+      params.require(:search).permit(:num_weeks, :num_seats, :start_date, :student_name, :course_id, :user_id)
     end
 end

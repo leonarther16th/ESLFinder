@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408050108) do
+ActiveRecord::Schema.define(version: 20140424042424) do
+
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.float    "course_price"
+    t.integer  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "course_type"
+  end
 
   create_table "searches", force: true do |t|
     t.integer  "city_id"
@@ -19,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140408050108) do
     t.integer  "num_seats"
     t.date     "start_date"
     t.text     "student_name"
-    t.integer  "program_id"
+    t.integer  "course_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

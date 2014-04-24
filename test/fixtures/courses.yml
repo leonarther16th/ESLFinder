@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course: MyString
+  course_price: 1.5
+  active: 1
+
+two:
+  course: MyString
+  course_price: 1.5
+  active: 1
