@@ -1,0 +1,40 @@
+<div class="row">
+<div class="col-lg-4">
+	<div class="well">
+	<legend><span class="glyphicon glyphicon-lock"></span> Sign in</legend>
+	
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<div class="form-group">
+	  <%= f.label :email %><br />
+	  <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
+		<div class="form-group">
+	  <%= f.label :password %><br />
+	  <%= f.password_field :password, :class => "form-control" %></div>
+
+	  <% if devise_mapping.rememberable? -%>
+	    <div class="form-group">
+	    <%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+	  <% end -%>
+	  <div class="form-group">
+	  <%= f.submit "Sign in", :class => "btn btn-primary btn-sm  pull-right" %></div>
+	<% end %>
+
+	<%= render "devise/shared/links" %>
+	</div>
+	</div>
+
+
+	<div class="col-lg-8">
+		<div class="well">
+			<legend>Welcome to CLLC Pricing System!</legend>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque luctus sapien pellentesque odio lobortis accumsan. Sed eu euismod diam. Aliquam gravida velit mauris, viverra gravida odio faucibus et. Morbi cursus sed nunc vitae malesuada. Fusce lorem urna, accumsan eget ultricies id, bibendum vel ante. Duis quis ante vulputate, dapibus leo quis, sodales mi. Aenean tempus justo est, et sollicitudin metus semper imperdiet. Quisque venenatisa arcu. Etiam eget nisl non turpis elementum interdum. Morbi dui dui, tincidunt non justo nec, porta congue quam. Vivamus sagittis quam vitae tortor scelerisque feugiat. Cras dapibus porttitor imperdiet.
+			</p>
+			<p>
+				Quisque sed dignissim enim. Mauris non quam vitaer. Donec posuere nibh ut erat bibendum molestie. In interdum purus ut dapibus congue. Aenean id luctus erat. Nam bibendum ligula et est tincidunt venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a vestibulum dolor, 
+			</p>
+		</div>
+	</div>
+
+	
+</div>

@@ -12,14 +12,22 @@
   <div class="container">
     <a class="navbar-brand" href="#">CLLC Price Finder</a>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log in</a></li>
-        <li><a href="#">Sign up</a></li>
+        <li><%= link_to("Welcome #{current_user.email}") if user_signed_in? %></li>
+        <li><%= link_to("Sign out",  destroy_user_session_path, :method => 'delete')  if user_signed_in? %></li>
     </ul>
 
   </div>
 </nav>
 
 <div class="container">
+	<% if notice %>
+		<div class="alert alert-info"><%= notice %></div>
+	<% end %>
+	<% if alert %>
+      	<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span>  <%= alert %></div>
+    <% end %>
+
+
 	<div class="row">
 		<div class="col-lg-12">
 			<%= yield %>
