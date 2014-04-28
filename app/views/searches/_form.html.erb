@@ -1,4 +1,9 @@
-<%= form_for(@search) do |f| %>
+<%= simple_form_for(@search , html: { class: 'form-horizontal' }, wrapper_mappings: {
+    check_boxes: :vertical_radio_and_checkboxes,
+    radio_buttons: :vertical_radio_and_checkboxes,
+    file: :vertical_file_input,
+    boolean: :vertical_boolean
+  }) do |f| %>
   <% if @search.errors.any? %>
     <div id="error_explanation">
         <% @search.errors.full_messages.each do |msg| %>
@@ -11,54 +16,44 @@
     </div>
   <% end %>
 
- <form role="form">
-<div class="row">
-<div class="col-lg-6">
-     <div class="form-group">
-        <%= f.label :city_id %><br>
-        <%= f.number_field :city_id, class: "form-control" %>
-     </div>
-  </div>
-  <div class="col-lg-6">
 
-      <div class="form-group">
-        <%= f.label :num_weeks %><br>
-        <%= f.number_field :num_weeks, class: "form-control" %>
-      </div>
 
-    </div>
-  </div>
+        
+        <%= f.input :city_id %>
+ 
+      
+        
+        <%= f.input :num_weeks %>
+      
+
+   
+  
     
-  <div class="form-group">
-    <%= f.label :num_seats %><br>
-    <%= f.number_field :num_seats, class: "form-control" %>
-  </div>
+    <%= f.input :num_seats %>
 
-  <div class="form-group">
-    <%= f.label :start_date %><br>
-    <%= f.date_field :start_date, class: "form-control", :data => { :behavior => "datepicker" } %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :student_name %><br>
-    <%= f.text_field :student_name, class: "form-control" %>
-  </div>
+  
+   
+    <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+  
 
-  <div class="form-group">
-    <%= f.label :course_id %><br>
-    <%= f.collection_select :course_id, @courses, :id, :name, :include_blank => "Select course...", class: "form-control" %>
-  </div>
+  
+  
+    <%= f.input :student_name %>
 
-  <div class="form-group">
+  
+   
+    <%= f.collection_select :course_id, @courses, :id, :name, :include_blank => "Select course..." %>
+
+
+  
     
-    <%= f.hidden_field :user_id, class: "form-control" %>
-  </div>
+    <%= f.hidden_field :user_id %>
+ 
 
-  <div class="form-group">
+  
     <%= f.submit "Get Prices", class: "btn btn-primary shadow btn-green" %>
-  </div>
 
-  </form>
-
+ 
  
 <% end %>
