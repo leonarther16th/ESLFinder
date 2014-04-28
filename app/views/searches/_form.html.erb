@@ -1,23 +1,7 @@
-<%= simple_form_for(@search , html: { class: 'form-horizontal' }, wrapper_mappings: {
-    check_boxes: :vertical_radio_and_checkboxes,
-    radio_buttons: :vertical_radio_and_checkboxes,
-    file: :vertical_file_input,
-    boolean: :vertical_boolean
-  }) do |f| %>
-  <% if @search.errors.any? %>
-    <div id="error_explanation">
-        <% @search.errors.full_messages.each do |msg| %>
-        <div class="alert alert-danger">
-        <h4><%= pluralize(@search.errors.count, "error") %> prohibited this search from being saved:</h4>
-        <%= msg %>
-        </div>
-      <% end %>
-      
-    </div>
-  <% end %>
+<%= simple_form_for(@search , html: { class: 'form-horizontal' }) do |f| %>
+ 
 
-
-
+<%= f.error_notification %>
         
         <%= f.input :city_id %>
  
@@ -39,11 +23,11 @@
 
   
   
-    <%= f.input :student_name %>
+    <%= f.input :student_name, as: :string %>
 
   
    
-    <%= f.collection_select :course_id, @courses, :id, :name, :include_blank => "Select course..." %>
+    <%= f.input :course_id,  collection: @courses, value_method: :id, label_method: :name, :include_blank => "Select course..." %>
 
 
   
