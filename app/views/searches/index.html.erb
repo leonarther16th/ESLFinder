@@ -28,7 +28,7 @@
         <td><%= time_ago_in_words(search.created_at) %></td>
         <td><%= search.student_name %></td>
         <td><%= truncate(search.course.name) %></td>
-        <td><%= search.user_id %></td>
+        <td><%= search.user.email if search.user   %></td>
         <td><%= link_to 'Show', search, class: "btn btn-xs" %> 
         <%= link_to 'Edit', edit_search_path(search) , class: "btn btn-xs" %> 
         <%= link_to 'Check seats', find_path , class: "btn btn-xs btn-primary" %> 

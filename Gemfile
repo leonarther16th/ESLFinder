@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'simple_form'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 

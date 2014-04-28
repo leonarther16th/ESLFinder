@@ -16,6 +16,7 @@ class SearchesController < ApplicationController
   # GET /searches/new
   def new
     @search = Search.new
+    @search.user_id = current_user.id
     @courses = Course.all
   end
 
