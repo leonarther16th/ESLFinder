@@ -1,9 +1,9 @@
-<%= simple_form_for(@search , html: { class: "form-horizintal"}) do |f| %>
+<%= simple_form_for(@search ) do |f| %>
  
 
 <%= f.error_notification %>
         
-        <%= f.input :city_id %>
+        <%= f.input :city_id, collection: @cities, value_method: :id, label_method: :name, as: :radio_buttons, wrapper: :vertical_radio_and_checkboxes %>
  
       
         

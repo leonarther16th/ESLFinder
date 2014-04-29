@@ -18,11 +18,13 @@ class SearchesController < ApplicationController
     @search = Search.new
     @search.user_id = current_user.id
     @courses = Course.all
+    @cities = City.all
   end
 
   # GET /searches/1/edit
   def edit
     @courses = Course.all
+    @cities = City.all
   end
 
   def find
@@ -78,6 +80,6 @@ class SearchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def search_params
-      params.require(:search).permit(:num_weeks, :num_seats, :start_date, :student_name, :course_id, :user_id)
+      params.require(:search).permit(:num_weeks, :num_seats, :start_date, :student_name, :course_id, :user_id, :city_id)
     end
 end
