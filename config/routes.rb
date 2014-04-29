@@ -12,6 +12,7 @@ Eslfinder::Application.routes.draw do
   # Example of regular route:
      get 'find' => 'searches#find'
      get 'find/:id' => 'searches#find'
+     get 'seat' => 'searches#seat'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

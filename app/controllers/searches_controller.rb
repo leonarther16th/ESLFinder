@@ -39,7 +39,7 @@ class SearchesController < ApplicationController
 
     respond_to do |format|
       if @search.save
-        format.html { redirect_to searches_url, notice: 'Search was successfully created.' }
+        format.html { redirect_to seat_url, notice: 'Search was successfully created.' }
         format.json { render action: 'show', status: :created, location: @search }
       else
         format.html { render action: 'new' }
@@ -70,6 +70,10 @@ class SearchesController < ApplicationController
       format.html { redirect_to searches_url }
       format.json { head :no_content }
     end
+  end
+
+  def seat
+    @seat = Seat.all
   end
 
   private
