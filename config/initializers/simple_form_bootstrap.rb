@@ -99,6 +99,16 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers do |b|
+    b.use :placeholder
+    b.use :label_input
+    b.wrapper :my_wrapper, tag: :div, class: 'separator', html: { id: 'my_wrapper_id' } do |component|
+      component.use :hint,  wrap_with: { tag: :span, class: :hint }
+      component.use :error, wrap_with: { tag: :span, class: :error }
+    end
+  end
+
+
   # Wrappers for forms and inputs using the Bootstrap toolkit.
   # Check the Bootstrap docs (http://getbootstrap.com)
   # to learn about the different styles for forms and inputs,
