@@ -2,11 +2,15 @@ $background_color: #e9eaed;
 $white: #ffffff;
 $pomegranate: #F22613;
 $nice-blue: #3369E8;
+$nice-blue2: #0896FF;
 $nice-red: #CF000F;
+$grid-gutter-width: 10px;
+$text-primary: #2C3E50;
+
 
 body{
 	background-color: $background_color;
-	color: #141823;
+	color: $text-primary;
 	font-family: 'Open Sans',sans-serif;
 }
 
@@ -55,17 +59,7 @@ body{
 
 
 
-.seat-well{
-	min-height: 20px;
-	padding: 20px;
-	margin-bottom: 20px;
-	background-color: $white;
-	border: 1px solid #e3e3e3;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-	height: 100px;
-}
+
 
 .seat-info{
 	padding-top: 6px;
@@ -102,3 +96,60 @@ body{
 	padding-top: 40px;
 	padding-left: 90px;
 }
+
+.seat-well{
+	
+	background-color:$white;
+	border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+	.seat-photo{
+		overflow: hidden;
+		border-radius: 4px 0 0 4px;
+	}
+
+	.seat-details{
+		padding: 10px;
+	}
+
+	a{
+		font-size: 1.2em;
+		text-decoration: underline;
+		color: $text-primary;
+	}
+	a:hover{
+		text-decoration: none;
+	}
+
+	.offer-dates, .offer-seats-remaining{
+		font-size: .9em;
+	}
+	.offer-course{
+		padding-top: 10px;
+	}
+	.offer-button{
+
+	}
+	.offer-price{
+		float: right;
+		padding-right: 20px;
+		font-size: 1.2em;
+
+		.price-details{
+			font-size: .6em;
+			text-align: center;
+		}
+	}
+	.offer-seats-remaining{
+		padding-top: 10px;
+		color: $pomegranate;
+	}
+}
+
+
+
+.no-padding{
+	padding-left: 10px;
+    padding-right: 0;
+}
+
