@@ -11,36 +11,41 @@
 
 </div>
 
-<div class="row">
-	<div class="col-sm-12 ">
-		<div class="seat-well">
-		<div class="row">
-		<div class="col-lg-2">
-			<div class="seat-photo">
-				<img src="/assets/CLLC-Ottawa.jpg" alt="">
-			</div>
-		</div>
-		<div class="col-lg-10 no-padding">
-			<div class="seat-details">
-				<a href="#"><b>Halifax Campus</b></a>
-				<div class="offer-price"><span class="label label-danger">$300 CAD</span> <br><div class="price-details">*Price for 10 weeks</div></div><br>
-				<div class="offer-course"><b>Course:</b> General English</div>
-				<div class="offer-dates">This offer is available for student starting between <span class="label label-default">21st August, 2014</span> and <span class="label label-default">21st September, 2014</span> </div>
-				<div class="offer-price">
-				<%= button_tag( :class => "btn btn-success  offer-button") do %>
-						  <i class="glyphicon glyphicon-credit-card"></i> Buy this offer
+<% 100.times do |s| %>
 
-				<% end %>
-				</div>
+<div class="seat-well">
 
-				<div class="offer-seats-remaining">We have only <b>3 seats</b> remaining under this offer!</div>
-				
-
-			</div>
-		</div>
-		</div>
+	<div class="seat-photo">
+		<img src="/assets/CLLC-Halifax.jpg" alt="">
 	</div>
+
+
+	<div class="seat-details">
+		<div class="seat-info">
+		<a href="#"><b>Toronto Campus</b></a>
+
+			<div class="offer-course"><b>Course:</b> General English</div>
+			<div class="offer-dates">This offer is available for student starting between <span class="label label-default">21st August, 2014</span> and <span class="label label-default">21st September, 2014</span> </div>
+			<div class="offer-seats-remaining">We have only <b>3 seats</b> remaining under this offer!</div>
+		</div>
+
+		<div class="offer-price">
+			<span class="label label-danger">$300 CAD</span> <br><div class="price-details">*Price for 10 weeks</div>
+			<%= button_tag( :class => "btn btn-success  offer-button") do %>
+			<i class="glyphicon glyphicon-credit-card"></i> Buy this offer
+
+			<% end %>
+		</div>
+
+
+
+
+	</div>
+
 </div>
+
+<% end %>
+
 
 
 
