@@ -9,6 +9,7 @@ end
 
 group :production do
 	gem 'pg'
+	gem 'rails_12factor'
 end
 
 
@@ -57,3 +58,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+ruby "2.0.0" 
