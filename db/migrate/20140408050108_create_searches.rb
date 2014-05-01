@@ -5,7 +5,7 @@ class CreateSearches < ActiveRecord::Migration
       t.integer :num_weeks
       t.integer :num_seats
       t.date :start_date
-      t.text :student_name
+      t.string :student_name
       t.integer :program_id
       t.integer :user_id
 
