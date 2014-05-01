@@ -4,6 +4,7 @@ $pomegranate: #F22613;
 $nice-blue: #3369E8;
 $nice-blue2: #0896FF;
 $nice-red: #CF000F;
+$nice-orange: #D35400;
 $grid-gutter-width: 10px;
 $text-primary: #2C3E50;
 @import 'jeet/index';
@@ -123,12 +124,12 @@ body{
 		padding-top: 10px;
 	}
 	.offer-button{
-		margin-top: 30px;
+		margin-top: 28px;
 	}
 	
 	.offer-seats-remaining{
 		padding-top: 10px;
-		color: $pomegranate;
+		color: $nice-orange;
 	}
 }
 

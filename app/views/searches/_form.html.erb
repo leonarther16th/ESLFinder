@@ -3,7 +3,7 @@
 
 <%= f.error_notification %>
         
-        <%= f.input :city_id, collection: @cities, value_method: :id, label_method: :name, as: :radio_buttons, wrapper: :vertical_radio_and_checkboxes %>
+        <%= f.input :city_id, collection: @cities, value_method: :id, label_method: :name, as: :radio_buttons, boolean_style: :inline, wrapper: :horizontal_radio_and_checkboxes  %>
  
       
         

@@ -12,12 +12,12 @@
 
 
 <div class="content">
-<% 2.times do |s| %>
+<% 10.times do |s| %>
 
 <div class="seat-well">
 
 	<div class="seat-photo">
-		<img src="/assets/CLLC-Halifax.jpg" alt="">
+		<img src="/assets/hotel-opaque-new.png" alt="">
 	</div>
 
 
@@ -25,14 +25,22 @@
 		<div class="seat-info">
 		<a href="#"><b>Toronto Campus</b></a>
 
-			<div class="offer-course"><b>Course:</b> General English</div>
-			<div class="offer-dates">This offer is available for student starting between <span class="label label-default">21st August, 2014</span> and <span class="label label-default">21st September, 2014</span> </div>
-			<div class="offer-seats-remaining">We have only <b>3 seats</b> remaining under this offer!</div>
+			<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <b>Course:</b> General English</div>
+			
+			<div class="offer-dates"><span class="glyphicon glyphicon-time"></span> Available between <span class="label label-default">21st August, 2014</span> and <span class="label label-default">21st September, 2014</span> </div>
+			
+			<br>
+			<% if rand(10) < 4 %>
+			<div class="offer-seats-remaining"><span class="glyphicon glyphicon-warning-sign"></span> We have only <b><%= rand(10) %> seats</b> remaining under this offer!</div>
+			<% end %>
 		</div>
 
 		<div class="offer-price">
-			<span class="label label-danger">$300 CAD</span> <br><div class="price-details">*Price for 10 weeks</div>
-			<%= button_tag( :class => "btn btn-success  offer-button") do %>
+			<span class="label label-danger">$<%= rand(2000) %> CAD</span> <br>
+			<div class="price-details">*Price for 10 weeks</div>
+			<div class="price-details">Recomended price for students: $<%= rand(2000) %></div>
+
+			<%= button_tag( :class => "btn btn-success btn-xs offer-button") do %>
 			<i class="glyphicon glyphicon-credit-card"></i> Buy this offer
 
 			<% end %>
