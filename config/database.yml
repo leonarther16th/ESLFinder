@@ -19,7 +19,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: pg
-  database: 
-  pool: 
-  timeout: 
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+   
