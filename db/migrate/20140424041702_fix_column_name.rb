@@ -1,5 +1,5 @@
 class FixColumnName < ActiveRecord::Migration
   def change
-  	rename_column :courses, :course, :name
+  	rename_column :searches, :program_id, :course_id
   end
 end
