@@ -74,6 +74,10 @@ class SearchesController < ApplicationController
 
   def seat
     @seat = Seat.all
+    @search = Search.new
+    @search.user_id = current_user.id
+    @courses = Course.all
+    @cities = City.all
   end
 
   private
