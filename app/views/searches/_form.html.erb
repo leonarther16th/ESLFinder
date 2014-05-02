@@ -18,7 +18,7 @@
 
   
    
-    <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+    <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y'), id: 'datepicker' } %>
   
 
   
@@ -45,3 +45,7 @@
  
  
 <% end %>
+
+<script type="text/javascript">
+  $('[data-behaviour~=datepicker]').Zebra_DatePicker();
+</script>

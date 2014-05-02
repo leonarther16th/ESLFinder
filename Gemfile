@@ -13,6 +13,8 @@ group :production do
 end
 
 
+gem 'zebra-datepicker-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
