@@ -7,8 +7,9 @@ $nice-red: #CF000F;
 $nice-orange: #D35400;
 $grid-gutter-width: 10px;
 $text-primary: #2C3E50;
+$nice-gray: #ECF0F1;
 @import 'jeet/index';
-
+@import "bourbon";
 
 body{
 	background-color: $background_color;
@@ -68,6 +69,7 @@ body{
 .filter{
 
 	@include col(1/3);
+
 
 }
 
@@ -140,4 +142,14 @@ body{
     padding-right: 0;
 }
 
+.collection_radio_buttons{
+	padding: golden-ratio(12px,  -1);;
+	font-weight: normal ;
+
+}
+
+
+#{$all-text-inputs-hover} { // Target the :hover pseudo-class
+  background: $nice-gray;
+}
 
