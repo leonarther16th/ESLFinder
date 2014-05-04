@@ -1,4 +1,4 @@
-<h1>Listing searches</h1>
+
 
 <div class="well">
 <table class="table">
@@ -27,11 +27,11 @@
         <td><%= time_ago_in_words(search.start_date) if search.start_date %></td>
         <td><%= time_ago_in_words(search.created_at) %></td>
         <td><%= search.student_name %></td>
-        <td><%= truncate(search.course.name) if search.course  %></td>
+        <td><%= truncate(search.course.name, length: 14) if search.course  %></td>
         <td><%= search.user.email if search.user   %></td>
-        <td><%= link_to 'Show', search, class: "btn btn-xs" %> 
-        <%= link_to 'Edit', edit_search_path(search) , class: "btn btn-xs" %> 
-        <%= link_to 'delete', search, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-xs btn-danger" %></td>
+        <td><%= link_to 'Show', search, class: "btn btn-xs" %> </td>
+        <td><%= link_to 'Edit', edit_search_path(search) , class: "btn btn-xs" %> </td>
+        <td><%= link_to 'delete', search, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-xs btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

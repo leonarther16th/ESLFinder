@@ -8,13 +8,13 @@
 
       <div class="row">
         <div class="col-lg-6">
-        <%= f.input :num_weeks %>
+        <%= f.input :num_weeks, label: "Number of weeks" %>
       </div>
 
    
   
     <div class="col-lg-6">
-    <%= f.input :num_seats %>
+    <%= f.input :num_seats, label: "Number of seats" %>
     </div>
     </div>
 
@@ -34,7 +34,7 @@
  
 
 
-<label class="select optional control-label" >City</label><br>
+
   <%= f.collection_radio_buttons :city_id,  @cities, :id,  :name, required: true  %>
 <br>
 
