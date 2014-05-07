@@ -11,7 +11,9 @@
 
 <nav class="navbar navbar-default navbar-fixed" role="navigation">
   <div class="container">
-    <a class="navbar-brand" href="#">ESL Booking</a>
+  <div class="navbar-header">
+    <a class="navbar-brand" href=""><img src=<%= asset_path('logo.png')  %> width="70%"></a>
+  </div>
     <ul class="nav navbar-nav navbar-right">
         <li><%= link_to("Welcome #{current_user.full_name}", edit_user_registration_path(current_user)) if user_signed_in? %></li>
         <li><%= link_to("Sign out",  destroy_user_session_path, :method => 'delete')  if user_signed_in? %></li>
