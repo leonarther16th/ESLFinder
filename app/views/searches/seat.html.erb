@@ -11,39 +11,51 @@
 
 
 <div class="content">
-<% @seat.each do |seat| %>
-	<% 10.times do |s| %>
+<% @all_cities.each do |city| %>
+	<% @short_courses.each do |course| %>
 
 	<div class="seat-well">
 
 		<div class="seat-photo">
-			<img src=<%= asset_path('ottawa-drowing.jpg')  %> alt="">
+			<img src=<%= asset_path(city[:photo])  %> alt="">
 		</div>
 
 
 		<div class="seat-details">
 			<div class="seat-info">
-			<a href="#"><b><%= seat.city.name %> Campus</b></a>
-
-				<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= seat.course.name %></div>
+			<a href="#"><b><%= city[:name] %></b></a>
 				
-				<div class="offer-dates"><span class="glyphicon glyphicon-time"></span> Available between <span class="label label-default"><%= seat.available_from_date.to_formatted_s(:long_ordinal) %></span> and <span class="label label-default"><%= seat.available_from_date.to_formatted_s(:long_ordinal) %></span> </div>
+				<% agency_full_price = course[:price] * @last_search.num_weeks * 0.75 %>
+				<% agency_offered_price = course[:price] * @last_search.num_weeks * ( city[:low] + @added_discount[0][:price] ) %>
+				<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= course[:name] %></div>
+				
+				<div class="saving"><span class="glyphicon glyphicon-time"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
 				
 				<br>
 				<% if rand(10) < 4 %>
-				<div class="offer-seats-remaining"><span class="glyphicon glyphicon-warning-sign"></span> We have only <b><%= rand(10) %> seats</b> remaining under this offer!</div>
+				<div class="offer-seats-remaining"><span class="glyphicon glyphicon-warning-sign"></span> We have only <b><%= rand(9) + 1 %> seats</b> remaining under this offer!</div>
 				<% end %>
 			</div>
 
 			<div class="offer-price">
-				<span class="label label-danger">$<%= rand(2000) %> CAD</span> <br>
-				<div class="price-details">*Price for 10 weeks</div>
-				<div class="price-details">Recomended price for students: $<%= rand(2000) %></div>
 
+			
+				<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span> <br>
+				<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
+				<div class="price-details">Recomended price for students: $<%= number_to_currency(agency_offered_price * 1.30) %></div>
+
+				<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
 				<%= button_tag( :class => "btn btn-success btn-xs offer-button") do %>
-				<i class="glyphicon glyphicon-credit-card"></i> Buy this offer
-
+				<i class="glyphicon glyphicon-credit-card"></i> Final Book
 				<% end %>
+				</a>
+
+				<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
+				<%= button_tag( :class => "btn btn-success btn-xs offer-button") do %>
+				<i class="glyphicon glyphicon-credit-card"></i> Book Refundable
+				<% end %>
+				</a>
+
 			</div>
 
 
@@ -57,41 +69,7 @@
 <% end %>
 
 
-<div class="seat-well">
-  	<table class="table table-condensed">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colspan="2">Larry the Bird</td>
-          <td><%= button_tag( :class => "btn btn-success btn-xs") do %>
-			<i class="glyphicon glyphicon-credit-card"></i> Buy this offer
 
-			<% end %></td>
-        </tr>
-      </tbody>
-    </table>
-  
-</div>
 
 </div>
 

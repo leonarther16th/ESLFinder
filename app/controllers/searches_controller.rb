@@ -76,7 +76,18 @@ class SearchesController < ApplicationController
     @seat = Seat.all
     @search = Search.new
     @search.user_id = current_user.id
-    
+    @last_search = Search.last
+    @s = 'toronto-drowing.jpg'
+
+    @short_courses = [{name: 'General English', price: 295}, {name: 'IELTS', price: 350}, {name: 'University Pathway Program - UPP', price: 354}, {name: 'Business English', price: 315} ]
+    @all_cities = [{name: 'Toronto Campus', low: 0.4, photo: 'toronto-drowing.jpg'}, {name: 'Ottawa Campus', low: 0.45, photo: 'ottawa-drowing.jpg'},  {name: 'Halifax Campus', low: 0.5, photo: 'halifax-drowing.jpg'}]
+    @pricing_scheme = [{date: '2014-06-02', price: 0}, {date: '2014-07-07', price: 0.1}, {date: '2014-08-04', price: 0.20}]
+    @added_discount = @pricing_scheme.find_all { |price| price[:date] == @last_search.start_date.to_s}
+
+    if @added_discount == nil
+      @added_discount= [{price: 0}]
+    end
+
   end
 
   private

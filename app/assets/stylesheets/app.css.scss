@@ -95,11 +95,11 @@ body{
 		@include span(5/6);
 		padding: 10px;
 		.seat-info{
-			@include span(6/8);
+			@include span(5/8);
 		}
 
 		.offer-price{
-		@include col(2/8);
+		@include col(3/8);
 		text-align: right;
 		font-size: 1.2em;
 
@@ -121,8 +121,9 @@ body{
 		text-decoration: none;
 	}
 
-	.offer-dates, .offer-seats-remaining{
+	.saving, .offer-seats-remaining{
 		font-size: .9em;
+		color: $nice-red;
 	}
 	.offer-course{
 		padding-top: 10px;
@@ -169,4 +170,8 @@ body{
 	color: $nice-blue;
 	font-weight: bold;
 	font-size: 1.1em;
+}
+
+.no-style{
+	text-decoration: none !important;
 }
