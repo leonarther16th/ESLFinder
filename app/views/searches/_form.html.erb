@@ -6,38 +6,38 @@
        
  
 
-      <div class="row">
-        <div class="col-lg-6">
+      <p></p><br>
+       
         <%= f.input :num_weeks, label: "Number of weeks" %>
-      </div>
+      
 
    
   
-    <div class="col-lg-6">
-    <%= f.input :num_seats, label: "Number of seats" %>
-    </div>
-    </div>
+    
+    <%= f.input :num_seats, label: "Number of students" %>
 
+   
    
     <%= f.input :start_date, as: :string, input_html: { class: "",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
   	
 
+    <%= f.hidden_field :user_id %>
 
-  
+  <!--  
    
     <%= f.input :course_id,  collection: @courses, value_method: :id, label_method: :name, :include_blank => "Select course..." %>
 
 
   
     
-    <%= f.hidden_field :user_id %>
  
 
 
 
   <%= f.collection_radio_buttons :city_id,  @cities, :id,  :name, required: true  %>
+  -->
 <br>
-
+<br>
 
 <%= button_tag( :class => "btn btn-success pull-right") do %>
   <i class="glyphicon glyphicon-search"></i> Search

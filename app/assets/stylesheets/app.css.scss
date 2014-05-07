@@ -1,13 +1,15 @@
 $background_color: #e9eaed;
 $white: #ffffff;
 $pomegranate: #F22613;
-$nice-blue: #3369E8;
+$nice-blue: #2574A9;
 $nice-blue2: #0896FF;
-$nice-red: #CF000F;
+$nice-red: #D91E18;
 $nice-orange: #D35400;
 $grid-gutter-width: 10px;
 $text-primary: #2C3E50;
 $nice-gray: #ECF0F1;
+$dark-gray: #95A5A6;
+
 @import 'jeet/index';
 @import "bourbon";
 
@@ -153,3 +155,18 @@ body{
   background: $nice-gray;
 }
 
+
+.save-image{
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
+	border: $white 10px solid;
+}
+
+.save-text{
+	color: $dark-gray;
+}
+
+.save-price{
+	color: $nice-blue;
+	font-weight: bold;
+	font-size: 1.1em;
+}
