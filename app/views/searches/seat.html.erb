@@ -17,7 +17,7 @@
 	<div class="seat-well">
 
 		<div class="seat-photo">
-			<img src=<%= asset_path(city[:photo])  %> alt="">
+			<img src=<%= asset_path(city[:photo])  %>  alt="">
 		</div>
 
 
@@ -40,22 +40,38 @@
 			<div class="offer-price">
 
 			
-				<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span>
-				<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span>  <br>
-				<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
-				<div class="price-details">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
+				
 
-				<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-				<%= button_tag( :class => "btn btn-success btn-xs offer-button") do %>
-				<i class="glyphicon glyphicon-credit-card"></i> Book Final
+				<table class="table table-condensed">
+					<tr class="price-details-left">
+					<td><b class="price-type">Refundable</b><br>
+						<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
+						<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
+				<%= button_tag( :class => "btn btn-success btn-xs") do %>
+				<i class="glyphicon glyphicon-credit-card"></i> Book Now
 				<% end %>
 				</a>
-
-				<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-				<%= button_tag( :class => "btn btn-success btn-xs offer-button") do %>
-				<i class="glyphicon glyphicon-credit-card"></i> Book Refundable
+					</td>
+					<td><b class="price-type">None Refundable</b><br>
+					<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
+						<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
+				<%= button_tag( :class => "btn btn-success btn-xs") do %>
+				<i class="glyphicon glyphicon-credit-card"></i> Book Now
 				<% end %>
 				</a>
+					</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
+				
+						</td>
+						<td>
+						<div class="price-details">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
+						</td>
+					</tr>
+					
+				</table>
 
 			</div>
 

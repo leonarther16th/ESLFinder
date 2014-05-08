@@ -135,7 +135,9 @@ body{
 	.offer-seats-remaining{
 		padding-top: 10px;
 		color: $nice-orange;
+		margin-bottom: -1px;
 	}
+
 }
 
 
@@ -174,4 +176,26 @@ body{
 
 .no-style{
 	text-decoration: none !important;
+}
+
+.price-details-left{
+		text-align: right;
+		
+
+	}
+	.price-col{
+		padding-left:10px;
+		padding-right:10px;
+	}
+	.table-condensed > thead > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td {
+		border: none;
+	}
+	.price-type{
+		font-size: .6em;
+	}
+
+.seat-well .seat-details .offer-price:before, .seat-well .seat-details .offer-price:after {
+    content: "";
+    display: table;
+    margin-bottom: -13px;
 }
