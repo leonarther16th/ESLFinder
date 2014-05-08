@@ -40,13 +40,14 @@
 			<div class="offer-price">
 
 			
-				<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span> <br>
+				<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span>
+				<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span>  <br>
 				<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
-				<div class="price-details">Recomended price for students: $<%= number_to_currency(agency_offered_price * 1.30) %></div>
+				<div class="price-details">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
 
 				<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
 				<%= button_tag( :class => "btn btn-success btn-xs offer-button") do %>
-				<i class="glyphicon glyphicon-credit-card"></i> Final Book
+				<i class="glyphicon glyphicon-credit-card"></i> Book Final
 				<% end %>
 				</a>
 
