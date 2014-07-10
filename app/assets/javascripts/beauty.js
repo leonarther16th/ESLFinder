@@ -14,3 +14,6 @@ $(".seat-well").hover(function(){
 	
 });
 
+$('.seat-well').tooltip();
+
+
