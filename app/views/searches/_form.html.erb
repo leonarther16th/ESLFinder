@@ -1,52 +1,37 @@
 <%= simple_form_for(@search ) do |f| %>
- 
+<div class="row">
+<div class="col-lg-12">
+  <%= f.error_notification %>
 
-<%= f.error_notification %>
-        
-       
- 
+  </div>
 
-      <p></p><br>
-       
-        <%= f.input :num_weeks, label: "Number of weeks", input_html: {value: '4'} %>
-      
+  <div class="col-lg-6">
+    <%= f.input :num_weeks, label: "Number of weeks", input_html: {value: '4'} %>
+  </div>
 
-   
-  
-    
+
+  <div class="col-lg-6">
     <%= f.input :num_seats, label: "Number of students", input_html: {value: '1'} %>
+  </div>
 
-   
-   
+  <div class="col-lg-12">
     <%= f.input :start_date, as: :string, input_html: { class: "",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
-  	
+  </div>
 
-    <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :user_id %>
+  <!--
 
-  <!--  
-   
-    <%= f.input :course_id,  collection: @courses, value_method: :id, label_method: :name, :include_blank => "Select course..." %>
-
-
-  
-    
- 
+  <%= f.input :course_id,  collection: @courses, value_method: :id, label_method: :name, :include_blank => "Select course..." %>
 
 
 
   <%= f.collection_radio_buttons :city_id,  @cities, :id,  :name, required: true  %>
   -->
-<br>
-<br>
+  <div class="col-lg-12">
+    <%= button_tag( :class => "btn btn-success ") do %>
+    <i class="glyphicon glyphicon-search"></i> Search
+    <% end %>
+ </div>
+</div>
 
-<%= button_tag( :class => "btn btn-success pull-right") do %>
-  <i class="glyphicon glyphicon-search"></i> Search
-<% end %>
-
-
-<br>
- <br>
-
- 
-<% end %>
-
+  <% end %>

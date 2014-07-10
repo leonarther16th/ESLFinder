@@ -1,95 +1,72 @@
-
-
+<div class="col-golden-sm">
 	<div class="filter" >
-	
+		
 		<div class="well">
 			<%= render 'form' %>
 		</div>
 	</div>
-
-	
-
-
-<div class="content">
-<% @all_cities.each do |city| %>
-	<% @short_courses.each do |course| %>
-
-	<div class="seat-well">
-
-		<div class="seat-photo">
-			<img src=<%= asset_path(city[:photo])  %>  alt="">
-		</div>
-
-
-		<div class="seat-details">
-			<div class="seat-info">
-			<a href="#"><b><%= city[:name] %></b></a>
-				
-				<% agency_full_price = course[:price] * @last_search.num_weeks * 0.75 %>
-				<% agency_offered_price = course[:price] * @last_search.num_weeks * ( city[:low] + @added_discount[0][:price] ) %>
-				<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= course[:name] %></div>
-				
-				<div class="saving"><span class="glyphicon glyphicon-time"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
-				
-				<br>
-				<% if rand(10) < 4 %>
-				<div class="offer-seats-remaining"><span class="glyphicon glyphicon-warning-sign"></span> We have only <b><%= rand(9) + 1 %> seats</b> remaining under this offer!</div>
-				<% end %>
-			</div>
-
-			<div class="offer-price">
-
-			
-				
-
-				<table class="table table-condensed">
-					<tr class="price-details-left">
-					<td><b class="price-type">Refundable</b><br>
-						<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
-						<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-				<%= button_tag( :class => "btn btn-success btn-xs") do %>
-				<i class="glyphicon glyphicon-credit-card"></i> Book Now
-				<% end %>
-				</a>
-					</td>
-					<td><b class="price-type">None Refundable</b><br>
-					<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
-						<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-				<%= button_tag( :class => "btn btn-success btn-xs") do %>
-				<i class="glyphicon glyphicon-credit-card"></i> Book Now
-				<% end %>
-				</a>
-					</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
-				
-						</td>
-						<td>
-						<div class="price-details">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
-						</td>
-					</tr>
-					
-				</table>
-
-			</div>
-
-
-
-
-		</div>
-
-	</div>
-
-	<% end %>
-<% end %>
-
-
-
-
 </div>
 
-
-
-
+<div class="col-golden-lg">
+	<div class="content">
+		<% @all_cities.each do |city| %>
+		<% @short_courses.each do |course| %>
+		<div class="seat-well">
+			<!-- <div class="seat-photo">
+				<img src=<%= asset_path(city[:photo])  %>  alt="">
+			</div> -->
+			<div class="seat-details">
+				<div class="seat-info">
+					<img src=<%= asset_path(city[:photo]) %> class="school-img" style="width: 60px; height: 60px;" alt=""><a href="#"><b><%= city[:name] %></b></a>
+					
+					<% agency_full_price = course[:price] * @last_search.num_weeks * 0.75 %>
+					<% agency_offered_price = course[:price] * @last_search.num_weeks * ( city[:low] + @added_discount[0][:price] ) %>
+					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= course[:name] %></div>
+					
+					<div class="saving"><span class="glyphicon glyphicon-time"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
+					
+					<br>
+					<% if rand(10) < 4 %>
+					<div class="offer-seats-remaining"><span class="glyphicon glyphicon-warning-sign"></span> We have only <b><%= rand(9) + 1 %> seats</b> remaining under this offer!</div>
+					<% end %>
+				</div>
+				<div class="offer-price">
+					
+					
+					<table class="table table-condensed">
+						<tr class="price-details-left">
+							<td><b class="price-type">Refundable</b><br>
+								<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
+								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
+									<%= button_tag( :class => "btn btn-success btn-xs") do %>
+									<i class="glyphicon glyphicon-credit-card"></i> Book Now
+									<% end %>
+								</a>
+							</td>
+							<td><b class="price-type">None Refundable</b><br>
+								<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
+								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
+									<%= button_tag( :class => "btn btn-success btn-xs") do %>
+									<i class="glyphicon glyphicon-credit-card"></i> Book Now
+									<% end %>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
+								
+							</td>
+							<td>
+								<div class="price-details">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+</div>
