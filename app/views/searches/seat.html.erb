@@ -23,7 +23,7 @@
 					<% agency_offered_price = course[:price] * @last_search.num_weeks * ( city[:low] + @added_discount[0][:price] ) %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= course[:name] %></div>
 					
-					<div class="saving"><span class="glyphicon glyphicon-time"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
+					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
 					
 					<br>
 					<% if rand(10) < 4 %>
@@ -35,34 +35,28 @@
 					
 					<table class="table table-condensed">
 						<tr class="price-details-left">
-							<td><b class="price-type">Refundable</b><br>
-								<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
+							<td><b class="price-type red"><span class="glyphicon glyphicon-ban-circle"> </span> None Refundable</b><br>
+								<span class="label label-default"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
 								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-									<%= button_tag( :class => "btn btn-success btn-xs book-now") do %>
-									<i class="glyphicon glyphicon-credit-card"></i> Book Now
+									<%= button_tag( :class => "btn btn-success btn-xs book-now btn-embossed") do %>
+									<i class="glyphicon glyphicon-shopping-cart"></i> Final Book Now
 									<% end %>
 								</a>
 							</td>
-							<td><b class="price-type">None Refundable</b><br>
-								<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
+							<td><b class="price-type green"><span class="glyphicon glyphicon-ok-circle"> </span> Refundable</b><br>
+								<span class="label label-default"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
 								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-									<%= button_tag( :class => "btn btn-success btn-xs book-now") do %>
+									<%= button_tag( :class => "btn btn-success btn-xs book-now btn-embossed") do %>
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
 								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="price-details book-now">*Price for <%= @last_search.num_weeks %> weeks</div>
-								
-							</td>
-							<td>
-								<div class="price-details book-now">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
 							</td>
 						</tr>
 						
 					</table>
+					<div class="price-details book-now"><span class="glyphicon glyphicon-asterisk"></span> Recomended price for students: <strong class="red"><%= number_to_currency(agency_offered_price * 1.30) %></strong>.<br>
+						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= @last_search.num_weeks %> weeks.
+					</div>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ $dark-gray: #95A5A6;
 
 @import 'jeet/index';
 @import "bourbon";
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 
 body{
 	background-color: $background_color;
@@ -80,7 +80,7 @@ body{
 		position: relative;
 		background: #ffffff;
 		//border-top: 2px solid #c1c1c1;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
@@ -94,22 +94,19 @@ body{
 		display: inline;
 		clear: none;
 		text-align: inherit;
-		@include span(6/6);
+		@include col(6/6);
 
 
 		.seat-info{
-			@include col(5/8);
+			@include span(5/8);
 		}
 
 		.offer-price{
-		@include col(3/8);
+		@include span(3/8);
 		text-align: right;
 		font-size: 1.2em;
 
-			.price-details{
-				font-size: .6em;
-				
-			}
+			
 		
 		}
 
@@ -193,6 +190,16 @@ body{
 		
 
 	}
+	.price-details{
+		font-size: .5em;
+		color: #95a5a6;
+		margin-top: 15px;
+		border-top: 1px #CFD6D6 solid;
+		float: right;
+		padding: 2px;
+		font-style: italic;
+
+	}
 	.price-col{
 		padding-left:10px;
 		padding-right:10px;
@@ -201,13 +208,16 @@ body{
 		border: none;
 	}
 	.price-type{
-		font-size: .6em;
+		font-size: .5em;
+		color: #bdc3c7;
+		font-weight: normal;
 	}
 
 .seat-well .seat-details .offer-price:before, .seat-well .seat-details .offer-price:after {
     content: "";
     display: table;
     margin-bottom: -13px;
+
 }
 
 .school-img{
@@ -232,3 +242,9 @@ body{
     transition: width 2s;
 }
 
+.green{
+	color: lighten(#27ae60,30);
+}
+.red{
+	color: lighten(#c0392b,20);
+}
