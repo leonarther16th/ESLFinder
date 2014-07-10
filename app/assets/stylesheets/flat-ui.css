@@ -2188,11 +2188,12 @@ select[multiple].navbar-form .btn {
   border-radius: 0px;
 }
 .navbar-default .navbar-brand {
-  color: #34495e;
+  color: white;
+  font-size: 1.2em;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #1abc9c;
+  color: white;
   background-color: transparent;
 }
 .navbar-default .navbar-toggle:before {

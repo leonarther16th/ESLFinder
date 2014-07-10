@@ -38,7 +38,7 @@
 							<td><b class="price-type">Refundable</b><br>
 								<span class="label label-danger"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
 								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-									<%= button_tag( :class => "btn btn-success btn-xs") do %>
+									<%= button_tag( :class => "btn btn-success btn-xs book-now") do %>
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
 								</a>
@@ -46,7 +46,7 @@
 							<td><b class="price-type">None Refundable</b><br>
 								<span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
 								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-									<%= button_tag( :class => "btn btn-success btn-xs") do %>
+									<%= button_tag( :class => "btn btn-success btn-xs book-now") do %>
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
 								</a>
@@ -54,11 +54,11 @@
 						</tr>
 						<tr>
 							<td>
-								<div class="price-details">*Price for <%= @last_search.num_weeks %> weeks</div>
+								<div class="price-details book-now">*Price for <%= @last_search.num_weeks %> weeks</div>
 								
 							</td>
 							<td>
-								<div class="price-details">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
+								<div class="price-details book-now">Recomended price for students: <%= number_to_currency(agency_offered_price * 1.30) %></div>
 							</td>
 						</tr>
 						

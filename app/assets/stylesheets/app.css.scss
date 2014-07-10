@@ -219,9 +219,16 @@ body{
 	background-color: #2c3e50;
 	border-radius: 0px;
 }
+.focus{
+	background-color: lighten($nice-gray,4);
+}
 
-
-
-
-
+.hider{
+	position: fixed;
+	top: -2000px;
+}
+.book-now{
+	 -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+}
 

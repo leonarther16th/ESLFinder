@@ -3,7 +3,7 @@
 <head>
   <title>ESL Booking</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
   <%= csrf_meta_tags %>
 
 </head>
@@ -12,7 +12,7 @@
 <nav class="navbar navbar-default navbar-fixed" role="navigation">
   <div class="container">
   <div class="navbar-header">
-    <a class="navbar-brand" href=""><img src=<%= asset_path('logo.png')  %> width="70%"></a>
+    <a class="navbar-brand" href="">ESL Booking</a>
   </div>
     <ul class="nav navbar-nav navbar-right">
         <li><%= link_to("Welcome #{current_user.full_name}", edit_user_registration_path(current_user)) if user_signed_in? %></li>
@@ -40,7 +40,8 @@
 </div>
 
 
-<script type="text/javascript">
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script type="text/javascript">
   $('#datepicker').datepicker()
 </script>
 </body>
