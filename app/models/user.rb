@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :search
 
+
   state_machine :state, :initial => :is_user do
     event :to_agency do
       transition :is_user => :is_agency
@@ -15,6 +16,19 @@ class User < ActiveRecord::Base
     event :to_school do
       transition :is_user => :is_school
     end
+    event :approve_agency do
+      transition :is_agency => :is_approved_agency, :if => :reference_provided?
+    end
+  end
+
+  def reference_provided?
+      #check on references here Agency.find_by_reference(self.rerefernce) exist?
+      # if Agency.find_by_reference(this.reference)
+        # true
+      # else
+       # false
+      # end
+      false 
   end
 
   def full_name
