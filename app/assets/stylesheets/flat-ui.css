@@ -3206,7 +3206,7 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
 }
 
 .open > .dropdown-menu {
-  margin-top: 18px !important;
+  margin-top: 0px !important;
   opacity: 1;
   visibility: visible;
 }
