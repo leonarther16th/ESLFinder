@@ -40,6 +40,7 @@ class SearchesController < ApplicationController
       if @search.save
         format.html { redirect_to seat_url, notice: 'Search was successfully created.' }
         format.json { render action: 'show', status: :created, location: @search }
+        format.js {}
       else
         format.html { render action: 'new' }
         format.json { render json: @search.errors, status: :unprocessable_entity }
@@ -55,6 +56,7 @@ class SearchesController < ApplicationController
       if @search.update(search_params)
         format.html { redirect_to @search, notice: 'Search was successfully updated.' }
         format.json { head :no_content }
+        format.js {redirect_to @user, notice: 'Search was successfully updated.'}
       else
         format.html { render action: 'edit' }
         format.json { render json: @search.errors, status: :unprocessable_entity }

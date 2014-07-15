@@ -2,12 +2,7 @@
   <div class="col-lg-6">
     <div class="well">
       <legend><span class="glyphicon glyphicon-cog"></span> Account Settings</legend>
-      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: "form-horizintal" }, wrapper_mappings: {
-      check_boxes: :vertical_radio_and_checkboxes,
-      radio_buttons: :vertical_radio_and_checkboxes,
-      file: :vertical_file_input,
-      boolean: :vertical_boolean
-      }) do |f| %>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: "form-horizintal" }) do |f| %>
       <%= devise_error_messages! %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
@@ -24,12 +19,14 @@
       <legend><span class="glyphicon glyphicon-certificate"></span> Password Managment</legend>
       <%= f.input :password, :autocomplete => "off", label: "New Password", placeholder: "leave blank if you don't want to change it" %>
       <%= f.input :password_confirmation %>
-      <%= f.input :current_password %>
-      <span class="label label-info">we need your current password to confirm your changes</span>
+      
+      
       
     </div>
-    
-      <%= button_tag(:submit, :class => "btn btn-primary btn-sm col-lg-12") do %>
+      
+    <div class="well">
+      <%= f.input :current_password, label: "Please type in your current password to save" %>
+      <%= button_tag(:submit, :class => "btn btn-primary btn-sm col-lg-12", :id => 'save-btn') do %>
       Save changes <i class="glyphicon glyphicon-ok"></i>
       <% end %>
       <br><br>
@@ -41,6 +38,8 @@
       <br><br>
       
       <%= link_to "Back", :back, class: "btn btn-primary btn-sm col-lg-12" %>
+      <br><br>
+      </div>
     
   </div>
 </div>
