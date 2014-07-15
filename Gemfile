@@ -13,6 +13,9 @@ group :production do
 end
 
 
+
+gem 'jquery-turbolinks'
+
 gem 'zebra-datepicker-rails'
 
 # Use SCSS for stylesheets
@@ -24,6 +27,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'state_machine'
 
 gem 'bourbon'
+
+gem "select2-rails"
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'

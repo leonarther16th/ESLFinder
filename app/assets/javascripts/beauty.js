@@ -1,4 +1,4 @@
-
+  $( document ).ready(function() {
 $(".book-now").toggleClass("hider");
 
 $(".seat-well").hover(function(){
@@ -17,3 +17,4 @@ $(".seat-well").hover(function(){
 $('.seat-well').tooltip();
 
 
+});

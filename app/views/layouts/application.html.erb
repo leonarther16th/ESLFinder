@@ -3,7 +3,7 @@
 <head>
   <title>esl Booking</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
 </head>
@@ -12,7 +12,9 @@
 <nav class="navbar navbar-default navbar-fixed" role="navigation">
   <div class="container">
   <div class="navbar-header">
-    <a class="navbar-brand" href=""><span class="glyphicon glyphicon-leaf logo"></span>  <em>esl</em>Booking</a>
+    <%= link_to  matches_path, class: "navbar-brand" do%>
+    <span class="glyphicon glyphicon-leaf logo"></span>  <em>esl</em>Booking
+    <% end %>
   </div>
   
         
@@ -23,7 +25,9 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#"><span class="glyphicon glyphicon-tower"></span>  Agency Management</a></li>
             <li><a href="#"> <span class="glyphicon glyphicon-user"></span>  Agents Management</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-briefcase"></span>  Your Schools Settings</a></li>
+            <li><%= link_to schools_path do %>
+            <span class="glyphicon glyphicon-briefcase"></span>  Your Schools Settings
+            <% end %></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
@@ -64,13 +68,8 @@
 </div>
 
 
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <script type="text/javascript">
-  $('#datepicker').datepicker({
-    daysOfWeekDisabled:[0,2,3,4,5,6],
-    autoclose: true
-  });
-</script>
+
+
 </body>
 
 

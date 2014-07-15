@@ -56,7 +56,7 @@ class SearchesController < ApplicationController
       if @search.update(search_params)
         format.html { redirect_to @search, notice: 'Search was successfully updated.' }
         format.json { head :no_content }
-        format.js {redirect_to @user, notice: 'Search was successfully updated.'}
+       
       else
         format.html { render action: 'edit' }
         format.json { render json: @search.errors, status: :unprocessable_entity }
