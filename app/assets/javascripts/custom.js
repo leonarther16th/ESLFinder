@@ -5,8 +5,12 @@
     autoclose: true
   });
 
-  $("#select2").select2({
+  $("#select2-city").select2({
       placeholder: "Select a City"
+  });
+
+  $("#select2-country").select2({
+      placeholder: "Select a Country"
   });
 
   $('.filter').affix({

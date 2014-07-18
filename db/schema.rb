@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715052910) do
+ActiveRecord::Schema.define(version: 20140718043229) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.integer  "region_id"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +34,12 @@ ActiveRecord::Schema.define(version: 20140715052910) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "course_type"
+  end
+
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "schools", force: true do |t|

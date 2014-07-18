@@ -1,15 +1,13 @@
 <%= simple_form_for(@school, remote: true) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <% cities = City.all %>
-    <%= f.input :city_id , as: :select, collection: cities, value_method: :id, label_method: :name, input_html: {id: "select2", "style" => "width:300px"} %>
-    
-    <%= f.input :country_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= f.error_notification %>
+<div class="form-inputs">
+  <%= f.input :name %>
+  <% cities = City.all.order(:name) %>
+  <% countries = Country.all.order(:name) %>
+  <%= f.input :country_id, as: :select, collection: countries, value_method: :id, label_method: :name, input_html: {id: "select2-country", "style" => "width:390px"} %>
+  <%= f.input :city_id , as: :select, collection: cities, value_method: :id, label_method: :name, input_html: {id: "select2-city", "style" => "width:390px"} %>
+</div>
+<div class="form-actions">
+  <%= f.button :submit, class: "btn btn-primary btn-embossed" %>
+</div>
 <% end %>

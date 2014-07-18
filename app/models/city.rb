@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-	has_many :search
-	has_many :seat
+	has_many :searchs
+	has_many :seats
 	has_many :schools
 end

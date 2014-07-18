@@ -1,5 +1,9 @@
 Eslfinder::Application.routes.draw do
 
+  resources :countries
+
+  resources :regions
+
   resources :schools
 
   devise_for :users
