@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :search
+  has_many :user_settings
 
 
   state_machine :state, :initial => :is_user do
