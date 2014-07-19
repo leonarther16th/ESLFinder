@@ -69,6 +69,10 @@ class UserSettingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_setting_params
-      params.require(:user_setting).permit(:user_id, :setting)
+      #params.require(:user_setting).permit(:user_id, setting: [])
+      params.require(:user_setting).permit(:user_id).tap do |whitelisted|
+        whitelisted[:setting] = params[:user_setting][:setting]
+      end
+      
     end
 end

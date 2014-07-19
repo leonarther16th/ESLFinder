@@ -1,12 +1,34 @@
 <%= simple_form_for(@user_setting) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
+<div class="form-inputs">
+	<%= f.input :user_id %>
+	<% f.input :setting %>
+	
+	
 
-  <div class="form-inputs">
-    <%= f.input :user_id %>
-    <%= f.input :setting %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+<% @user_setting.setting.each do |name, value| %>
+<% @settings =  AppSetting.all %>
+  <div>
+    <%= label_tag name %>
+    <%= text_field_tag "user_setting[setting][#{name}]", value %>
   </div>
 <% end %>
+
+   <%= f.simple_fields_for :setting do |setting| %>
+	  Send newsletter <%= setting.check_box :send_newsletter %>
+	  <% AppSetting.all.each do |s| %>
+	        <%= setting.input s.name  %>
+	    <% end %>
+<% end %>
+
+	
+</div>
+<div class="form-actions">
+	<%= f.button :submit, 'Save Changes', class: 'btn-primary' %>
+</div>
+<% end %>
+
+
+
+
+

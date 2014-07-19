@@ -5,6 +5,6 @@ class UserSetting < ActiveRecord::Base
 	
 
 	def default_values
-		self.setting = {increase_prices_by: 0.0, hide_suggested_student_price: 'No'}
+		self.setting ||= {increase_prices_by: 0.0, hide_suggested_student_price: 'No'}
 	end
 end
