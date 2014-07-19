@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718053642) do
+ActiveRecord::Schema.define(version: 20140719035133) do
+
+  create_table "app_settings", force: true do |t|
+    t.string   "name"
+    t.text     "options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cities", force: true do |t|
     t.string   "name"

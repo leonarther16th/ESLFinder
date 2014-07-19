@@ -1,5 +1,7 @@
 Eslfinder::Application.routes.draw do
 
+  resources :app_settings
+
   resources :user_settings
 
   resources :countries
