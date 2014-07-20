@@ -20,4 +20,9 @@
     }
   })
 
+$("select").selectpicker({style: 'btn-sm btn-primary', menuStyle: 'dropdown-inverse'});
+
+
+
 });
+

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :search
   has_many :user_settings
-
+  after_save :initiate_user_settings
 
   state_machine :state, :initial => :is_user do
     event :to_agency do
@@ -38,6 +38,15 @@ class User < ActiveRecord::Base
   	else
   		 'You!'
   	end
+  end
+
+  def initiate_user_settings
+    default_settings = {}
+    AppSetting.all.each do |set|
+      default_settings[set.name] = set.options[0]
+    end
+
+    UserSetting.new(user: self, setting: default_settings).save
   end
 
 end

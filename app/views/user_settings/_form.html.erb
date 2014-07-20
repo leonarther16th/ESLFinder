@@ -1,32 +1,31 @@
-<%= simple_form_for(@user_setting) do |f| %>
+<%= simple_form_for(@user_setting, remote: true) do |f| %>
 <%= f.error_notification %>
 <div class="form-inputs">
-	<%= f.input :user_id %>
+	<%= f.input :user_id, as: :hidden %>
 	<% f.input :setting %>
 	
 	
 
-<% @user_setting.setting.each do |name, value| %>
-<% @settings =  AppSetting.all %>
-  <div>
-    <%= label_tag name %>
-    <%= text_field_tag "user_setting[setting][#{name}]", value %>
-  </div>
-<% end %>
 
-   <%= f.simple_fields_for :setting do |setting| %>
-	  Send newsletter <%= setting.check_box :send_newsletter %>
-	  <% AppSetting.all.each do |s| %>
-	        <%= setting.input s.name  %>
-	    <% end %>
-<% end %>
+
+	<%= f.simple_fields_for :setting do |setting| %>
+		
+		<% @app_settings.each do |s| %>
+			<div><label><%= s.name.humanize %></label><br>
+			<%= setting.input_field s.name, as: :select, collection: s.options,  selected: @user_setting.setting[s.name] %>
+			</div>
+		<% end %>
+	<% end %>
 
 	
 </div>
 <div class="form-actions">
-	<%= f.button :submit, 'Save Changes', class: 'btn-primary' %>
+	<%= button_tag( class: "btn btn-primary ", id: "save-settings") do %>
+		Save Changes
+	<% end %>
 </div>
 <% end %>
+
 
 
 

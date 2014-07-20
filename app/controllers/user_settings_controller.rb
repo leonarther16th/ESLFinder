@@ -19,6 +19,9 @@ class UserSettingsController < ApplicationController
 
   # GET /user_settings/1/edit
   def edit
+    if current_user.user_settings[0].id != @user_setting.id
+      redirect_to '/'
+    end
   end
 
   # POST /user_settings
@@ -40,10 +43,12 @@ class UserSettingsController < ApplicationController
   # PATCH/PUT /user_settings/1
   # PATCH/PUT /user_settings/1.json
   def update
+    
     respond_to do |format|
       if @user_setting.update(user_setting_params)
         format.html { redirect_to @user_setting, notice: 'User setting was successfully updated.' }
         format.json { head :no_content }
+        format.js { }
       else
         format.html { render action: 'edit' }
         format.json { render json: @user_setting.errors, status: :unprocessable_entity }
@@ -65,6 +70,7 @@ class UserSettingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user_setting
       @user_setting = UserSetting.find(params[:id])
+      @app_settings = AppSetting.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
