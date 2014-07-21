@@ -1,39 +1,79 @@
-
-
 <div class="row">
-  <div class="col-lg-3 ">
-    <div class="well">
-    	<legend><span class="glyphicon glyphicon-link"></span> Pricing Settings</legend>
-    	<hr>
-		<%= render 'form' %>
-
-    </div>
-  </div>
-
-  <div class="col-lg-9">
-    <div class="well">
-    	
-    	
-    	<ul class="nav nav-tabs" role="tablist">
-		  <li class="active"><a href="#agency" role="tab" data-toggle="tab">
-		  <span class="oi oi-briefcase" title="oi-briefcase" aria-hidden="true"></span>  Agency's Settings
-		  </a></li>
-		  <li><a href="#agents" role="tab" data-toggle="tab"><span class="oi oi-people" title="oi-people" aria-hidden="true"></span> Agents Setting</a></li>
-		  <li><a href="#schools" role="tab" data-toggle="tab"><span class="oi oi-beaker" title="oi-beaker" aria-hidden="true"></span> Schools Settings</a></li>
-		  
-		</ul>
-
-		<div class="tab-content">
-		  <div class="tab-pane active" id="agency">
-		  	<%= render 'agency_form' %>
-		  </div>
-		  <div class="tab-pane" id="agents">...</div>
-		  <div class="tab-pane" id="schools">...</div>
-		  
+	<div class="col-lg-3 ">
+		<div class="well">
+			<legend><span class="glyphicon glyphicon-link"></span> Pricing Settings</legend>
+			<hr>
+			<%= render 'form' %>
 		</div>
-    	
+	</div>
+	<div class="col-lg-9">
+		<div class="well">
+			
+			
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="active"><a href="#agency" role="tab" data-toggle="tab">
+					<span class="oi oi-briefcase" title="oi-briefcase" aria-hidden="true"></span>  Agency's Settings
+				</a></li>
+				<li><a href="#agents" role="tab" data-toggle="tab"><span class="oi oi-people" title="oi-people" aria-hidden="true"></span> Agents Setting</a></li>
+				<li><a href="#schools" role="tab" data-toggle="tab"><span class="oi oi-beaker" title="oi-beaker" aria-hidden="true"></span> Schools Settings</a></li>
+				
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="agency">
+					<%= render 'agency_form' %>
+				</div>
+				<div class="tab-pane" id="agents"><br>
+					<div class="row demo-tiles">
+						<div class="col-xs-3">
+							<div class="tile">
+								
+								<h3 class="tile-title">Stefan Ferron</h3>
+								<p>Sales Manager</p>
+								<a class="btn btn-primary btn-sm " href="#"><span class="oi oi-pencil"></span></a>
+								<a class="btn btn-danger btn-sm " href="#"><span class="oi oi-delete"></span></a>
 
-    </div>
-  </div>
+							</div>
+						</div>
+						<div class="col-xs-3">
+							<div class="tile">
+								
+								<h3 class="tile-title">Mike Murray</h3>
+								<p>Sales Manager</p>
+								<a class="btn btn-primary btn-sm " href="#"><span class="oi oi-pencil"></span></a>
+								<a class="btn btn-danger btn-sm " href="#"><span class="oi oi-delete"></span></a>
 
+							</div>
+						</div>
+						<div class="col-xs-3">
+							<div class="tile">
+								
+								<h3 class="tile-title">Derrick Tobbin</h3>
+								<p>Sales Manager</p>
+								<a class="btn btn-primary btn-sm " href="#"><span class="oi oi-pencil"></span></a>
+								<a class="btn btn-danger btn-sm " href="#"><span class="oi oi-delete"></span></a>
+
+							</div>
+						</div>
+						<div class="col-xs-3">
+							<div class="tile">
+								
+								<h3 class="tile-title">Carol Jackie</h3>
+								<p>Sales Manager</p>
+								<a class="btn btn-primary btn-sm " href="#"><span class="oi oi-pencil"></span></a>
+								<a class="btn btn-danger btn-sm " href="#"><span class="oi oi-delete"></span></a>
+
+							</div>
+						</div>
+
+					</div>
+					<br>
+					<a href="#" class="btn btn-primary btn-sm pull-right"><span class="oi oi-plus"></span> Add new agnet</a>
+					<br>
+				</div>
+				<div class="tab-pane" id="schools">...</div>
+				
+			</div>
+			
+		</div>
+	</div>
 </div>
