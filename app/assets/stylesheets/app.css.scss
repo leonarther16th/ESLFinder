@@ -9,15 +9,22 @@ $grid-gutter-width: 10px;
 $text-primary: #2C3E50;
 $nice-gray: #ECF0F1;
 $dark-gray: #95A5A6;
+$primary-color : #2c3e50;
+
 
 @import 'jeet/index';
 @import "bourbon";
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
-
+@import url(http://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css);
 body{
 	background-color: $background_color;
 	color: $text-primary;
 	font-family: 'Montserrat', sans-serif;
+}
+
+.footnote{
+	font-size: .7em;
+	color: $primary-color;
 }
 
 .well{

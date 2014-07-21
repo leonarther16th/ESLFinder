@@ -20,7 +20,7 @@
     }
   })
 
-$("select").selectpicker({style: 'btn-sm btn-primary', menuStyle: 'dropdown-inverse'});
+$("select").selectpicker({style: 'btn-sm btn-default', menuStyle: 'dropdown-inverse'});
 
 
 

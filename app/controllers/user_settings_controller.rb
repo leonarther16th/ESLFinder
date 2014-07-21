@@ -50,7 +50,7 @@ class UserSettingsController < ApplicationController
       if @user_setting.update(user_setting_params)
         format.html { redirect_to @user_setting, notice: 'User setting was successfully updated.' }
         format.json { head :no_content }
-        format.js { }
+        format.js { render 'update.js.erb' }
       else
         format.html { render action: 'edit' }
         format.json { render json: @user_setting.errors, status: :unprocessable_entity }
