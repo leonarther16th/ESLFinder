@@ -1,5 +1,6 @@
-<%= simple_form_for(@user_setting, remote: true) do |f| %>
+<%= simple_form_for(@user_setting, remote: true, :authenticity_token => true) do |f| %>
 <%= f.error_notification %>
+
 <div class="form-inputs">
 	<%= f.input :user_id, as: :hidden %>
 	<% f.input :setting %>
@@ -12,14 +13,14 @@
 		
 		<% @app_settings.each do |s| %>
 			<div><label><%= s.name.humanize %></label><br>
-			<%= setting.input_field s.name, as: :select, collection: s.options,  selected: @user_setting.setting[s.name] %>
+			<%= setting.input_field s.name, as: :select, collection: s.options,  selected: @user_setting.setting[s.name], input_html:{ class: "user-settings-field"} %>
 			</div>
 		<% end %>
 	<% end %>
 </div>
 <br>
 <div class="form-actions">
-	<%= button_tag( class: "btn btn-sm btn-default ", id: "save-settings") do %>
+	<%= button_tag( class: "btn btn-sm btn-inverse ", id: "save-settings") do %>
 		<span class="glyphicon glyphicon-floppy-disk"></span> Save Changes
 	<% end %>
 </div>

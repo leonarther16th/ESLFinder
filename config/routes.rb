@@ -12,6 +12,7 @@ Eslfinder::Application.routes.draw do
 
   devise_for :users
   resources :searches
+  resources :agencies
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -25,6 +26,7 @@ Eslfinder::Application.routes.draw do
      get 'seat' => 'searches#seat'
      get 'matches' => 'searches#seat'
      get 'settings/:id' => 'user_settings#edit', as: 'settings'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

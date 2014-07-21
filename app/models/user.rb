@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :search
   has_one :user_setting
+  has_one :agency
+  
   after_save :initiate_user_settings
 
   state_machine :state, :initial => :is_user do

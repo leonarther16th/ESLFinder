@@ -22,7 +22,13 @@
 
 $("select").selectpicker({style: 'btn-sm btn-default', menuStyle: 'dropdown-inverse'});
 
+$(".agency-settings-field").change( function() {
+  $('#save-agency').html('<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes').removeClass('btn-primary').addClass('btn-inverse');
+});
 
+$("select").change( function() {
+  $('#save-setting').html('<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes').removeClass('btn-primary').addClass('btn-inverse');
+});
 
 });
 

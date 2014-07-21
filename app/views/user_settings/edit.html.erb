@@ -12,8 +12,25 @@
 
   <div class="col-lg-9">
     <div class="well">
-    	<legend><span class="oi oi-people" title="oi-people" aria-hidden="true"></span>  Agency's Settings</legend>
-    	<hr>
+    	
+    	
+    	<ul class="nav nav-tabs" role="tablist">
+		  <li class="active"><a href="#agency" role="tab" data-toggle="tab">
+		  <span class="oi oi-briefcase" title="oi-briefcase" aria-hidden="true"></span>  Agency's Settings
+		  </a></li>
+		  <li><a href="#agents" role="tab" data-toggle="tab"><span class="oi oi-people" title="oi-people" aria-hidden="true"></span> Agents Setting</a></li>
+		  <li><a href="#schools" role="tab" data-toggle="tab"><span class="oi oi-beaker" title="oi-beaker" aria-hidden="true"></span> Schools Settings</a></li>
+		  
+		</ul>
+
+		<div class="tab-content">
+		  <div class="tab-pane active" id="agency">
+		  	<%= render 'agency_form' %>
+		  </div>
+		  <div class="tab-pane" id="agents">...</div>
+		  <div class="tab-pane" id="schools">...</div>
+		  
+		</div>
     	
 
     </div>

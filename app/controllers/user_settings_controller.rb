@@ -1,6 +1,6 @@
 class UserSettingsController < ApplicationController
   before_action :set_user_setting, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_some_vars, only: [:edit, :update]
   # GET /user_settings
   # GET /user_settings.json
   def index
@@ -24,6 +24,7 @@ class UserSettingsController < ApplicationController
       render 'public/404.html'
       #redirect_to '/'
     end
+    
   end
 
   # POST /user_settings
@@ -45,12 +46,11 @@ class UserSettingsController < ApplicationController
   # PATCH/PUT /user_settings/1
   # PATCH/PUT /user_settings/1.json
   def update
-    
     respond_to do |format|
       if @user_setting.update(user_setting_params)
         format.html { redirect_to @user_setting, notice: 'User setting was successfully updated.' }
         format.json { head :no_content }
-        format.js { render 'update.js.erb' }
+        format.js { render 'update_user_setting.js.erb' }
       else
         format.html { render action: 'edit' }
         format.json { render json: @user_setting.errors, status: :unprocessable_entity }
@@ -77,6 +77,11 @@ class UserSettingsController < ApplicationController
         render 'public/404.html'
       end
       @app_settings = AppSetting.all
+    end
+
+    def set_some_vars
+       @agency = current_user.agency
+       @countries = Country.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
