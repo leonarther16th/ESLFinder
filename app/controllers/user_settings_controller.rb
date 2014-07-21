@@ -19,7 +19,7 @@ class UserSettingsController < ApplicationController
 
   # GET /user_settings/1/edit
   def edit
-    if current_user.user_settings[0].id != @user_setting.id 
+    if current_user.user_setting.id != @user_setting.id 
       #head status: 404
       render 'public/404.html'
       #redirect_to '/'
