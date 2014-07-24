@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :search
-  has_one :user_setting
+  has_one :user_setting, dependent: :destroy
   has_one :agency
   
   after_create :initiate_user_settings
