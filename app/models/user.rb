@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :user_setting
   has_one :agency
   
-  after_save :initiate_user_settings
+  after_create :initiate_user_settings
 
   state_machine :state, :initial => :is_user do
     event :to_agency do

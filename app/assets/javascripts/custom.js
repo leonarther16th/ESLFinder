@@ -13,12 +13,16 @@
       placeholder: "Select a Country"
   });
 
-  $('.filter').affix({
+if (matchMedia('only screen and (max-width: 300px)').matches) {
+
+   $('.filter').affix({
     offset: {
       top: 100
     , bottom: 100
     }
-  })
+  });
+}
+ 
 
 $("select").selectpicker({style: 'btn-sm btn-default', menuStyle: 'dropdown-inverse'});
 
