@@ -80,6 +80,9 @@ class SearchesController < ApplicationController
     @search.user_id = current_user.id
     @last_search = Search.last
     @s = 'toronto-drowing.jpg'
+    user_settings = current_user.user_setting
+    @increase_by = user_settings.setting['increase_prices_by'].to_f
+    @hide_sug_price = user_settings.setting['hide_suggested_student_price']
 
     @short_courses = [{name: 'General English', price: 295}, {name: 'IELTS', price: 350}, {name: 'University Pathway Program - UPP', price: 354}, {name: 'Business English', price: 315} ]
     @all_cities = [{name: 'Toronto Campus', low: 0.4, photo: 'toronto-drowing.jpg'}, {name: 'Ottawa Campus', low: 0.45, photo: 'ottawa-drowing.jpg'},  {name: 'Halifax Campus', low: 0.5, photo: 'halifax-drowing.jpg'}]

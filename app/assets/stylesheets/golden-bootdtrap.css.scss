@@ -6,7 +6,7 @@
  * A quick project by Philippe Dionne (http://phildionne.com)
  * Much love to @mdo, @fat and every collaborators to Bootstrap
  */
- @media (min-width: 768px){
+ @media (min-width: 1000px){
 .col-golden-sm {
   float: left;
   position: relative;
@@ -16,9 +16,7 @@
   width: 37.696601125010524%;
   margin-right: 0.5%
 }
-}
 
-@media (min-width: 768px){
 .col-golden-lg {
   float: left;
   position: relative;
@@ -27,10 +25,11 @@
   padding-right: 2px;
   width: 61.803398874989476%;
 }
-}
+
 .col-golden-offset-sm {
   margin-left: 38.196601125010524%;
 }
 .col-golden-offset-lg {
   margin-left: 61.803398874989476%;
+}
 }
