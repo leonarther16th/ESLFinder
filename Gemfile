@@ -22,7 +22,6 @@ group :production do
 end
 
 
-gem 'ratyrate'
 
 gem 'jquery-turbolinks'
 
