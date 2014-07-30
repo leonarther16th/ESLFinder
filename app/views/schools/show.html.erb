@@ -1,19 +1,60 @@
+
+
 <p id="notice"><%= notice %></p>
 
+<div class="well">
+
+<img src=<%= asset_path("cllc-profile.jpg") %> class="school-img" style="" alt="" >
+<h4><%= @school.name %></h4>
+<h5>About School</h5>
 <p>
-  <strong>Name:</strong>
-  <%= @school.name %>
+	We have gone to great lengths to provide an educational setting that is both modern in appearance and student friendly. We created spaces within our schools that use the best of today’s technology while maintaining a warm, youthful and inviting atmosphere.
 </p>
+<p>
+Our design philosophy is based on transition and unity. Therefore, efforts have been made to ensure that each CLLC campus provides the same atmosphere, feel and decor for our students. This means, students will have the same feeling whether they study their English in Halifax, Ottawa and Toronto.
+</p>
+<p>
+Maximum Class Size: 15
+</p>
+
+<ul>
+<li>
+Canada is a safe, peaceful, welcoming and multicultural country with a population of over 34 million people.
+</li>
+<li>
+The United Nations consistently ranks Canada as one of the best places to live in the world.
+</li>
+<li>
+The quality of education and living standards in Canada are amongst the highest in the world, but the cost of living and tuition fees for international students and those students studying ESL are generally lower in Canada than in other countries, such as the United States or the United Kingdom.
+</li>
+<li>
+Canada is home to some of the most prestigious universities and colleges around the globe.
+</li>
+<li>
+With ten provinces and two territories, Canada is the second largest country in the world by total area and known for its beautifully diverse landscapes stretching from the Pacific to the Atlantic Oceans.
+</li>
+<li>
+Canada has four seasons: Summer, Fall, Winter and Spring. Each season is unique and gives you the opportunity to enjoy great activities year-round. The average temperatures for each season are:
+Summer 23 C, Fall 10 C, Winter -8 C, Spring 14 C
+</li>
+<li>
+Link to Tourism Site: http://www.canada.travel
+</li>
+<li>
+YouTube Video of Canada: http://www.youtube.com/watch?v=4cv267IPmPY
+</li>
+</ul>
 
 <p>
   <strong>City:</strong>
-  <%= @school.city_id %>
+  <%= @school.city.name %>
 </p>
 
 <p>
   <strong>Country:</strong>
-  <%= @school.country_id %>
+  <%= @school.country.name %>
 </p>
 
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>
+</div>
