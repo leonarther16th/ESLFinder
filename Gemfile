@@ -21,7 +21,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
-
+gem 'ratyrate', :github => 'wazery/ratyrate'
 
 gem 'jquery-turbolinks'
 
