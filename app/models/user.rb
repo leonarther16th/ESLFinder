@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  letsrate_rater
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +10,8 @@ class User < ActiveRecord::Base
   has_one :user_setting, dependent: :destroy
   has_one :agency
   
+  
+
   after_create :initiate_user_settings
 
   state_machine :state, :initial => :is_user do

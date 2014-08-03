@@ -7,6 +7,12 @@
 <img src=<%= asset_path("cllc-profile.jpg") %> class="school-img" style="" alt="" >
 <h4><%= @school.name %></h4>
 <h5>About School</h5>
+
+
+	Quality of service: <%= rating_for @school, "quality", star: 5, :cancel => true %>
+	Quality of learning: <%= rating_for @school, "learning", star: 5, :cancel => true %>
+	Price: <%= rating_for @school, "price", star: 5, :cancel => true %>
+
 <p>
 	We have gone to great lengths to provide an educational setting that is both modern in appearance and student friendly. We created spaces within our schools that use the best of today’s technology while maintaining a warm, youthful and inviting atmosphere.
 </p>
