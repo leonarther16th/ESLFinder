@@ -1,0 +1,45 @@
+<h1>Listing offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Weekly price</th>
+      <th>Min num weeks</th>
+      <th>Max num weeks</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Num of seats</th>
+      <th>Weekly limit</th>
+      <th>Flag</th>
+      <th>Regions</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.school_id %></td>
+        <td><%= offer.weekly_price %></td>
+        <td><%= offer.min_num_weeks %></td>
+        <td><%= offer.max_num_weeks %></td>
+        <td><%= offer.start_date %></td>
+        <td><%= offer.end_date %></td>
+        <td><%= offer.num_of_seats %></td>
+        <td><%= offer.weekly_limit %></td>
+        <td><%= offer.flag %></td>
+        <td><%= offer.regions %></td>
+        <td><%= link_to 'Show', offer %></td>
+        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %>

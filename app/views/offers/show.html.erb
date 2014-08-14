@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>School:</strong>
+  <%= @offer.school_id %>
+</p>
+
+<p>
+  <strong>Weekly price:</strong>
+  <%= @offer.weekly_price %>
+</p>
+
+<p>
+  <strong>Min num weeks:</strong>
+  <%= @offer.min_num_weeks %>
+</p>
+
+<p>
+  <strong>Max num weeks:</strong>
+  <%= @offer.max_num_weeks %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @offer.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @offer.end_date %>
+</p>
+
+<p>
+  <strong>Num of seats:</strong>
+  <%= @offer.num_of_seats %>
+</p>
+
+<p>
+  <strong>Weekly limit:</strong>
+  <%= @offer.weekly_limit %>
+</p>
+
+<p>
+  <strong>Flag:</strong>
+  <%= @offer.flag %>
+</p>
+
+<p>
+  <strong>Regions:</strong>
+  <%= @offer.regions %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

@@ -1,5 +1,7 @@
 Eslfinder::Application.routes.draw do
 
+  resources :offers
+
   post '/rate' => 'rater#create', :as => 'rate'
   resources :app_settings
 
