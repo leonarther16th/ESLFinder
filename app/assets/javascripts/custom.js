@@ -5,6 +5,11 @@
     autoclose: true
   });
 
+  $('.datepicker').datepicker({
+    daysOfWeekDisabled:[0,1,2,3,4,6],
+    autoclose: true
+  });
+
   $("#select2-city").select2({
       placeholder: "Select a City"
   });

@@ -1,45 +1,43 @@
-<h1>Listing offers</h1>
+<div class="well">  
+  <h4>Your Offers</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>School</th>
-      <th>Weekly price</th>
-      <th>Min num weeks</th>
-      <th>Max num weeks</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Num of seats</th>
-      <th>Weekly limit</th>
-      <th>Flag</th>
-      <th>Regions</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @offers.each do |offer| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= offer.school_id %></td>
-        <td><%= offer.weekly_price %></td>
-        <td><%= offer.min_num_weeks %></td>
-        <td><%= offer.max_num_weeks %></td>
-        <td><%= offer.start_date %></td>
-        <td><%= offer.end_date %></td>
-        <td><%= offer.num_of_seats %></td>
-        <td><%= offer.weekly_limit %></td>
-        <td><%= offer.flag %></td>
-        <td><%= offer.regions %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <th>School</th> -->
+        <th>Weekly price</th>
+        <th>Weeks bound</th>
+        <th>Dates</th>
+        <th>Total seats</th>
+        <th>Weekly limit</th>
+        <th>Regions</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @offers.each do |offer| %>
+        <tr>
+          <!-- <td><% offer.school_id %></td>-->          
+          <td><%= number_to_currency(offer.weekly_price) %></td>
+          <td><%= offer.min_num_weeks %> <span class="oi oi-arrow-thick-bottom"></span> <%= offer.max_num_weeks %> <span class="oi oi-arrow-thick-top"></span></td>
+          <td><span class='label label-primary'>from</span> <span class='label label-primary'><%= offer.start_date.to_formatted_s(:short) %></span> <span class='label label-primary'>to</span> <span class='label label-primary'><%= offer.end_date.to_formatted_s(:short) %></span>
+          </td>
+          <td><%= offer.num_of_seats %> <span class="oi oi-tags"></span></td>
+          <td><%= offer.weekly_limit %> </td>
+          <td><%= offer.regions %></td>
+          <td><span class='label label-default'><%= offer.flag %></span></td>
+          <td><% link_to 'Show', offer, class:"btn btn-info btn-xs" %>
+            <%= link_to 'Edit', edit_offer_path(offer), class:"btn btn-info btn-xs" %>
+          <%= link_to 'x', offer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs" %></td>
+        </tr>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Offer', new_offer_path %>
+  <br>
+
+  <%= link_to 'Add more offers', new_offer_path, :class => 'btn btn-green' %>
+</div>

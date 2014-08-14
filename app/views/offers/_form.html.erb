@@ -6,8 +6,8 @@
     <%= f.input :weekly_price %>
     <%= f.input :min_num_weeks %>
     <%= f.input :max_num_weeks %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
+    <%= f.input :end_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
     <%= f.input :num_of_seats %>
     <%= f.input :weekly_limit %>
     <%= f.input :flag %>
