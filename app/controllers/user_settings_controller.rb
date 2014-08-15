@@ -24,6 +24,8 @@ class UserSettingsController < ApplicationController
       render 'public/404.html'
       #redirect_to '/'
     end
+
+    @num_offers = Offer.all.count
     
   end
 

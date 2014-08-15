@@ -15,7 +15,7 @@
 					<span class="oi oi-briefcase" title="oi-briefcase" aria-hidden="true"></span>  Agency's Settings
 				</a></li>
 				<li><a href="#agents" role="tab" data-toggle="tab"><span class="oi oi-people" title="oi-people" aria-hidden="true"></span> Agents Setting<label class="label label-sm label-warning">comming soon!</label></a></li>
-				<li><a href="#schools" role="tab" data-toggle="tab"><span class="oi oi-beaker" title="oi-beaker" aria-hidden="true"></span> Schools Settings<label class="label label-sm label-warning">comming soon!</label></a></li>
+				<li><a href="#schools" role="tab" data-toggle="tab"><span class="oi oi-beaker" title="oi-beaker" aria-hidden="true"></span> Schools Settings</a></li>
 				
 			</ul>
 			<div class="tab-content">
@@ -70,7 +70,20 @@
 					<a href="#" class="btn btn-primary btn-sm pull-right"><span class="oi oi-plus"></span> Add new agnet</a>
 					<br>
 				</div>
-				<div class="tab-pane" id="schools">...</div>
+				<div class="tab-pane" id="schools">
+				<br>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="tile">
+								You currently have <%= @num_offers %> offers/prices 
+									<%= link_to  offers_path, class: "btn btn-xs btn-primary" do %>
+										<span class="oi oi-cog"></span> Manage Offers/Prices
+									<% end %>
+								
+							</div>
+						</div>
+					</div>
+				</div>
 				
 			</div>
 			

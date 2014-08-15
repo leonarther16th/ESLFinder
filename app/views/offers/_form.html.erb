@@ -1,20 +1,42 @@
 <%= simple_form_for(@offer) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :school_id %>
-    <%= f.input :weekly_price %>
-    <%= f.input :min_num_weeks %>
-    <%= f.input :max_num_weeks %>
-    <%= f.input :start_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
-    <%= f.input :end_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
-    <%= f.input :num_of_seats %>
-    <%= f.input :weekly_limit %>
-    <%= f.input :flag %>
-    <%= f.input :regions %>
-  </div>
-
+  <div class="row">
+    <div class="form-inputs">
+      <div class="col-lg-6">
+        <%= f.input :school_id %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :weekly_price %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :min_num_weeks %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :max_num_weeks %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :start_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :end_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :num_of_seats %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :weekly_limit %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :flag %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :regions, as: :select, collection: Region.all, input_html: {class: "", id: "select2-country"} %>
+      </div>
+    </div>
+   </div>
+  
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
 <% end %>
