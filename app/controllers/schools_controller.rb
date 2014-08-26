@@ -26,6 +26,7 @@ class SchoolsController < ApplicationController
   # POST /schools.json
   def create
     @school = School.new(school_params)
+    @school.user = current_user
 
     respond_to do |format|
       if @school.save
@@ -42,6 +43,7 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
   def update
+    @school.user = current_user if @school.user.blank?
     respond_to do |format|
       if @school.update(school_params)
         format.html { redirect_to @school, notice: 'School was successfully updated.' }

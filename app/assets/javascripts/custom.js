@@ -10,6 +10,10 @@
     autoclose: true
   });
 
+  $(".select2").select2({
+      placeholder: "Please select..."
+  });
+
   $("#select2-city").select2({
       placeholder: "Select a City"
   });
