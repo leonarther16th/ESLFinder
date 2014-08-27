@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815181358) do
+ActiveRecord::Schema.define(version: 20140827232401) do
 
   create_table "agencies", force: true do |t|
     t.string   "name"
@@ -77,6 +77,22 @@ ActiveRecord::Schema.define(version: 20140815181358) do
     t.integer  "weekly_limit"
     t.string   "flag"
     t.string   "regions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "pay_within"
+    t.integer  "course_id"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "offer_id"
+    t.string   "state"
+    t.integer  "num_weeks"
+    t.float    "total_price"
+    t.string   "offer_code"
+    t.date     "start_date"
+    t.date     "expire_date"
+    t.integer  "num_seats"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

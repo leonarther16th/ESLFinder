@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @order.offer_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @order.state %>
+</p>
+
+<p>
+  <strong>Num weeks:</strong>
+  <%= @order.num_weeks %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @order.total_price %>
+</p>
+
+<p>
+  <strong>Offer code:</strong>
+  <%= @order.offer_code %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @order.start_date %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @order.expire_date %>
+</p>
+
+<p>
+  <strong>Num seats:</strong>
+  <%= @order.num_seats %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

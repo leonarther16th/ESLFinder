@@ -14,8 +14,11 @@
         <label>Flag</label><br>
         <%= f.input_field :flag, as: :select, collection: ['Discounted', 'Regular'] %>
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <%= f.input :weekly_price %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :pay_within, label: "Payment within (days)" %>
       </div>
       <div class="col-lg-6">
         <%= f.input :min_num_weeks %>
@@ -35,6 +38,7 @@
       <div class="col-lg-6">
         <%= f.input :weekly_limit %>
       </div>
+      
       
       
     </div>
