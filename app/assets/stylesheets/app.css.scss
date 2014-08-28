@@ -10,6 +10,7 @@ $text-primary: #2C3E50;
 $nice-gray: #ECF0F1;
 $dark-gray: #95A5A6;
 $primary-color : #2c3e50;
+$golden-color: #F7CA18;
 
 
 @import 'jeet/index';
@@ -275,4 +276,9 @@ body{
 	font-size: .6em;
 	margin-left: 3px;
 
+}
+
+.star{
+	color: $golden-color;
+	font-size: .9em;
 }

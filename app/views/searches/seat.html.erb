@@ -20,8 +20,11 @@
 			</div> -->
 			<div class="seat-details">
 				<div class="seat-info">
-					<img src=<%= asset_path(city[:photo]) %> class="school-img" style="width: 60px; height: 60px;" alt=""><a href="#"><b><%= city[:name] %></b></a>
+					<img src=<%= asset_path(city[:photo]) %> class="school-img" style="width: 60px; height: 60px;" alt=""><a href="#"><b><%= city[:name] %></b></a> 
 					
+					<% rand(1..5).times do %>
+						<span class="oi oi-star star"></span>
+					<% end %>
 					<% agency_full_price = course[:price] * @last_search.num_weeks * 0.75 * (1 + @increase_by) %>
 					<% agency_offered_price = course[:price] * @last_search.num_weeks * ( city[:low] + @added_discount[0][:price] ) * (1 + @increase_by) %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= course[:name] %></div>
@@ -38,15 +41,8 @@
 					
 					<table class="table table-condensed">
 						<tr class="price-details-left">
-							<td><b class="price-type red"><span class="glyphicon glyphicon-ban-circle"> </span> None Refundable</b><br>
-								<span class="label label-default"><%= number_to_currency(agency_offered_price * 0.95) %> CAD</span><br>
-								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-									<%= button_tag( :class => "btn btn-success btn-xs book-now btn-embossed") do %>
-									<i class="glyphicon glyphicon-shopping-cart"></i> Final Book Now
-									<% end %>
-								</a>
-							</td>
-							<td><b class="price-type green"><span class="glyphicon glyphicon-ok-circle"> </span> Refundable</b><br>
+							
+							<td><b class="price-type green"><span class=""> </span> </b><br>
 								<span class="label label-default"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
 								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
 									<%= button_tag( :class => "btn btn-success btn-xs book-now btn-embossed") do %>
