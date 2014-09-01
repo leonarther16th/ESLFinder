@@ -56,6 +56,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'bootstrap-wysihtml5-rails'
+
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 
 gem 'bootstrap-sass', '~> 3.1.1'

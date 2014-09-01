@@ -46,6 +46,8 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
+    bootstrap-wysihtml5-rails (0.3.2.100)
+      railties (>= 3.0)
     bourbon (3.2.1)
       sass (~> 3.2)
       thor
@@ -215,6 +217,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.1.1)
+  bootstrap-wysihtml5-rails
   bourbon
   coffee-rails (~> 4.0.0)
   devise

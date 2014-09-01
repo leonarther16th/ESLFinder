@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="well">
-	<img src=<%= asset_path("cllc-profile.jpg") %> class="school-img" style="" alt="" >
+	<!-- 
+	<img src=<%= asset_path("cllc-profile.jpg") %> class="school-img" style="" alt="" > 
+	-->
 	<h4><%= @school.name %></h4>
 	<div class="row">
 		<div class="col-lg-4">
@@ -14,7 +16,7 @@
 		</div>
 	</div>
 	<br>
-	<%= @school.about.html_safe %>
+	<%= @school.about.html_safe if @school.about %>
 	<p>
 	<strong>City:</strong>
 	<%= @school.city.name %>

@@ -22,6 +22,8 @@
       placeholder: "Select a Country"
   });
 
+  $("#wysihtml").wysihtml5();
+
 if (matchMedia('only screen and (max-width: 300px)').matches) {
 
    $('.filter').affix({
@@ -44,4 +46,8 @@ $("select").change( function() {
 });
 
 });
+
+$(document).on('page:load', function(){
+  window['rangy'].initialized = false
+})
 
