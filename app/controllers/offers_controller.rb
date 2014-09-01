@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :set_vars
 
   # GET /offers
   # GET /offers.json
@@ -15,7 +16,6 @@ class OffersController < ApplicationController
   # GET /offers/new
   def new
     @offer = Offer.new
-    @schools = current_user.school
   end
 
   # GET /offers/1/edit
@@ -66,11 +66,15 @@ class OffersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
+    end
+
+    def set_vars
       @schools = current_user.school
+      @courses = Course.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:school_id, :weekly_price, :min_num_weeks, :max_num_weeks, :start_date, :end_date, :num_of_seats, :weekly_limit, :flag, :regions, :pay_within)
+      params.require(:offer).permit(:school_id, :weekly_price, :min_num_weeks, :max_num_weeks, :start_date, :end_date, :num_of_seats, :weekly_limit, :flag, :regions, :pay_within, :course_id)
     end
 end

@@ -33,7 +33,7 @@
 					
 					<br>
 					<% if rand(10) < 4 %>
-					<div class="offer-seats-remaining"><span class="glyphicon glyphicon-warning-sign"></span> We have only <b><%= rand(9) + 1 %> seats</b> remaining under this offer!</div>
+					<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= rand(1..9) %> seats remaining under this offer!</div>
 					<% end %>
 				</div>
 				<div class="offer-price">

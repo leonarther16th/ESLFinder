@@ -1,4 +1,6 @@
-<div class="well">  
+<div class="well"> 
+
+
   <h4>Your Offers</h4>
 
   <table class="table table-striped">
@@ -10,7 +12,7 @@
         <th>Dates</th>
         <th>Total seats</th>
         <th>Weekly limit</th>
-        <th>Regions</th>
+        <th>Region</th>
         <th></th>
         <th></th>
       </tr>
@@ -26,7 +28,7 @@
           </td>
           <td><%= offer.num_of_seats %> <span class="oi oi-tags"></span></td>
           <td><%= offer.weekly_limit %> </td>
-          <td><%= offer.regions %></td>
+          <td><%= offer.region.name %></td>
           <td><span class='label label-default'><%= offer.flag %></span></td>
           <td><% link_to 'Show', offer, class:"btn btn-info btn-xs" %>
             <%= link_to 'Edit', edit_offer_path(offer), class:"btn btn-info btn-xs" %>
