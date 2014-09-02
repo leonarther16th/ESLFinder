@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    render 'public/404.html'
   end
 
   # POST /orders

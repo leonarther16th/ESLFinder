@@ -287,3 +287,8 @@ hr{
 	.school-name:hover{
 		text-decoration: none;
 	}
+
+	table a.order-school-name{
+		text-decoration: underline;
+		color: $text-primary;
+	}

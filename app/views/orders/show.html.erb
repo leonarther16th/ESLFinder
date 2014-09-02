@@ -4,51 +4,82 @@
   </div>
 <% end %>
 <div class="well">
-  <p>
-    <strong>User:</strong>
-    <%= @order.user_id %>
-  </p>
+<legend><span class="oi oi-calculator"></span> Order Details</legend> <span class="pull-right label label-default">offer/order code: <%= @order.offer_code %></span><br>
 
-  <p>
-    <strong>Offer:</strong>
-    <%= @order.offer_id %>
-  </p>
+<table class="table table-striped ">
+  <thead>
+    <tr>
 
-  <p>
-    <strong>State:</strong>
-    <%= @order.state %>
-  </p>
+      <th>School</th>
+      <th>Order Summary</th>
+      <th>Total price</th>
+      <th></th>
 
-  <p>
-    <strong>Num weeks:</strong>
-    <%= @order.num_weeks %>
-  </p>
+    </tr>
+  </thead>
 
-  <p>
-    <strong>Total price:</strong>
-    <%= @order.total_price %>
-  </p>
+  <tbody>
+      <tr>
+        <td><%= link_to @order.school.name, @order.school, class: "order-school-name", target: "_blank" %></td>
+        <td><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></td>
+        <td><%= number_to_currency(@order.total_price) %></td>
+        <td><p><span class="label label-warning label-lg">This order is <u><%= @order.state %></u> and will expire in <%= time_ago_in_words(@order.expire_date) %> if not paid</span></p></td>
+      </tr>
+  </tbody>
+</table>
 
-  <p>
-    <strong>Offer code:</strong>
-    <%= @order.offer_code %>
-  </p>
+<br>
+<div class="col-lg-4">
+  <table class="table">
 
-  <p>
-    <strong>Start date:</strong>
-    <%= @order.start_date %>
-  </p>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <p>
-    <strong>Expire date:</strong>
-    <%= @order.expire_date %>
-  </p>
+    <tbody>
+        <tr>
+          <td><span class="label label-info">This order is not linked to any student!</span></td>
+          <td><%= link_to edit_order_path(@order), class: "btn btn-xs btn-info btn-embossed" do %>
+                <span class="oi oi-infinity"></span>&nbsp Link this order to a student
+              <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
-  <p>
-    <strong>Num seats:</strong>
-    <%= @order.num_seats %>
-  </p>
 
-  <%= link_to 'Edit', edit_order_path(@order) %> |
-  <%= link_to 'Back', orders_path %>
+<div class="col-lg-4 col-lg-offset-4">
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td><%= link_to @order, class: "btn btn-xs btn-primary btn-embossed" do %>
+                <span class="oi oi-credit-card"></span>&nbsp Pay now
+              <% end %>
+          </td>
+          <td><%= link_to edit_order_path(@order), class: "btn btn-xs btn-info btn-embossed" do %>
+                <span class="oi oi-action-undo"></span>&nbsp Pay the school
+              <% end %>
+          </td>
+          <td><%= link_to @order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn-embossed" do %>
+                <span class="oi oi-circle-x"></span>&nbsp Cancel order
+              <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<p></p><br><br>
 </div>
