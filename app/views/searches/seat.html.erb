@@ -1,8 +1,9 @@
 <div class="col-golden-sm col-md-12 col-sm-12 col-xs-12" >
 	<div class="filter-container">
 		<div class="filter">
-			
+
 			<div class="well" >
+			<legend><span class="oi oi-magnifying-glass"></span>  Search</legend><hr>
 				<%= render 'form' %>
 			</div>
 			
@@ -11,11 +12,15 @@
 </div>
 <div class="col-golden-lg col-md-12 col-sm-12 col-xs-12">
 	<div class="content">
+		<div class="well well-search-info">
+			<b><span class="oi oi-badge"></span>&nbsp There are <span class="label label-danger"><%= @offers.count %> available offers</span> based on your serach input:</b><br>
+			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %></i></small>
+		</div><hr>
 		<% @offers.each do |o| %>
-		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date %>">
+		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
 			<div class="seat-details">
 				<div class="seat-info">
-					<img src="/assets/toronto-drowing.jpg" class="school-img" style="width: 60px; height: 60px;" alt=""><a href="#"><b><%= o.school.name %></b></a>
+					<img src="/assets/toronto-drowing.jpg" class="school-img" style="width: 100px; height: 100px;" alt=""><a href="#"><b><%= o.school.name %></b></a>
 					
 					<% rand(1..5).times do %>
 					<span class="oi oi-star star"></span>
@@ -28,9 +33,11 @@
 					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
 					
 					<br>
-					
-					<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= o.num_of_seats %> seats remaining under this offer!</div>
-					
+
+					<% num_of_remaining_seats = o.num_of_seats %>
+					<% if num_of_remaining_seats <= 20 %>
+						<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= num_of_remaining_seats %> seats remaining under this offer!</div>
+					<% end %>
 				</div>
 				<div class="offer-price">
 					<table class="table table-condensed">
