@@ -29,7 +29,7 @@ Eslfinder::Application.routes.draw do
      get 'find' => 'searches#find'
      get 'find/:id' => 'searches#find'
      get 'seat' => 'searches#seat'
-     get 'matches' => 'searches#seat'
+     get 'matches/:id' => 'searches#seat', as: 'matches'
      get 'settings/:id' => 'user_settings#edit', as: 'settings'
 
 
