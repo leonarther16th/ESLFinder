@@ -123,14 +123,7 @@ body{
 
 	}
 
-	a{
-		font-size: 1.2em;
-		text-decoration: underline;
-		color: $text-primary;
-	}
-	a:hover{
-		text-decoration: none;
-	}
+	
 
 	.saving, .offer-seats-remaining{
 		font-size: .8em;
@@ -285,3 +278,12 @@ body{
 hr{
 	border-top: 1px solid #DADADA;
 }
+
+.school-name{
+		font-size: 1.2em;
+		text-decoration: underline;
+		color: $text-primary;
+	}
+	.school-name:hover{
+		text-decoration: none;
+	}

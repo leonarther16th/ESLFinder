@@ -20,7 +20,7 @@
 		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
 			<div class="seat-details">
 				<div class="seat-info">
-					<img src="/assets/toronto-drowing.jpg" class="school-img" style="width: 100px; height: 100px;" alt=""><a href="#"><b><%= o.school.name %></b></a>
+					<img src="/assets/toronto-drowing.jpg" class="school-img" style="width: 100px; height: 100px;" alt=""><a class="school-name" href="#"><b><%= o.school.name %></b></a>
 					
 					<% rand(1..5).times do %>
 					<span class="oi oi-star star"></span>
@@ -45,8 +45,7 @@
 							
 							<td><b class="price-type green"><span class=""> </span> </b><br>
 								<span class="label label-default"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
-								<a class="no-style" href="https://mycllc.ca/apex/f?p=109:1:0:::::">
-									<%= button_tag( :class => "btn btn-success btn-xs book-now btn-embossed") do %>
+								<%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %>
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
 								</a>

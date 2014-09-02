@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_one :user_setting, dependent: :destroy
   has_one :agency
   has_many :school
+  has_many :orders
   
   
 

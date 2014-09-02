@@ -1,3 +1,4 @@
+require 'securerandom'
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
@@ -14,7 +15,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    @order = Order.new(order_params)
+    @order.user = current_user
+    @order.offer_code = SecureRandom.hex(8)
+    @order.save
+    redirect_to @order, notice: 'Order was successfully created.'
   end
 
   # GET /orders/1/edit
@@ -69,6 +74,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :offer_id, :state, :num_weeks, :total_price, :offer_code, :start_date, :expire_date, :num_seats)
+      params.permit(:user_id, :offer_id, :state, :num_weeks, :total_price, :offer_code, :start_date, :expire_date, :num_seats)
     end
 end
