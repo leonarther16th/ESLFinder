@@ -28,10 +28,13 @@
 					
 					<% agency_full_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<% agency_offered_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
+					<% full_price = o.regular_price * @last_search.num_weeks * @last_search.num_seats %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= o.course.name %></div>
-					
-					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
-					
+					<% if o.regular_price %>
+						<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency((full_price) - agency_offered_price ) %></b> </div>
+					<% else %>
+						<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
+					<% end %>
 					<br>
 
 					<% num_of_remaining_seats = o.num_of_seats %>
@@ -42,14 +45,18 @@
 				<div class="offer-price">
 					<table class="table table-condensed">
 						<tr class="price-details-left">
-							
 							<td><b class="price-type green"><span class=""> </span> </b><br>
-								<span class="label label-default"><%= number_to_currency(agency_offered_price) %> CAD</span><br>
+								<small><span class="label label-default"><s><%= number_to_currency(full_price) %> CAD</s></span></small><br>
+							</td>
+
+							<td><b class="price-type green"><span class=""> </span> </b><br>
+								<small><span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span></small><br>
 								<%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %>
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
-								</a>
+								
 							</td>
+
 						</tr>
 						
 					</table>
