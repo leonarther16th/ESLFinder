@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901032530) do
+ActiveRecord::Schema.define(version: 20140903044130) do
 
   create_table "agencies", force: true do |t|
     t.string   "name"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140901032530) do
     t.datetime "updated_at"
     t.integer  "pay_within"
     t.integer  "course_id"
+    t.float    "regular_price"
   end
 
   create_table "orders", force: true do |t|

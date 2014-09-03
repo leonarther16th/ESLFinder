@@ -18,8 +18,12 @@
       <label>Course</label><br>
       <%= f.input_field :course_id, as: :select, collection: @courses, value_method: :id, label_method: :name %>
     </div>
-    <div class="col-lg-6">
-      <%= f.input :weekly_price, as: :string %>
+    <div class="col-lg-3">
+      <%= f.input :weekly_price, as: :string, label: "Weekly discounted price" %>
+      <hr>
+    </div>
+    <div class="col-lg-3">
+      <%= f.input :regular_price, as: :string, label: "Weekly full price" %>
       <hr>
     </div>
     <div class="col-lg-6">

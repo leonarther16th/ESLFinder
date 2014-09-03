@@ -14,7 +14,7 @@
 	<div class="content">
 		<div class="well well-search-info">
 			<b><span class="oi oi-badge"></span>&nbsp There are <span class="label label-danger"><%= @offers.count %> available offers</span> based on your serach input:</b><br>
-			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %></i></small>
+			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %>  &nbsp | &nbsp  Number of students:&nbsp <%= @last_search.num_seats %></i></small>
 		</div><hr>
 		<% @offers.each do |o| %>
 		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
@@ -26,8 +26,8 @@
 					<span class="oi oi-star star"></span>
 					<% end %>
 					
-					<% agency_full_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) %>
-					<% agency_offered_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) %>
+					<% agency_full_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
+					<% agency_offered_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= o.course.name %></div>
 					
 					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
@@ -57,7 +57,9 @@
 						<% if @hide_sug_price == 'No' %>
 						<span class="glyphicon glyphicon-asterisk"></span> Recomended price for students: <strong class="red"><%= number_to_currency((agency_offered_price * 1.30) / (1 + @increase_by)) %></strong>.<br>
 						<% end %>
-						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= @last_search.num_weeks %> weeks.
+						<% num_seats = @last_search.num_seats %>
+						<% num_weeks = @last_search.num_weeks %>
+						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= num_weeks %> <%= "week".pluralize(num_weeks) %> and for <%= num_seats %> <%= "student".pluralize(num_seats) %>
 					</div>
 				</div>
 			</div>
