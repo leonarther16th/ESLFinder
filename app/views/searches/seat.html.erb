@@ -20,7 +20,7 @@
 		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
 			<div class="seat-details">
 				<div class="seat-info">
-					<img src="/assets/toronto-drowing.jpg" class="school-img" style="width: 100px; height: 100px;" alt=""><%= link_to o.school.name, o.school, class: "school-name", target: "_blank" %>
+					<img src=<%= o.school.avatar %> class="school-img" style="width: 100px; height: 100px;" alt=""><%= link_to o.school.name, o.school, class: "school-name", target: "_blank" %>
 					
 					<% rand(1..5).times do %>
 					<span class="oi oi-star star"></span>
