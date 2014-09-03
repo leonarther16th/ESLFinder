@@ -1,43 +1,37 @@
-<h1>Listing orders</h1>
+<div class="well">
+  <h1>Listing orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Offer</th>
-      <th>State</th>
-      <th>Num weeks</th>
-      <th>Total price</th>
-      <th>Offer code</th>
-      <th>Start date</th>
-      <th>Expire date</th>
-      <th>Num seats</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= order.user_id %></td>
-        <td><%= order.offer_id %></td>
-        <td><%= order.state %></td>
-        <td><%= order.num_weeks %></td>
-        <td><%= order.total_price %></td>
-        <td><%= order.offer_code %></td>
-        <td><%= order.start_date %></td>
-        <td><%= order.expire_date %></td>
-        <td><%= order.num_seats %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <th>School</th>
+        <th>Order Summary</th>
+        <th>Total price</th>
+        <th></th>
+        <th></th>
+
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+   
+   
+      <% @orders.each do |order| %>
+        <tbody>
+        <tr>
+          <td><%= link_to order.school.name, order.school, class: "order-school-name", target: "_blank" %></td>
+          <td><%= order.num_seats %> seat for <%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></td>
+          <td><%= number_to_currency(order.total_price) %></td>
+          <td><p><span class="label label-warning label-lg">This order is <u><%= order.state %></u> and will expire in <%= time_ago_in_words(order.expire_date) if order.expire_date %> if not paid</span></p></td>
+          <td>
+          <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn-embossed" do %>
+                <span class="oi oi-circle-x"></span>&nbsp Cancel order
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Order', new_order_path %>
+</div>

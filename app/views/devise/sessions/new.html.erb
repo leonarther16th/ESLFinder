@@ -1,37 +1,67 @@
 <div class="row">
-<div class="col-lg-5">
-	<div class="well">
-	<legend><span class="glyphicon glyphicon-lock"></span> Sign in</legend>
-	
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	<div class="form-group">
-	  <%= f.label :email %><br />
-	  <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
-		<div class="form-group">
-	  <%= f.label :password %><br />
-	  <%= f.password_field :password, :class => "form-control" %></div>
-
-	  <% if devise_mapping.rememberable? -%>
-	    <div class="form-group">
-	    <%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-	  <% end -%>
-	  <div class="form-group">
-	  <%= f.submit "Sign in", :class => "btn btn-primary btn-sm  pull-right" %></div>
-	<% end %>
-
-	<%= render "devise/shared/links" %>
-	</div>
-	</div>
-
-
-	<div class="col-lg-7">
-		<div class="save-image">
-			<img src=<%= asset_path('toronto-save.jpg')  %> width="100%">
-
+	<div class="col-lg-6">
+		<div class="well">
+			<legend><span class="glyphicon glyphicon-lock"></span> Sign in</legend>
 			
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			<div class="form-group">
+				<%= f.label :email %><br />
+			<%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
+			<div class="form-group">
+				<%= f.label :password %><br />
+			<%= f.password_field :password, :class => "form-control" %></div>
+			<% if devise_mapping.rememberable? -%>
+			<div class="form-group">
+			<%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+			<% end -%>
+			<div class="form-group">
+			<%= f.submit "Sign in", :class => "btn btn-primary btn-sm  pull-right" %></div>
+			<% end %>
+			<%= render "devise/shared/links" %>
 		</div>
-			
+		<div class="save-image">
+			<img src=<%= asset_path('homepage-top.jpg')  %> width="100%">
+		</div>
+		
 	</div>
-
 	
+	<div class="col-lg-6">
+		<div class="well">
+			<h3><span class="oi oi-globe"></span> Welcom to eslBooking.com!</h3>
+			<hr>
+			<div class="homepage-text">
+				Although the eslBooking.com concept is new to the ESL industry, it’s similar to existing online booking systems in the hotel and airline industries,
+				such as Expedia. We are the first to offer the opportunity to schools, agents and students to enjoy a win-win business relationship. <br><br>
+				<span class="oi oi-arrow-circle-right"></span> <strong>For Schools:</strong><br>
+				Research has shown that schools have about 20% empty seats on average in each classroom that have not been sold. The number of available
+				seats varies by month and season and schools face real challenges to promote their available seats in a timely manner.  To help ease the burden on
+				school directors who can’t take advantage of available spaces and teachers eslBooking.com was born.<br>
+				<span class="oi oi-arrow-circle-right"></span> <strong>For Agents:</strong><br>
+				eslBooking.com completed a six hour case study with 54 agencies hailing from 16 different countries. Participants voluntarily took part with the final result
+				being that all were very interested in the eslBooking concept. From an agent perspective, sending students to quality programs is a priority. If quality schools
+				participate in eslBooking, agents will benefit directly because they will be earning greater revenue, while their students enjoying better deals. Additionally,
+				agents who use the school services will have the opportunity to rate school performance in three key areas; quality of service, quality of learning and price.
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="well homepage-well">
+			<div class="row">
+				<div class="col-lg-6">
+					<span class="oi oi-arrow-circle-right"></span> <strong>Rating System:</strong><br>
+					As you know, today’s clientele makes their purchasing decisions based heavily on online customer reviews (yesterdays word of mouth), therefore, schools
+					will benefit from agent feedback provided by eslBooking.com.
+				</div>
+				<div class="col-lg-6">
+					<span class="oi oi-arrow-circle-right"></span> <strong>No Commission:</strong><br>
+					Don’t wait until tomorrow to start taking advantage of a serious business opportunity that will benefit our industry. The first 50 participants will enjoy transactions
+					without having commission deducted for one full year.
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

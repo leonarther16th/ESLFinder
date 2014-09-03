@@ -11,7 +11,7 @@ $nice-gray: #ECF0F1;
 $dark-gray: #95A5A6;
 $primary-color : #2c3e50;
 $golden-color: #F7CA18;
-
+$royal-blue: #67809F;
 
 @import 'jeet/index';
 @import "bourbon";
@@ -310,4 +310,12 @@ hr.black{
 	table a.order-school-name{
 		text-decoration: underline;
 		color: $text-primary;
+	}
+	.homepage-text{
+		font-size: .95em;
+	}
+
+	.homepage-well{
+		background-color: $text-primary;
+		color: #ffffff;
 	}
