@@ -37,10 +37,10 @@
       <%= f.input :max_num_weeks, as: :string, label: "Maximum weeks per applicant" %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :start_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
+      <%= f.input :start_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "yyyy-mm-dd" } %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :end_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
+      <%= f.input :end_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "yyyy-mm-dd" } %>
     </div>
     <div class="col-lg-6">
       <%= f.input :num_of_seats, as: :string, label: "Number of seats" %>
