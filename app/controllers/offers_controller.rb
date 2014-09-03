@@ -5,7 +5,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @offers = current_user.offers.all
   end
 
   # GET /offers/1
@@ -69,7 +69,7 @@ class OffersController < ApplicationController
     end
 
     def set_vars
-      @schools = current_user.school
+      @schools = current_user.schools
       @courses = Course.all
     end
 

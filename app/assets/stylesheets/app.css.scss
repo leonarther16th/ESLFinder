@@ -279,13 +279,18 @@ hr{
 	border-top: 1px solid #DADADA;
 }
 
+hr.black{
+	border-top: 1px solid black;
+}
+
 .school-name{
-		font-size: 1.2em;
+		font-size: 1.1em;
 		text-decoration: underline;
 		color: $text-primary;
 	}
 	.school-name:hover{
-		text-decoration: none;
+		text-decoration: underline;
+		color: lighten($text-primary,20);
 	}
 
 	table a.order-school-name{

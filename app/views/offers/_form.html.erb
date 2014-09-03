@@ -19,16 +19,19 @@
       <%= f.input_field :course_id, as: :select, collection: @courses, value_method: :id, label_method: :name %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :weekly_price %>
+      <%= f.input :weekly_price, as: :string %>
+      <hr>
     </div>
     <div class="col-lg-6">
-      <%= f.input :pay_within, label: "Payment within (days)" %>
+      <%= f.input :pay_within, as: :string, label: "Payment within __ days from the purchase date" %>
+      <hr>
+    </div>
+
+    <div class="col-lg-6">
+      <%= f.input :min_num_weeks, as: :string, label: "Minimum weeks per applicant" %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :min_num_weeks %>
-    </div>
-    <div class="col-lg-6">
-      <%= f.input :max_num_weeks %>
+      <%= f.input :max_num_weeks, as: :string, label: "Maximum weeks per applicant" %>
     </div>
     <div class="col-lg-6">
       <%= f.input :start_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
@@ -37,10 +40,10 @@
       <%= f.input :end_date, as: :string, input_html: { class: "datepicker",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :num_of_seats %>
+      <%= f.input :num_of_seats, as: :string, label: "Number of seats" %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :weekly_limit %>
+      <%= f.input :weekly_limit, as: :string %>
     </div>
     
     

@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
   has_many :search
   has_one :user_setting, dependent: :destroy
   has_one :agency
-  has_many :school
+  has_many :schools
   has_many :orders
+  has_many :offers, :through => :schools
   
   
 
