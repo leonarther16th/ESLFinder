@@ -17,7 +17,9 @@
   <div class="col-lg-12">
     <%= f.input :start_date, as: :string, input_html: { class: "",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
   </div>
-
+  <div class="col-lg-12">
+  <%= f.input :country_id, label: "Student Country", as: :select, collection: @countries, value_method: :id, label_method: :name, input_html: {id: "select2-country", "style" => "width:320px"} %>
+  </div>
   <%= f.hidden_field :user_id %>
   <!--
 

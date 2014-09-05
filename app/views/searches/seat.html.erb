@@ -15,7 +15,7 @@
 		<div class="well well-search-info">
 			<% offers_count = @offers.count %>
 			<b><span class="oi oi-badge"></span>&nbsp There is <span class="label label-danger"><%= offers_count %> available offers</span> based on your serach input:</b><br>
-			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %>  &nbsp | &nbsp  Number of students:&nbsp <%= @last_search.num_seats %></i></small>
+			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %>  &nbsp | &nbsp  Number of students:&nbsp <%= @last_search.num_seats %> | Region Applied: <%= @last_search.country.region.name %></i></small>
 		</div><hr>
 		<% @offers.each do |o| %>
 		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
@@ -63,11 +63,12 @@
 					</table>
 					<div class="price-details book-now ">
 						<% if @hide_sug_price == 'No' %>
-						<span class="glyphicon glyphicon-asterisk"></span> Recomended price for students: <strong class="red"><%= number_to_currency((agency_offered_price * 1.30) / (1 + @increase_by)) %></strong>.<br>
+						<span class="glyphicon glyphicon-asterisk"></span> Recomended minimum price for students: <strong class="red"><%= number_to_currency((agency_offered_price * 1.30) / (1 + @increase_by)) %></strong>.<br>
 						<% end %>
 						<% num_seats = @last_search.num_seats %>
 						<% num_weeks = @last_search.num_weeks %>
-						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= num_weeks %> <%= "week".pluralize(num_weeks) %> and for <%= num_seats %> <%= "student".pluralize(num_seats) %>
+						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= num_weeks %> <%= "week".pluralize(num_weeks) %> and for <%= num_seats %> <%= "student".pluralize(num_seats) %><br>
+						<span class="glyphicon glyphicon-asterisk"></span> This offer can not be combined with other promotions.
 						<br>
 						<% viewers = rand(1..20) %>
 					<% if viewers >= 4 %>
