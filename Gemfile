@@ -7,7 +7,7 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
   	gem 'factory_girl_rails'
-  	gem 'better_errors'
+  	
   	gem 'binding_of_caller'
   	gem 'meta_request'
 end
@@ -17,6 +17,7 @@ group :test do
 	
 	gem 'guard-rspec'
   	gem 'launchy'
+  	gem 'better_errors'
 end
 
 group :production do
