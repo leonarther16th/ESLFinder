@@ -84,6 +84,7 @@ class UserSettingsController < ApplicationController
     def set_some_vars
        @agency = current_user.agency
        @countries = Country.all
+       @all_users = User.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

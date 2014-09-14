@@ -68,11 +68,11 @@
   </nav>
   <div class="container">
     <!--
-      <% if notice %>
-        <div class="alert alert-info"><%= notice %></div>
-      <% end %>
-      <% if alert %>
-      <div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span>  <%= alert %></div>
+    <% if notice %>
+    <div class="alert alert-info"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+    <div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span>  <%= alert %></div>
     <% end %>
     -->
     <div class="row">
@@ -83,9 +83,25 @@
   </div>
   <footer>
     <div class="container">
+    <% if current_user %>
       <div class="row">
         
         <div class="col-md-12">
+          <div class="footer-banner">
+            <div class="col-md-12">
+              <h3 class="footer-title">Why eslBooking.com!</h3>
+            </div>
+            <ul>
+              <div class="col-md-12">
+              <%= current_user.state %>
+                <% footer[:is_agency].each do |f|  %>
+                <li><%= f %></li>
+                <% end %>
+              </div>
+              </ul>
+              </div>
+              <br><br><br><br><br>
+      <% end %>
               <div class="row">
                 <div class="text-center  col-md-12">
                   <span class="footnote"><% year = Date.today.year.to_i %>
@@ -95,6 +111,8 @@
               <br><br><br>
             </div>
           </div>
+          
+          
         </div>
         
       </footer>
