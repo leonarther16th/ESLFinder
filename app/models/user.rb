@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :schools
   has_many :orders
   has_many :offers, :through => :schools
+  has_many :user_states
   
   
 
@@ -40,6 +41,15 @@ class User < ActiveRecord::Base
        # false
       # end
       false 
+  end
+
+  def current_active_state
+    states = self.user_states.where('active = ?', true)
+    if states.count > 0
+      "#{states[0].user_state}"
+    else
+      'n/a'
+    end
   end
 
   def full_name

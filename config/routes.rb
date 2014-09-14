@@ -1,5 +1,7 @@
 Eslfinder::Application.routes.draw do
 
+  resources :user_states
+
   resources :orders
 
   resources :offers
@@ -31,6 +33,9 @@ Eslfinder::Application.routes.draw do
      get 'seat' => 'searches#seat'
      get 'matches/:id' => 'searches#seat', as: 'matches'
      get 'settings/:id' => 'user_settings#edit', as: 'settings'
+
+     get '/set_state' => 'user_states#setState', :as => 'set_state'
+
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

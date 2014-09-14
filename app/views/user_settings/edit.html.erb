@@ -1,3 +1,6 @@
+<% if flash[:error] %>
+	<div class="alert alert-danger"><span class="oi oi-ban"></span>  <%= flash[:error] %></div>
+<% end %>
 <div class="row">
 	<div class="col-lg-3 ">
 		<div class="well">
@@ -84,21 +87,47 @@
 			
 		</div>
 	</div>
-	<div class="col-lg-12">
-		<div class="well">
-			<legend>All Users</legend>
-			<table class="table">
-				<% @all_users.each do |u| %>
-					<tr>
-						<td><%= u.first_name %></td>
-						<td><%= u.last_name %></td>
-						<td><%= link_to 'Is agency',  root_path %></td>
-					</tr>
-				<% end %>
-				
-			</table>
+	<% if current_user.current_active_state == 'admin' %>
+		<div class="col-lg-12">
+			<div class="well">
+				<legend><span class="oi oi-people"></span> Users Activation</legend>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Current state</th>
+							<th>Activate as</th>
+							<th>Deactivate</th>
+						</tr>
+					</thead>
+					<% @all_users.each do |u| %>
+						<tr>
+							<td><%= u.first_name %> <%= u.last_name %></td>
+							<td><%= u.email %></td>
+							<% user_state = u.current_active_state %>
+							<td><label class="label label-default"><%= user_state %></label></td>
+							<% if user_state == 'n/a' %>
+								<td><%= link_to 'agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse" %>
+								<%= link_to 'school',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse" %></td>
+							<% elsif user_state == 'agency' %>
+								<td><%= link_to 'school',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse" %></td>
+							<% else %>
+								<td><%= link_to 'agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse" %></td>
+							<% end %>
+							
+							<% if user_state != 'n/a' %>
+								<td><%= link_to 'x',  set_state_path({user_id: u.id, user_state: 'n/a'}), class: "btn btn-xs btn-danger" %></td>
+								<% else %>
+								<td></td>
+							<% end %>
+						</tr>
+					<% end %>
+					
+				</table>
+			</div>
 		</div>
-	</div>
+	<% end %>
 </div>
 
 
