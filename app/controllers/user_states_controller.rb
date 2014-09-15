@@ -13,7 +13,7 @@ class UserStatesController < ApplicationController
   end
 
   def setState
-    if current_user == User.find_by_id(params[:user_id]) 
+    if current_user == User.find_by_id(params[:user_id]) || User.find_by_id(params[:user_id]).current_active_state == 'admin'
       session[:return_to] ||= request.referer
       redirect_to session.delete(:return_to), :flash => { :error => "You can't change your account state!" }
     else
