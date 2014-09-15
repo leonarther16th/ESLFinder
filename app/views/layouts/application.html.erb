@@ -18,19 +18,23 @@
         
         
         <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
+          <% if user_signed_in? and current_user.current_active_state != 'n/a' %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="oi oi-cog"></span></a>
             <ul class="dropdown-menu" role="menu">
+              <% if ['agency','admin'].include? current_user.current_active_state  %>
               <li>
                 <%= link_to settings_path(current_user.user_setting.id) do %>
                 <span class="oi oi-people"></span>  Account Management
                 <% end %>
               </li>
+              <% end %>
               <li><%= link_to schools_path do %>
                 <span class="glyphicon glyphicon-briefcase"></span>  Schools Management
               <% end %></li>
-              <li><a href="#"> <span class="oi oi-calculator"></span>  Orders Management </a>
+              <li><%= link_to orders_path do %> 
+              <span class="oi oi-calculator"></span>  Orders Management 
+            <% end %>
             </li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -43,6 +47,7 @@
           <span class="oi oi-person"></span>
           <% end %>
         </li>
+        <% if false %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="oi oi-bullhorn"></span><span class="navbar-new">3</span></a>
           <ul class="dropdown-menu" role="menu">
@@ -58,6 +63,7 @@
           </ul>
         </li>
         <li class="nav-divider"></li>
+        <% end %>
         <li><%= link_to destroy_user_session_path, :method => 'delete'  do %>
           <span class="oi oi-account-logout"></span>
           <% end %>
@@ -68,11 +74,13 @@
   </nav>
   <div class="container">
     
+    <% if false %>
     <% if notice %>
     <div class="alert alert-info"><%= notice %></div>
     <% end %>
     <% if alert %>
     <div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span>  <%= alert %></div>
+    <% end %>
     <% end %>
    
     <div class="row">
@@ -93,10 +101,11 @@
             </div>
             <ul>
               <div class="col-md-12">
-              <%= current_user.state %>
-                <% footer[:is_agency].each do |f|  %>
+              <% if current_user.current_active_state != 'n/a' %>
+                <% footer[:"#{current_user.current_active_state}"].each do |f|  %>
                 <li><%= f %></li>
                 <% end %>
+              <% end %>
               </div>
               </ul>
               </div>

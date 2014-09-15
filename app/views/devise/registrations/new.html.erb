@@ -8,11 +8,9 @@
 			
 			<%= f.input :first_name %>
 			<%= f.input :last_name %>
-			<%= f.input :company_name %>
-			<%= f.input :account_type %>
+			<%= f.input :agency_name, label: 'Company name' %>
 			<%= f.input :email, :autofocus => true %>
 			<%= f.input :password %>
-
 			<%= f.input :password_confirmation %>
 			<%= f.submit "Sign up", class: "btn btn-lg btn-primary" %>
 			<% end %>

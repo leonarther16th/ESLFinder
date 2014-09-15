@@ -96,6 +96,7 @@
 						<tr>
 							<th>Name</th>
 							<th>Email</th>
+							<th>Company name</th>
 							<th>Current state</th>
 							<th>Activate as</th>
 							<th>Deactivate</th>
@@ -105,6 +106,7 @@
 						<tr>
 							<td><%= u.first_name %> <%= u.last_name %></td>
 							<td><%= u.email %></td>
+							<td><%= u.agency_name %></td>
 							<% user_state = u.current_active_state %>
 							<td><label class="label label-default"><%= user_state %></label></td>
 							<% if user_state == 'n/a' %>

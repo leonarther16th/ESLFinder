@@ -6,6 +6,7 @@ class SchoolsController < ApplicationController
   def index
     @schools = current_user.schools.all
     @school = School.new
+    @user_offers_count = current_user.offers.count
   end
 
   # GET /schools/1
@@ -69,6 +70,7 @@ class SchoolsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_school
       @school = School.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

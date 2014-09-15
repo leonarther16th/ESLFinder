@@ -1,12 +1,19 @@
 <div class="row">
-	<div class="col-lg-4">
-		<div class="well">
-			<legend><span class="glyphicon glyphicon-th"></span> Find Available Seats</legend>
-			
-			<%= render 'form' %>
-			
+		<div class="col-lg-4">
+			<div class="well">
+				<% if current_user.current_active_state != 'n/a' %>
+					<legend><span class="glyphicon glyphicon-th"></span> Find Available Seats</legend>
+					<%= render 'form' %>
+				<% else %>
+					<div class="alert alert-warning">
+					<legend><span class="oi oi-bell"></span> Pending Activation!</legend>
+					<p>Your account is pending activation!</p>
+					</div>
+				<% end %>
+			</div>
 		</div>
-	</div>
+
+
 	<div class="col-lg-8">
 		<div class="save-image">
 			<img src=<%= asset_path('toronto-promo.jpg')  %> width="100%">
