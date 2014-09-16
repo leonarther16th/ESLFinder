@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 	  															:agency_name, :email, :current_password, :password, :password_confirmation)}
 	end
 
-  before_action :configure_devise_permitted_parameters if :device_controller?
+  before_action :configure_devise_permitted_parameters, if :device_controller?
 
   protected
 
