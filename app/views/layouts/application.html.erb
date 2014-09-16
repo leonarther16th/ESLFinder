@@ -29,9 +29,11 @@
                 <% end %>
               </li>
               <% end %>
+              <% if current_user.current_active_state != 'agency' %>
               <li><%= link_to schools_path do %>
                 <span class="glyphicon glyphicon-briefcase"></span>  Schools Management
               <% end %></li>
+              <% end %>
               <li><%= link_to orders_path do %> 
               <span class="oi oi-calculator"></span>  Orders Management 
             <% end %>
@@ -97,17 +99,19 @@
         <div class="col-md-12">
           <div class="footer-banner">
             <div class="col-md-12">
-              <h3 class="footer-title">Why eslBooking.com!</h3>
+              <h3 class="footer-title">Why eslBooking!</h3>
             </div>
-            <ul>
+            
               <div class="col-md-12">
+              <ul>
               <% if current_user.current_active_state != 'n/a' %>
                 <% footer[:"#{current_user.current_active_state}"].each do |f|  %>
                 <li><%= f %></li>
                 <% end %>
               <% end %>
-              </div>
               </ul>
+              </div>
+              
               </div>
               <br><br><br><br><br>
       <% end %>

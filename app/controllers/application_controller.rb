@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
   def configure_devise_permitted_parameters
   	registration_params = [:first_name, :last_name, :agency_name, :agency_id]
 
-  	
-
   end
 
 end

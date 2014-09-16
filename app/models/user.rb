@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   
 
   after_create :initiate_user_settings
+  after_create :create_agency_record
 
   state_machine :state, :initial => :is_user do
     event :to_agency do
@@ -58,6 +59,13 @@ class User < ActiveRecord::Base
   	else
   		 'You!'
   	end
+  end
+
+  def create_agency_record
+    agency = Agency.new
+    agency.user = self
+    agency.name = self.agency_name
+    agency.save
   end
 
   def initiate_user_settings
