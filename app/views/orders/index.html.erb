@@ -1,37 +1,55 @@
 <div class="well">
-  <h1>Listing orders</h1>
+  <legend><span class="oi oi-calculator"></span> Orders Management</legend>
 
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
 
         <th>School</th>
-        <th>Order Summary</th>
+        <th>Order summary</th>
         <th>Total price</th>
+        <th>Status</th>
+        <th></th>
         <th></th>
         <th></th>
 
       </tr>
     </thead>
    
-   
+   <tbody>
       <% @orders.each do |order| %>
-        <tbody>
+        
         <tr>
           <td><%= link_to order.school.name, order.school, class: "order-school-name", target: "_blank" %></td>
-          <td><%= order.num_seats %> seat for <%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></td>
-          <td><%= number_to_currency(order.total_price) %></td>
-          <td><p><span class="label label-warning label-lg">This order is <u><%= order.state %></u> and will expire in <%= time_ago_in_words(order.expire_date) if order.expire_date %> if not paid</span></p></td>
+          <td><i><%= order.num_seats %> seat for <%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></i></td>
+          <td><strong><%= number_to_currency(order.total_price) %></strong></td>
+          <td><span class="label label-warning label-lg"><%= order.state.humanize %></span></td>
           <td>
-          <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn-embossed" do %>
-                <span class="oi oi-circle-x"></span>&nbsp Cancel order
+          <%= link_to '#', class: "btn btn-xs btn-primary btn-embossed" do %>
+                <span class="oi oi-link-intact"></span>&nbsp Confirm
               <% end %>
           </td>
+          <td>
+          <%= link_to '#', class: "btn btn-xs btn-info btn-embossed" do %>
+                <span class="oi oi-link-broken"></span>&nbsp Link student
+              <% end %>
+          </td>
+
+          <td>
+          <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn-embossed" do %>
+                <span class="oi oi-circle-x"></span>&nbsp Cancel
+              <% end %>
+          </td>
+
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <br>
+
+  <blockquote>
+  <footer><span class="oi oi-star"></span> Your visa card will not be charged! <cite title="Source Title">You will pay directly to the school!</cite></footer>
+</blockquote>
 
 </div>
