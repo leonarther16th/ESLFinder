@@ -21,9 +21,9 @@
   <tbody>
       <tr>
         <td><%= link_to @order.school.name, @order.school, class: "order-school-name", target: "_blank" %></td>
-        <td><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></td>
-        <td><%= number_to_currency(@order.total_price) %></td>
-        <td><p><span class="label label-warning label-lg">This order is <u><%= @order.state %></u> and will expire in <%= time_ago_in_words(@order.expire_date) %> if not paid</span></p></td>
+        <td><i><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></i></td>
+        <td><strong><%= number_to_currency(@order.total_price) %></strong></td>
+        <td><span class="label <%= labelTag(@order.state)[0] %> label-lg">This order is <%= @order.state %></span></td>
       </tr>
   </tbody>
 </table>
@@ -79,7 +79,8 @@
   </table>
 </div>
 <p></p><br><br>
-<blockquote>
-  <footer><span class="oi oi-star"></span> Your visa card will not be charged! <cite title="Source Title">You will pay directly to the school!</cite></footer>
-</blockquote>
+<span class="label label-info pull-right"><span class="oi oi-star"></span> Your visa card will not be charged! You will pay directly to the school!</span>
+  
+<br>
+<br>
 </div>

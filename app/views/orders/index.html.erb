@@ -20,18 +20,23 @@
       <% @orders.each do |order| %>
         
         <tr>
-          <td><%= link_to order.school.name, order.school, class: "order-school-name", target: "_blank" %></td>
+          <td><%= link_to order.school, class: "btn btn-xs btn-default btn-embossed", target: "_blank" do %>
+                <%= order.school.name %> &nbsp <span class="oi oi-external-link"></span>
+              <% end %>
+          </td>
           <td><i><%= order.num_seats %> seat for <%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></i></td>
           <td><strong><%= number_to_currency(order.total_price) %></strong></td>
-          <td><span class="label label-warning label-lg"><%= order.state.humanize %></span></td>
+          <td><span class="label <%= labelTag(order.state)[0] %>  label-lg"><%= order.state.humanize %>&nbsp &nbsp <span class="oi <%= labelTag(order.state)[1] %>"></span></span></td>
           <td>
-          <%= link_to '#', class: "btn btn-xs btn-primary btn-embossed" do %>
-                <span class="oi oi-link-intact"></span>&nbsp Confirm
-              <% end %>
+          <% if order.state == 'pending' %>
+            <%= link_to '#', class: "btn btn-xs btn-primary btn-embossed" do %>
+                  <span class="oi oi-credit-card"></span>&nbsp Reserve
+                <% end %>
+          <% end %>
           </td>
           <td>
           <%= link_to '#', class: "btn btn-xs btn-info btn-embossed" do %>
-                <span class="oi oi-link-broken"></span>&nbsp Link student
+                <span class="oi oi-link-intact"></span>&nbsp Link student
               <% end %>
           </td>
 
@@ -48,8 +53,8 @@
 
   <br>
 
-  <blockquote>
-  <footer><span class="oi oi-star"></span> Your visa card will not be charged! <cite title="Source Title">You will pay directly to the school!</cite></footer>
-</blockquote>
-
+    
+  <span class="label label-info pull-right"><span class="oi oi-star"></span> Your visa card will not be charged! You will pay directly to the school!</span>
+  
+<br>
 </div>
