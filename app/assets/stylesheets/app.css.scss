@@ -319,3 +319,21 @@ hr.black{
 		background-color: $text-primary;
 		color: #ffffff;
 	}
+
+.select {
+
+width: 100%;
+}
+	.btn-group > .btn:first-child {
+
+min-width: 100%;
+
+}
+.tile-white{
+	background-color: white !important;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.open > .dropdown-menu {
+width: 100%;
+}

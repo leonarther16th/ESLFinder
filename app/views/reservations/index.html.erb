@@ -1,0 +1,41 @@
+<h1>Listing reservations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Order</th>
+      <th>Card type</th>
+      <th>Card name</th>
+      <th>Card number</th>
+      <th>Expiry month</th>
+      <th>Expiry year</th>
+      <th>Cvc</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.user_id %></td>
+        <td><%= reservation.order_id %></td>
+        <td><%= reservation.card_type %></td>
+        <td><%= reservation.card_name %></td>
+        <td><%= reservation.card_number %></td>
+        <td><%= reservation.expiry_month %></td>
+        <td><%= reservation.expiry_year %></td>
+        <td><%= reservation.cvc %></td>
+        <td><%= link_to 'Show', reservation %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reservation', new_reservation_path %>

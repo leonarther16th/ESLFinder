@@ -1,0 +1,25 @@
+<div class="well">
+	<legend>Order Reservation</legend>
+	<table class="table table-striped ">
+		<thead>
+			<tr>
+				<th>School</th>
+				<th>Order Summary</th>
+				<th>Total price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= link_to @order.school.name, @order.school, class: "order-school-name", target: "_blank" %></td>
+				<td><i><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></i></td>
+				<td><strong><%= number_to_currency(@order.total_price) %></strong></td>
+			</tr>
+		</tbody>
+	</table>
+	<span class="label label-info pull-right"><span class="oi oi-star"></span> Your visa card will not be charged! You will pay directly to the school!</span>
+	<br>
+</div>
+<div class="tile tile-white">
+	<%= render 'form' %>
+</div>
+<br>

@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :offers, :through => :schools
   has_many :user_states
+  has_many :reservation
   
   
 

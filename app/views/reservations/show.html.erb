@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservation.user_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @reservation.order_id %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @reservation.card_type %>
+</p>
+
+<p>
+  <strong>Card name:</strong>
+  <%= @reservation.card_name %>
+</p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @reservation.card_number %>
+</p>
+
+<p>
+  <strong>Expiry month:</strong>
+  <%= @reservation.expiry_month %>
+</p>
+
+<p>
+  <strong>Expiry year:</strong>
+  <%= @reservation.expiry_year %>
+</p>
+
+<p>
+  <strong>Cvc:</strong>
+  <%= @reservation.cvc %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

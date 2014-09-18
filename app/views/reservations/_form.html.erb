@@ -1,0 +1,67 @@
+<%= simple_form_for(@reservation) do |f| %>
+<%= f.error_notification %>
+<div class="form-inputs">
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :order_id, as: :hidden %>
+  <div class="row">
+    <div class="col-lg-12">
+      <label>Card Type</label><br>
+      <%= f.input_field :card_type, as: :select, collection: ['Visa Card', 'Master Card', 'American Airline'], input_html:{ class: "user-settings-field"}, prompt: "Please select..." %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= f.input :card_name, label: "Name on card" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= f.input :card_number %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <label>Expiry month</label><br>
+      <%= f.input_field :expiry_month, as: :select, collection: [["01 - Jan", 1],
+      ["02 - Feb", 2],
+      ["03 - Mar", 3],
+      ["04 - Apr", 4],
+      ["05 - May", 5],
+      ["06 - Jun", 6],
+      ["07 - Jul", 7],
+      ["08 - Aug", 8],
+      ["09 - Sep", 9],
+      ["10 - Oct", 10],
+      ["11 - Nov", 11],
+      ["12 - Dec", 12]], prompt: "Please select..." %>
+    </div>
+    <div class="col-lg-6">
+      <label>Expiry year</label><br>
+      <%= f.input_field :expiry_year, as: :select, collection: Date.today.year..Date.today.year+10, input_html:{ class: "user-settings-field"}, prompt: "Please select..." %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= f.input :cvc, label: "CVC - Card Verification Code" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-actions">
+      <%= button_tag  class: "btn btn-success btn-embossed btn-block" do %>
+        <span class="oi oi-credit-card"></span>&nbsp Reserve order
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <%= link_to reservations_path, class: "btn btn-md btn-danger btn-embossed btn-block" do %>
+      <span class="oi oi-circle-x"></span>&nbsp Cancel
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+
+
