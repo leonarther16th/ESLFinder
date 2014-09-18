@@ -27,7 +27,7 @@
 					<span class="oi oi-star star"></span>
 					<% end %>
 
-					<%= rating_for o.school, "quality" %>
+					
 					<% agency_full_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<% agency_offered_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<% full_price = o.regular_price * @last_search.num_weeks * @last_search.num_seats %>
