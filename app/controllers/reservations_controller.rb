@@ -29,11 +29,13 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     respond_to do |format|
+      @order = Order.find_by_id(@reservation.order_id)
       if @reservation.save
+        @order.state = 'reserved'
+        @order.save
         format.html { redirect_to @order, notice: 'Reservation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reservation }
       else
-        @order = Order.find_by_id(@reservation.order_id)
         format.html { render action: 'new'}
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end

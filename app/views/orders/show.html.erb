@@ -62,10 +62,12 @@
 
     <tbody>
         <tr>
+        <% if @order.state == 'pending' %>
           <td><%= link_to new_reservation_path(order_id: @order.id), class: "btn btn-md btn-primary btn-embossed" do %>
                 <span class="oi oi-credit-card"></span>&nbsp Reserve order
               <% end %>
           </td>
+          <% end %>
           
           <td><%= link_to @order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger btn-embossed" do %>
                 <span class="oi oi-circle-x"></span>&nbsp Cancel order
