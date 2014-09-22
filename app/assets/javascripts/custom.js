@@ -24,6 +24,8 @@
 
   $("#wysihtml").wysihtml5();
 
+  $('.ref-popup').popover();
+
 if (matchMedia('only screen and (max-width: 300px)').matches) {
 
    $('.filter').affix({
