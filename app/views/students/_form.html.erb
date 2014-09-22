@@ -1,0 +1,17 @@
+<%= simple_form_for(@student) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :order_id, as: :hidden %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <% countries = Country.all.order(:name) %>
+  <%= f.input :country_id, as: :select, collection: countries, value_method: :id, label_method: :name, input_html: {id: "select2-country"} %>
+  </div>
+
+  <div class="form-actions">
+    <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
+        <span class="oi oi-paperclip"></span>&nbsp Link student
+      <% end %>
+  </div>
+<% end %>

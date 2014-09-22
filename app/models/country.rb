@@ -3,4 +3,5 @@ class Country < ActiveRecord::Base
 	has_many :schools
 	has_many :agencies
 	has_many :searches
+	has_many :students
 end

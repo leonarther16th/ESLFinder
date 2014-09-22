@@ -1,0 +1,25 @@
+<div class="well">
+	<legend><span class="oi oi-person"></span> Link student to order</legend>
+	<table class="table table-striped ">
+		<thead>
+			<tr>
+				<th>School</th>
+				<th>Order Summary</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= link_to @order.school.name, @order.school, class: "order-school-name", target: "_blank" %></td>
+				<td><i><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></i></td>
+
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+<div class="tile tile-white">
+	<%= render 'form' %>
+</div>
+<br>
+
+<%= link_to 'Back', orders_path %>

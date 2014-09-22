@@ -1,5 +1,7 @@
 Eslfinder::Application.routes.draw do
 
+  resources :students
+
   resources :reservations
 
   resources :user_states

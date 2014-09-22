@@ -38,11 +38,16 @@
 
     <tbody>
         <tr>
+        <% if !@order.student %>
           <td><span class="label label-info">This order is not linked to any student!</span></td>
           <td><%= link_to edit_order_path(@order), class: "btn btn-md btn-info btn-embossed" do %>
                 <span class="oi oi-infinity"></span>&nbsp Link this order to a student
               <% end %>
           </td>
+        <% else %>
+          <td><span class="label label-info"><%= "Linked to #{@order.student.name} from #{@order.student.country.name}" %></span></td>
+          <td><%= "" %></td>
+        <% end %>
         </tr>
     </tbody>
   </table>
