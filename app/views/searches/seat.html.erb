@@ -69,7 +69,9 @@
 						<% num_seats = @last_search.num_seats %>
 						<% num_weeks = @last_search.num_weeks %>
 						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= num_weeks %> <%= "week".pluralize(num_weeks) %> and for <%= num_seats %> <%= "student".pluralize(num_seats) %><br>
-						<span class="glyphicon glyphicon-asterisk"></span> This offer can not be combined with other promotions.
+						<span class="glyphicon glyphicon-asterisk"></span> This is a final offer.
+						<br>
+						<span class="glyphicon glyphicon-asterisk"></span> This offer can not be combined with other promotions
 						<br>
 						<% viewers = rand(1..20) %>
 					<% if viewers >= 4 %>

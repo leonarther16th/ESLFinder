@@ -337,3 +337,14 @@ min-width: 100%;
 .open > .dropdown-menu {
 width: 100%;
 }
+
+
+.navbar-nav > li > .dropdown-menu {
+min-width: 305% !important;
+/* border-radius: 4px; */
+}
+
+ul.wysihtml5-toolbar > li > div.btn-group > .btn{
+	min-width: 0;
+
+}

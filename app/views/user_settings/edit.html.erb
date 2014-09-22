@@ -96,16 +96,16 @@
 							<% user_state = u.current_active_state %>
 							<td><label class="label label-default"><%= user_state %></label></td>
 							<% if user_state == 'n/a' %>
-								<td><%= link_to 'agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse" %>
-								<%= link_to 'school',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse" %></td>
+								<td><%= link_to 'Agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse btn-embossed" %>
+								<%= link_to 'Achool',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse btn-embossed" %></td>
 							<% elsif user_state == 'agency' %>
-								<td><%= link_to 'school',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse" %></td>
+								<td><%= link_to 'School',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse btn-embossed" %></td>
 							<% else %>
-								<td><%= link_to 'agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse" %></td>
+								<td><%= link_to 'Agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse btn-embossed" %></td>
 							<% end %>
 							
 							<% if user_state != 'n/a' %>
-								<td><%= link_to 'x',  set_state_path({user_id: u.id, user_state: 'n/a'}), class: "btn btn-xs btn-danger" %></td>
+								<td><%= link_to 'x',  set_state_path({user_id: u.id, user_state: 'n/a'}), class: "btn btn-xs btn-danger btn-embossed" %></td>
 								<% else %>
 								<td></td>
 							<% end %>

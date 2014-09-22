@@ -29,7 +29,7 @@
           <td><span class="label <%= labelTag(order.state)[0] %>  label-lg"><%= order.state.humanize %>&nbsp &nbsp <span class="oi <%= labelTag(order.state)[1] %>"></span></span></td>
           <td>
           <% if order.state == 'pending' %>
-            <%= link_to '#', class: "btn btn-xs btn-primary btn-embossed" do %>
+            <%= link_to new_reservation_path(order_id: order.id), class: "btn btn-xs btn-primary btn-embossed" do %>
                   <span class="oi oi-credit-card"></span>&nbsp Reserve
                 <% end %>
           <% end %>
