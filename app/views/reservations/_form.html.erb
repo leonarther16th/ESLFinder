@@ -5,8 +5,8 @@
   <%= f.input :order_id, as: :hidden %>
   <div class="row">
     <div class="col-lg-12">
-      <label>Card Type</label><br>
-      <%= f.input_field :card_type, as: :select, collection: ['Visa Card', 'Master Card', 'American Airline'], input_html:{ class: "user-settings-field"}, prompt: "Please select..." %>
+      <label>* Card Type</label><br>
+      <%= f.input_field :card_type, as: :select, collection: ['Visa Card', 'Master Card', 'American Airline'], input_html:{ class: "user-settings-field"}, prompt: "Please select...", required: true %>
     </div>
   </div>
   <div class="row">
@@ -21,7 +21,7 @@
   </div>
   <div class="row">
     <div class="col-lg-6">
-      <label>Expiry month</label><br>
+      <label>* Expiry month</label><br>
       <%= f.input_field :expiry_month, as: :select, collection: [["01 - Jan", 1],
       ["02 - Feb", 2],
       ["03 - Mar", 3],
@@ -36,7 +36,7 @@
       ["12 - Dec", 12]], prompt: "Please select..." %>
     </div>
     <div class="col-lg-6">
-      <label>Expiry year</label><br>
+      <label>* Expiry year</label><br>
       <%= f.input_field :expiry_year, as: :select, collection: Date.today.year..Date.today.year+10, input_html:{ class: "user-settings-field"}, prompt: "Please select..." %>
     </div>
   </div>
@@ -50,7 +50,7 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="form-actions">
-      <%= button_tag  class: "btn btn-success btn-embossed btn-block" do %>
+      <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
         <span class="oi oi-credit-card"></span>&nbsp Reserve order
       <% end %>
     </div>
