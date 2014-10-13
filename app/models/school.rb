@@ -7,6 +7,8 @@ class School < ActiveRecord::Base
 	has_many :orders, :through => :offers
 
 	ratyrate_rateable "quality", "price", "learning"
+	
+	validates_presence_of :name, :city_id, :country_id
 
 	def avg_rate
 		q = Rate.where('rateable_type = ? and rateable_id = ?' ,'School', self.id).average(:stars).to_i
