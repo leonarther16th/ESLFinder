@@ -246,7 +246,9 @@ body{
 .navbar-default{
 	background-color: #ffffff;
 	border-radius: 0px;
+
 }
+
 .focus{
 	background-color: lighten($nice-gray,4);
 }
@@ -351,5 +353,8 @@ ul.wysihtml5-toolbar > li > div.btn-group > .btn{
 
 
 .logo{
-	width:200%;
+	width:170px;
+}
+.navbar-nav.navbar-right:last-child{
+	margin-top: 10px;
 }

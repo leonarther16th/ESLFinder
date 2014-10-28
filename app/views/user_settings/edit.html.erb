@@ -97,7 +97,7 @@
 							<td><label class="label label-default"><%= user_state %></label></td>
 							<% if user_state == 'n/a' %>
 								<td><%= link_to 'Agency',  set_state_path({user_id: u.id, user_state: :agency}), class: "btn btn-xs btn-inverse btn-embossed" %>
-								<%= link_to 'Achool',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse btn-embossed" %></td>
+								<%= link_to 'School',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse btn-embossed" %></td>
 							<% elsif user_state == 'agency' %>
 								<td><%= link_to 'School',  set_state_path({user_id: u.id, user_state: :school}), class: "btn btn-xs btn-inverse btn-embossed" %></td>
 							<% else %>
