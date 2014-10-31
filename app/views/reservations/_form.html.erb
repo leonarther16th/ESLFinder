@@ -50,15 +50,15 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="form-actions">
-      <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
-        <span class="oi oi-credit-card"></span>&nbsp Reserve order
-      <% end %>
+      <%= link_to orders_path, class: "btn btn-md btn-danger btn-embossed btn-block" do %>
+      <span class="oi oi-circle-x"></span>&nbsp Cancel
+    <% end %>
     </div>
   </div>
   <div class="col-lg-6">
-    <%= link_to orders_path, class: "btn btn-md btn-danger btn-embossed btn-block" do %>
-      <span class="oi oi-circle-x"></span>&nbsp Cancel
-    <% end %>
+  <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
+        <span class="oi oi-credit-card"></span>&nbsp Reserve order
+      <% end %>
   </div>
 </div>
 <% end %>
