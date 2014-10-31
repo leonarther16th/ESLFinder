@@ -25,9 +25,8 @@
       
     <div class="well">
       <%= f.input :current_password, label: "Please type in your current password to save" %>
-      <%= button_tag(:submit, :class => "btn btn-primary btn-sm col-lg-12", :id => 'save-btn') do %>
-      Save changes <i class="glyphicon glyphicon-ok"></i>
-      <% end %>
+      <%= f.submit 'Save changes', :class => "btn btn-primary btn-sm col-lg-12", :id => 'save-btn'  %>
+  
       <br><br>
       <% end %>
       
