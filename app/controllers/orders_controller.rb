@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    user_order = current_user.orders.find_by_id(params[:id])
+    if !user_order
+      redirect_to :root
+    end
   end
 
   # GET /orders/new
