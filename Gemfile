@@ -29,6 +29,8 @@ gem 'ratyrate', :github => 'wazery/ratyrate'
 
 gem 'jquery-turbolinks'
 
+gem 'will_paginate', '~> 3.0.5'
+
 gem 'zebra-datepicker-rails'
 
 # Use SCSS for stylesheets

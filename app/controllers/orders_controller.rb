@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = current_user.orders.all
+    @orders = current_user.orders.paginate(:page => params[:page])
   end
 
   # GET /orders/1

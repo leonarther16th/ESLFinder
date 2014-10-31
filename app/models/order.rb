@@ -4,4 +4,5 @@ class Order < ActiveRecord::Base
 	has_one :school, :through => :offer, :dependent => :delete
 	has_one :reservation, :dependent => :delete
 	has_one :student, :dependent => :delete
+	self.per_page = 10
 end

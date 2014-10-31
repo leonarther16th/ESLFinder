@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :user_states
   has_many :reservation
   
-  
+  self.per_page = 10
 
   after_create :initiate_user_settings
   after_create :create_agency_record
