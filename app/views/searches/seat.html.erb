@@ -38,7 +38,7 @@
 						<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
 					<% end %>
 					<br>
-					<% num_of_remaining_seats = o.num_of_seats %>
+					<% num_of_remaining_seats = o.num_of_seats - o.orders.counts%>
 					<% if num_of_remaining_seats <= 20 %>
 						<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= num_of_remaining_seats %> seats remaining under this offer!</div>
 					<% end %>
