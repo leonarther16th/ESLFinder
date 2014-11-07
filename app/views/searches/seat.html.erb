@@ -13,7 +13,7 @@
 	<div class="content">
 		<div class="well well-search-info">
 			<% offers_count = @offers.count %>
-			<b><span class="oi oi-badge"></span>&nbsp There is <span class="label label-info"><%= offers_count %> available offers</span> based on your serach input:</b><br>
+			<b><span class="oi oi-badge"></span>&nbsp There <%= is_are(offers_count) %> <span class="label label-info"><%= offers_count %> available offers</span> based on your search input:</b><br>
 			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %>  &nbsp | &nbsp  Number of students:&nbsp <%= @last_search.num_seats %> | Region Applied: <%= @last_search.country.region.name %></i></small>
 		</div><hr>
 		<% @offers.each do |o| %>

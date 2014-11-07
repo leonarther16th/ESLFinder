@@ -18,4 +18,13 @@ module ApplicationHelper
 	end
 
 
+	def is_are(n)
+		if n > 1 
+			'are'
+		else
+			'is'
+		end
+	end
+
+
 end
