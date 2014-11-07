@@ -6,7 +6,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <!-- <th>School</th> -->
+        <th>School</th>
         <th>Weekly price</th>
         <th>Weeks bound</th>
         <th>Dates</th>
@@ -21,7 +21,7 @@
     <tbody>
       <% @offers.each do |offer| %>
         <tr>
-          <!-- <td><% offer.school_id %></td>-->          
+          <td><%= offer.school.name %></td>         
           <td><%= number_to_currency(offer.weekly_price) %></td>
           <td><%= offer.min_num_weeks %> <span class="oi oi-arrow-thick-bottom"></span> <%= offer.max_num_weeks %> <span class="oi oi-arrow-thick-top"></span></td>
           <td><span class='label label-primary'>from</span> <span class='label label-primary'><%= offer.start_date.to_formatted_s(:short) %></span> <span class='label label-primary'>to</span> <span class='label label-primary'><%= offer.end_date.to_formatted_s(:short) %></span>

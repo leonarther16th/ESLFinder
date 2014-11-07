@@ -3,20 +3,25 @@
 <div class="row">
   <div class="form-inputs">
     <div class="col-lg-3">
-      <label>School</label><br>
-      <%= f.input_field :school_id, as: :select, collection: @schools, value_method: :id, label_method: :name %>
+      <%= f.input :school_id do %>
+        <%= f.input_field :school_id, as: :select, collection: @schools, value_method: :id, label_method: :name %>
+      <% end %>
+    </div>
+
+    <div class="col-lg-3">
+      <%= f.input :regions do %>
+        <%= f.input_field :regions, as: :select, collection: Region.all, input_html: {class: "agency-settings-field", id: ""} %>
+      <% end %>
     </div>
     <div class="col-lg-3">
-      <label>Region to apply</label><br>
-      <%= f.input_field :regions, as: :select, collection: Region.all, input_html: {class: "agency-settings-field", id: ""} %>
+      <%= f.input :flag do %>
+        <%= f.input_field :flag, as: :select, collection: ['Discounted', 'Regular'] %>
+      <% end %>
     </div>
     <div class="col-lg-3">
-      <label>Flag</label><br>
-      <%= f.input_field :flag, as: :select, collection: ['Discounted', 'Regular'] %>
-    </div>
-    <div class="col-lg-3">
-      <label>Course</label><br>
-      <%= f.input_field :course_id, as: :select, collection: @courses, value_method: :id, label_method: :name %>
+      <%= f.input :course_id do %>
+        <%= f.input_field :course_id, as: :select, collection: @courses, value_method: :id, label_method: :name %>
+      <% end %>
     </div>
     <div class="col-lg-3">
       <%= f.input :weekly_price, as: :string, label: "Weekly discounted price" %>

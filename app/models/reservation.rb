@@ -7,6 +7,7 @@ class Reservation < ActiveRecord::Base
 	validates_format_of :card_name, :with => /^[a-zA-Z]+$/ , :multiline => true, message: "Please type in a correct name!"
 	validate :experation_date_cannot_be_in_the_past
 	
+	
 	belongs_to :order
 	belongs_to :user
 
@@ -14,9 +15,10 @@ class Reservation < ActiveRecord::Base
 	def experation_date_cannot_be_in_the_past
 		if self.expiry_month.present? and self.expiry_year.present?
 			d = Date.new(self.expiry_year.to_i, self.expiry_month.to_i, 1)
+			error_message = "Please select a valid date!"
 			if d < Date.today
-				errors.add(:expiry_month, "Please select a valid date!")
-				errors.add(:expiry_year, "Please select a valid date!")
+				errors.add(:expiry_month, error_message)
+				errors.add(:expiry_year, error_message)
 			end
 		end
 	end
