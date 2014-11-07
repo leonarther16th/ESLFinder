@@ -31,11 +31,9 @@
 			<img src=<%= asset_path('toronto-activity.jpg')  %> width="100%">
 			<br><br>
 			<p><b>TORONTO</b><br>
-			<span class="save-text"> Save up to: </span><span class="save-price">$177</span><br>
-			<span class="save-text">Weekly price starting at:</span> <span class="save-price">$118</span></p>
-			<div class="btn btn-danger">
-				Book Now!
-			</div>
+			<span class="save-text"> Save up to: </span><span class="save-price"><%= number_to_currency(@toronto_saving) %></span><br>
+			<span class="save-text">Weekly price starting at:</span> <span class="save-price"><%= number_to_currency(@toronto_lowest_price) %></span></p>
+			
 		</div>
 	</div>
 
@@ -44,12 +42,10 @@
 			
 			<img src=<%= asset_path('ottawa-activity.jpg')  %> width="100%">
 				<br><br>
-			<p><b>VANCOUVER</b><br>
-			<span class="save-text"> Save up to: </span><span class="save-price">$147</span><br>
-			<span class="save-text">Weekly price starting at:</span> <span class="save-price">$147</span></p>
-			<div class="btn btn-danger">
-				Book Now!
-			</div>
+			<p><b>OTTAWA</b><br>
+			<span class="save-text"> Save up to: </span><span class="save-price"><%= number_to_currency(@ottawa_saving) %></span><br>
+			<span class="save-text">Weekly price starting at:</span> <span class="save-price"><%= number_to_currency(@ottawa_lowest_price) %></span></p>
+			
 		</div>
 	</div>
 
@@ -59,11 +55,9 @@
 			<img src=<%= asset_path('halifax-activity.jpg')  %> width="100%">
 				<br><br>
 			<p><b>HALIFAX</b><br>
-			<span class="save-text"> Save up to: </span><span class="save-price">$118</span><br>
-			<span class="save-text">Weekly price starting at:</span> <span class="save-price">$177</span></p>
-			<div class="btn btn-danger">
-				Book Now!
-			</div>
+			<span class="save-text"> Save up to: </span><span class="save-price"><%= number_to_currency(@halifax_saving) %></span><br>
+			<span class="save-text">Weekly price starting at:</span> <span class="save-price"><%= number_to_currency(@halifax_lowest_price) %></span></p>
+			
 		</div>
 	</div>
 

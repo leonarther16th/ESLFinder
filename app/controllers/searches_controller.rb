@@ -18,7 +18,16 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
     @search.user_id = current_user.id
-    
+
+    @halifax_lowest_price = School.find_by_city_id(100).offers.order(:weekly_price).first.weekly_price
+    @ottawa_lowest_price = School.find_by_city_id(200).offers.order(:weekly_price).first.weekly_price
+    @toronto_lowest_price = School.find_by_city_id(300).offers.order(:weekly_price).first.weekly_price
+
+    @halifax_saving = School.find_by_city_id(100).offers.order(:weekly_price).first.regular_price - @halifax_lowest_price
+    @ottawa_saving = School.find_by_city_id(200).offers.order(:weekly_price).first.regular_price - @ottawa_lowest_price
+    @toronto_saving = School.find_by_city_id(300).offers.order(:weekly_price).first.regular_price - @toronto_lowest_price
+
+
   end
 
   # GET /searches/1/edit

@@ -13,7 +13,7 @@
 	<div class="content">
 		<div class="well well-search-info">
 			<% offers_count = @offers.count %>
-			<b><span class="oi oi-badge"></span>&nbsp There is <span class="label label-danger"><%= offers_count %> available offers</span> based on your serach input:</b><br>
+			<b><span class="oi oi-badge"></span>&nbsp There is <span class="label label-info"><%= offers_count %> available offers</span> based on your serach input:</b><br>
 			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %>  &nbsp | &nbsp  Number of students:&nbsp <%= @last_search.num_seats %> | Region Applied: <%= @last_search.country.region.name %></i></small>
 		</div><hr>
 		<% @offers.each do |o| %>
@@ -49,7 +49,7 @@
 								<small><span class="label label-default"><s><%= number_to_currency(full_price) %> CAD</s></span></small><br>
 							</td>
 							<td><b class="price-type green"><span class=""> </span> </b><br>
-								<small><span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span></small><br>
+								<small><span class="label label-success"><%= number_to_currency(agency_offered_price) %> CAD</span></small><br>
 								
 								<% if num_of_remaining_seats <= 0 %>
 									<%= link_to "#", class: "btn btn-danger btn-sm book-now btn-embossed", disabled: "disabled"  do %>
@@ -59,7 +59,7 @@
 								   
 								   <%/ link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do /%> 
 
-								   <%= link_to "#", class: "btn btn-success btn-xs book-now btn-embossed", onclick: "alert('Booking will be activated this Monday!')" do %> 
+								   <%= link_to "#", class: "btn btn-info btn-xs book-now btn-embossed", onclick: "alert('Booking will be activated this Monday!')" do %> 
 
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
