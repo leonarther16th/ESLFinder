@@ -5,7 +5,8 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = current_user.offers.all
+    #@offers = current_user.offers.all
+    @offers = Offers.all
   end
 
   # GET /offers/1
