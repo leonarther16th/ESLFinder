@@ -56,7 +56,11 @@
 										<i class="oi oi-ban"></i> Sold Out
 									<% end %>
 								<% else %>
-								    <%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %>
+								   
+								   <%/ link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do /%> 
+
+								   <%= link_to "#", class: "btn btn-success btn-xs book-now btn-embossed", onclick: "alert('Booking will be activated this Monday!')" do %> 
+
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
 								<% end %>
