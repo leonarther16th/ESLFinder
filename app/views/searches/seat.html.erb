@@ -1,9 +1,8 @@
 <div class="col-golden-sm col-md-12 col-sm-12 col-xs-12" >
 	<div class="filter-container">
 		<div class="filter">
-
 			<div class="well" >
-			<legend><span class="oi oi-magnifying-glass"></span>  Search</legend><hr>
+				<legend><span class="oi oi-magnifying-glass"></span>  Search</legend><hr>
 				<%= render 'form' %>
 			</div>
 			
@@ -18,7 +17,8 @@
 			<small><i>Start date:&nbsp <%= @last_search.start_date.to_formatted_s(:long) %>  &nbsp | &nbsp  Number of weeks:&nbsp <%= @last_search.num_weeks %>  &nbsp | &nbsp  Number of students:&nbsp <%= @last_search.num_seats %> | Region Applied: <%= @last_search.country.region.name %></i></small>
 		</div><hr>
 		<% @offers.each do |o| %>
-		<div class="seat-well" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
+		<% num_of_remaining_seats = o.num_of_seats - o.orders.count %>
+		<div class="seat-well <%= "sold" if num_of_remaining_seats <= 0 %>" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
 			<div class="seat-details">
 				<div class="seat-info">
 					<img src=<%= o.school.avatar %> class="school-img" style="width: 100px; height: 100px;" alt=""><%= link_to o.school.name, o.school, class: "school-name", target: "_blank" %>&nbsp
@@ -26,23 +26,21 @@
 					<% o.school.avg_rate.times do %>
 					<span class="oi oi-star star"></span>
 					<% end %>
-
 					
 					<% agency_full_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<% agency_offered_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<% full_price = o.regular_price * @last_search.num_weeks * @last_search.num_seats %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= o.course.name %></div>
 					<% if o.regular_price %>
-						<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency((full_price) - agency_offered_price ) %></b> </div>
+					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency((full_price) - agency_offered_price ) %></b> </div>
 					<% else %>
-						<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
+					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
 					<% end %>
 					<br>
-					<% num_of_remaining_seats = o.num_of_seats - o.orders.count %>
-					<% if num_of_remaining_seats <= 20 %>
-						<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= num_of_remaining_seats %> seats remaining under this offer!</div>
+					
+					<% if num_of_remaining_seats <= 20 && num_of_remaining_seats > 0 %>
+					<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= num_of_remaining_seats %> seats remaining under this offer!</div>
 					<% end %>
-
 				</div>
 				<div class="offer-price">
 					<table class="table table-condensed">
@@ -50,15 +48,21 @@
 							<td><b class="price-type green"><span class=""> </span> </b><br>
 								<small><span class="label label-default"><s><%= number_to_currency(full_price) %> CAD</s></span></small><br>
 							</td>
-
 							<td><b class="price-type green"><span class=""> </span> </b><br>
 								<small><span class="label label-danger"><%= number_to_currency(agency_offered_price) %> CAD</span></small><br>
-								<%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %>
+								
+								<% if num_of_remaining_seats <= 0 %>
+									<%= link_to "#", class: "btn btn-danger btn-sm book-now btn-embossed", disabled: "disabled"  do %>
+										<i class="oi oi-ban"></i> Sold Out
+									<% end %>
+								<% else %>
+								    <%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %>
 									<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
+								<% end %>
+								
 								
 							</td>
-
 						</tr>
 						
 					</table>
@@ -74,9 +78,9 @@
 						<span class="glyphicon glyphicon-asterisk"></span> This offer can not be combined with other promotions
 						<br>
 						<% viewers = rand(1..20) %>
-					<% if viewers >= 4 %>
+						<% if viewers >= 4 %>
 						<span class="offer-seats-viewing"><span class="oi oi-eye"></span> There are <%= viewers %> users viewing this offer right now!</span>
-					<% end %>
+						<% end %>
 					</div>
 				</div>
 			</div>
