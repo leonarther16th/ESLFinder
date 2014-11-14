@@ -87,6 +87,7 @@ class SearchesController < ApplicationController
     @seat = Seat.all
     @search = Search.new
     @search.user_id = current_user.id
+    @search.num_seats = 1
     @last_search = Search.find(params[:id])
     all_region_id = Region.where("name = ?", "All").first.id
     @offers = Offer.where('? between start_date and end_date and ? between min_num_weeks and max_num_weeks and (regions = ? or regions = ?)', @last_search.start_date, @last_search.num_weeks, @last_search.country.region.id.to_s, all_region_id.to_s)
@@ -104,6 +105,11 @@ class SearchesController < ApplicationController
       @added_discount= [{price: 0}]
     end
 
+    @booking_launch_time = Time.zone.local(2014, 11, 17, 9, 5,0)
+    @time_now = Time.zone.now
+    @booking = true if @time_now >= @booking_launch_time
+
+    
 
   end
 

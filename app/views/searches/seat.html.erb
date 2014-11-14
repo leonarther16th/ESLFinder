@@ -56,13 +56,20 @@
 										<i class="oi oi-ban"></i> Sold Out
 									<% end %>
 								<% else %>
-								   
-								   <%/ link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do /%> 
-
-								   <%= link_to "#", class: "btn btn-info btn-xs book-now btn-embossed", onclick: "alert('In order not to overwhelm you the [Book Now] function will be launched in the very near future. You will receive an e-mail informing you of the launch.!')" do %> 
-
-									<i class="glyphicon glyphicon-credit-card"></i> Book Now
+								   <% if @booking %>
+								       <%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %> 
+								       <i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
+								   <% else %>
+								       <%= link_to "#", class: "btn btn-info btn-xs book-now btn-embossed", onclick: "alert('In order not to overwhelm you the [Book Now] function will be launched in #{time_ago_in_words @booking_launch_time, @time_now}! Launch date is #{@booking_launch_time.to_formatted_s(:long)} Toronto time!')" do -%> 
+								       <i class="glyphicon glyphicon-credit-card"></i> Book Now
+									<% end %>
+								   <% end %>
+								
+
+						
+
+									
 								<% end %>
 								
 								

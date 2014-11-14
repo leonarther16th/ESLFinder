@@ -10,11 +10,10 @@
   </div>
 
 
-  <div class="col-lg-6">
-    <%= f.input :num_seats, as: :string, label: "Number of students" %>
-  </div>
+    <%= f.hidden_field :num_seats, as: :string, label: "Number of students" %>
 
-  <div class="col-lg-12">
+
+  <div class="col-lg-6">
     <%= f.input :start_date, as: :string, input_html: { class: "",  id: "datepicker", 'data-date-format' => "dd-mm-yyyy" } %>
   </div>
   <div class="col-lg-12">
