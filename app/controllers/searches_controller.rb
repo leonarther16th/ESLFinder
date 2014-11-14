@@ -18,6 +18,7 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
     @search.user_id = current_user.id
+    @search.num_seats = 1
 
     @halifax_lowest_price = School.find_by_city_id(100).offers.order(:weekly_price).first.weekly_price
     @ottawa_lowest_price = School.find_by_city_id(200).offers.order(:weekly_price).first.weekly_price
