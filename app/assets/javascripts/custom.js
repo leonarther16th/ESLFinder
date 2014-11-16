@@ -1,55 +1,67 @@
+$(document).ready(function() {
 
-  $( document ).ready(function() {
-  $('#datepicker').datepicker({
-    daysOfWeekDisabled:[0,2,3,4,5,6],
-    autoclose: true
-  });
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $( $(this).attr('href') );
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        };
+    });
 
-  $('.datepicker').datepicker({
-    daysOfWeekDisabled:[0,1,2,3,4,6],
-    autoclose: true
-  });
+    $('#datepicker').datepicker({
+        daysOfWeekDisabled: [0, 2, 3, 4, 5, 6],
+        autoclose: true
+    });
 
-  $(".select2").select2({
-      placeholder: "Please select..."
-  });
+    $('.datepicker').datepicker({
+        daysOfWeekDisabled: [0, 1, 2, 3, 4, 6],
+        autoclose: true
+    });
 
-  $("#select2-city").select2({
-      placeholder: "Select a City"
-  });
+    $(".select2").select2({
+        placeholder: "Please select..."
+    });
 
-  $("#select2-country").select2({
-      placeholder: "Select a Country"
-  });
+    $("#select2-city").select2({
+        placeholder: "Select a City"
+    });
 
-  $("#wysihtml").wysihtml5();
+    $("#select2-country").select2({
+        placeholder: "Select a Country"
+    });
 
-  $('.ref-popup').popover();
+    $("#wysihtml").wysihtml5();
 
-if (matchMedia('only screen and (max-width: 300px)').matches) {
+    $('.ref-popup').popover();
 
-   $('.filter').affix({
-    offset: {
-      top: 100
-    , bottom: 100
+    if (matchMedia('only screen and (max-width: 300px)').matches) {
+
+        $('.filter').affix({
+            offset: {
+                top: 100,
+                bottom: 100
+            }
+        });
     }
-  });
-}
- 
 
-$("select").selectpicker({style: 'btn-sm btn-default', menuStyle: 'dropdown-inverse'});
 
-$(".agency-settings-field").change( function() {
-  $('#save-agency').html('<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes').removeClass('btn-primary').addClass('btn-inverse');
+    $("select").selectpicker({
+        style: 'btn-sm btn-default',
+        menuStyle: 'dropdown-inverse'
+    });
+
+    $(".agency-settings-field").change(function() {
+        $('#save-agency').html('<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes').removeClass('btn-primary').addClass('btn-inverse');
+    });
+
+    $("select").change(function() {
+        $('#save-setting').html('<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes').removeClass('btn-primary').addClass('btn-inverse');
+    });
+
 });
 
-$("select").change( function() {
-  $('#save-setting').html('<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes').removeClass('btn-primary').addClass('btn-inverse');
-});
-
-});
-
-$(document).on('page:load', function(){
-  window['rangy'].initialized = false
+$(document).on('page:load', function() {
+    window['rangy'].initialized = false
 })
-

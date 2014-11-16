@@ -23,9 +23,11 @@ body{
 	font-family: 'Montserrat', sans-serif;
 }
 
+
 .footnote{
 	font-size: .7em;
 	color: $primary-color;
+
 }
 
 .well{
@@ -402,3 +404,14 @@ ul.wysihtml5-toolbar > li > div.btn-group > .btn{
 	font-style: italic;
 }
 
+.faq-link{
+	color: $primary-color;
+}
+.faq-link:hover{
+	color: lighten($primary-color,10);
+	text-decoration: underline;
+
+}
+.q{
+	padding-top:4px;
+}

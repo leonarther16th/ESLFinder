@@ -27,6 +27,8 @@ end
 
 gem 'ratyrate', :github => 'wazery/ratyrate'
 
+gem 'high_voltage', '~> 2.2.1'
+
 gem 'jquery-turbolinks'
 
 gem 'will_paginate', '~> 3.0.5'
