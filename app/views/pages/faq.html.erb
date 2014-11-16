@@ -1,3 +1,4 @@
+<% if user_signed_in? and current_user.current_active_state == 'admin' %>
 <% qa = [{q: "Can I use eslBooking for last minute sales?",a: "Prices are offered based on available seats which can't be predicted by booking early or in the last minute. Offers may be available for students looking for last minute deals, however, this can’t be guaranteed."},{q: "Can I book more than one offer per student?",a: "You can book more than one eslBooking offer for ONE student if you find them, but be mindful of the start date of each offer. This is a “Bundled Offer,” so you need to email the school director to manually issue the invoice and LOA."},{q: "I want to show students eslBooking prices on my computer, but don’t want them to see the original prices. What can I do?",a: "You can use the icon called “Pricing Setting” from the top menu to change the prices offered and protect your price privacy."},{q: "I want to book a group. How can I do this?",a: "Please contact the campus director directly."},{q: "Can I book several student offers at one time?",a: "In order to ensure accuracy you must book each offer individually"},{q: "Can an offer ever be extended past the deadline?",a: "?"},{q: "Can I contact the school directly to see if I can get a better deal than what’s offered on eslBooking?",a: "?"},{q: "Can eslBooking contact me whenever a new offer is uploaded for a particular school?",a: "Currently no. However, promotional e-mails will go out weekly highlighting the newest deals available."},{q: "How will I know when a new offer is available?",a: "Simply check back daily as new offers will be posted on a daily basis."},{q: "Is there a maximum number of offers that I can make at any given time?",a: "No. You can make as many you like."},{q: "Can I hide the recommended price?",a: "Yes. Just go to..."}] %>
 <div class="col-lg-8 col-lg-offset-2">
 	<div class="well">
@@ -20,3 +21,4 @@
 		</dl>
 	</div>
 </div>
+<% end %>
