@@ -106,7 +106,7 @@ class SearchesController < ApplicationController
       @added_discount= [{price: 0}]
     end
 
-    @booking_launch_time = Time.zone.local(2014, 11, 17, 9, 5,0)
+    @booking_launch_time = Time.zone.local(2014, 11, 17, 9, 30,0)
     @time_now = Time.zone.now
     @booking = true if @time_now >= @booking_launch_time
 
