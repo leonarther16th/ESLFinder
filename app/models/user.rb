@@ -45,6 +45,21 @@ class User < ActiveRecord::Base
       false 
   end
 
+  def deactivate
+    user_states = UserState.where('user_id = ?', self.id)
+      if user_states 
+        user_states.each do |s|
+          s.active = false
+          s.save
+        end
+      end
+      user_state = UserState.new
+      user_state.user_state = 'n/a'
+      user_state.user_id = self.id
+      user_state.active = true
+      user_state.save
+  end
+
   def current_active_state
     states = self.user_states.where('active = ?', true)
     if states.count > 0
