@@ -24,7 +24,7 @@
         
         <tr>
           <% if current_user.current_active_state == 'admin' %>
-            <td><%= order.user.agency_name %></td>
+            <td><%= "#{order.user.email}/#{order.user.agency_name}" %></td>
           <% end %>
           <td><%= link_to order.school, class: "btn btn-xs btn-default btn-embossed", target: "_blank" do %>
                 <%= order.school.name %> &nbsp <span class="oi oi-external-link"></span>
