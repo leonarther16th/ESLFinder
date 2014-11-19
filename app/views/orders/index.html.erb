@@ -4,7 +4,9 @@
   <table class="table table-striped">
     <thead>
       <tr>
-
+      <% if current_user.current_active_state == 'admin' %>
+        <th>Agency</th>
+      <% end %>
         <th>School</th>
         <th>Order summary</th>
         <th>Total price</th>
@@ -21,6 +23,9 @@
       <% @orders.each do |order| %>
         
         <tr>
+          <% if current_user.current_active_state == 'admin' %>
+            <td><%= order.user.agency_name %></td>
+          <% end %>
           <td><%= link_to order.school, class: "btn btn-xs btn-default btn-embossed", target: "_blank" do %>
                 <%= order.school.name %> &nbsp <span class="oi oi-external-link"></span>
               <% end %>

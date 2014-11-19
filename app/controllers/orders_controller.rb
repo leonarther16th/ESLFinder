@@ -5,7 +5,11 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = current_user.orders.paginate(:page => params[:page])
+    if current_user.current_active_state == 'admin'
+      @orders = Order.all.paginate(:page => params[:page])
+    else
+      @orders = current_user.orders.paginate(:page => params[:page])
+    end
   end
 
   # GET /orders/1
