@@ -1,5 +1,7 @@
 Eslfinder::Application.routes.draw do
 
+  resources :auto_offers
+
   resources :students
 
   resources :reservations

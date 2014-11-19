@@ -1,0 +1,2 @@
+module AutoOffersHelper
+end

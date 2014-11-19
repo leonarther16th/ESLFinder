@@ -1,0 +1,51 @@
+<h1>Listing auto_offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weekly price</th>
+      <th>Min num weeks</th>
+      <th>Max num weeks</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Num of seats</th>
+      <th>Weekly limit</th>
+      <th>Flag</th>
+      <th>Pay within</th>
+      <th>Course</th>
+      <th>Regular price</th>
+      <th>Regions</th>
+      <th>Schools</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auto_offers.each do |auto_offer| %>
+      <tr>
+        <td><%= auto_offer.weekly_price %></td>
+        <td><%= auto_offer.min_num_weeks %></td>
+        <td><%= auto_offer.max_num_weeks %></td>
+        <td><%= auto_offer.start_date %></td>
+        <td><%= auto_offer.end_date %></td>
+        <td><%= auto_offer.num_of_seats %></td>
+        <td><%= auto_offer.weekly_limit %></td>
+        <td><%= auto_offer.flag %></td>
+        <td><%= auto_offer.pay_within %></td>
+        <td><%= auto_offer.course_id %></td>
+        <td><%= auto_offer.regular_price %></td>
+        <td><%= auto_offer.regions %></td>
+        <td><%= auto_offer.schools %></td>
+        <td><%= link_to 'Show', auto_offer %></td>
+        <td><%= link_to 'Edit', edit_auto_offer_path(auto_offer) %></td>
+        <td><%= link_to 'Destroy', auto_offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auto offer', new_auto_offer_path %>

@@ -1,18 +1,18 @@
-<%= simple_form_for(@offer) do |f| %>
+<%= simple_form_for(@auto_offer) do |f| %>
 <%= f.error_notification %>
 <div class="row">
   <div class="form-inputs">
     <div class="col-lg-3">
    
-      <%= f.input :school_id do %>
-        <%= f.input_field :school_id, as: :select, collection: @schools, value_method: :id, label_method: :name %>
+      <%= f.input :schools do %>
+        <%= f.input_field :schools, as: :select, collection: @schools, value_method: :id, label_method: :name, multiple: true %>
       <% end %>
     </div>
 
     <div class="col-lg-3">
    
       <%= f.input :regions do %>
-        <%= f.input_field :regions, as: :select, collection: Region.all, input_html: {class: "agency-settings-field", id: ""} %>
+        <%= f.input_field :regions, as: :select, collection: Region.all, input_html: {class: "agency-settings-field", id: ""}, multiple: true %>
       <% end %>
     </div>
     <div class="col-lg-3">

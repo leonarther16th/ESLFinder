@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922145721) do
+ActiveRecord::Schema.define(version: 20141119034101) do
 
   create_table "agencies", force: true do |t|
     t.string   "name"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20140922145721) do
   create_table "app_settings", force: true do |t|
     t.string   "name"
     t.text     "options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "auto_offers", force: true do |t|
+    t.float    "weekly_price"
+    t.integer  "min_num_weeks"
+    t.integer  "max_num_weeks"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "num_of_seats"
+    t.integer  "weekly_limit"
+    t.string   "flag"
+    t.integer  "pay_within"
+    t.integer  "course_id"
+    t.float    "regular_price"
+    t.string   "regions"
+    t.string   "schools"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,6 +100,7 @@ ActiveRecord::Schema.define(version: 20140922145721) do
     t.integer  "pay_within"
     t.integer  "course_id"
     t.float    "regular_price"
+    t.string   "schools"
   end
 
   create_table "orders", force: true do |t|

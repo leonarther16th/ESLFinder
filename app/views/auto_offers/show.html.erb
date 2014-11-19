@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weekly price:</strong>
+  <%= @auto_offer.weekly_price %>
+</p>
+
+<p>
+  <strong>Min num weeks:</strong>
+  <%= @auto_offer.min_num_weeks %>
+</p>
+
+<p>
+  <strong>Max num weeks:</strong>
+  <%= @auto_offer.max_num_weeks %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @auto_offer.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @auto_offer.end_date %>
+</p>
+
+<p>
+  <strong>Num of seats:</strong>
+  <%= @auto_offer.num_of_seats %>
+</p>
+
+<p>
+  <strong>Weekly limit:</strong>
+  <%= @auto_offer.weekly_limit %>
+</p>
+
+<p>
+  <strong>Flag:</strong>
+  <%= @auto_offer.flag %>
+</p>
+
+<p>
+  <strong>Pay within:</strong>
+  <%= @auto_offer.pay_within %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @auto_offer.course_id %>
+</p>
+
+<p>
+  <strong>Regular price:</strong>
+  <%= @auto_offer.regular_price %>
+</p>
+
+<p>
+  <strong>Regions:</strong>
+  <%= @auto_offer.regions %>
+</p>
+
+<p>
+  <strong>Schools:</strong>
+  <%= @auto_offer.schools %>
+</p>
+
+<%= link_to 'Edit', edit_auto_offer_path(@auto_offer) %> |
+<%= link_to 'Back', auto_offers_path %>
