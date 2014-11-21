@@ -18,6 +18,9 @@
 		</div><hr>
 		<% @offers.each do |o| %>
 		<% num_of_remaining_seats = o.num_of_seats - o.orders.count %>
+		<% if num_of_remaining_seats > 8 %>
+			<% num_of_remaining_seats -= rand(1..4) %>
+		<% end %>
 		<div class="seat-well <%= "sold" if num_of_remaining_seats <= 0 %>" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
 			<div class="seat-details">
 				<div class="seat-info">
