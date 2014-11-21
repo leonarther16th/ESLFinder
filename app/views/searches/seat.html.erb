@@ -35,9 +35,9 @@
 					<% full_price = o.regular_price * @last_search.num_weeks * @last_search.num_seats %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= o.course.name %></div>
 					<% if o.regular_price %>
-					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency((full_price) - agency_offered_price ) %></b> </div>
+					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <%= number_to_currency((full_price) - agency_offered_price ) %> </div>
 					<% else %>
-					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <b><%= number_to_currency(agency_full_price - agency_offered_price ) %></b> </div>
+					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <%= number_to_currency(agency_full_price - agency_offered_price ) %> </div>
 					<% end %>
 					<br>
 					
@@ -60,7 +60,7 @@
 									<% end %>
 								<% else %>
 								   <% if @booking %>
-								       <%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-success btn-xs book-now btn-embossed"  do %> 
+								       <%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-info btn-xs book-now btn-embossed"  do %> 
 								       <i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
 								   <% else %>
