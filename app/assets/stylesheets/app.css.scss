@@ -229,6 +229,11 @@ body{
 	}
 	.table-condensed > thead > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td {
 		border: none;
+
+	}
+	.table-condensed > tbody > tr >td {
+		padding: 0px;
+		margin-top: 0px;
 	}
 	.price-type{
 		font-size: .5em;
@@ -290,6 +295,11 @@ body{
 	font-size: .6em;
 	margin-left: 3px;
 
+}
+.label-dates{
+	font-size: .6em;
+	background-color: $golden-color;
+	color: $nice-orange;
 }
 
 .star{

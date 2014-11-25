@@ -19,7 +19,7 @@
 		<% @offers.each do |o| %>
 		<% num_of_remaining_seats = o.num_of_seats - o.orders.count %>
 		<% if num_of_remaining_seats > 8 %>
-			<% num_of_remaining_seats -= rand(1..4) %>
+		<% num_of_remaining_seats -= rand(1..4) %>
 		<% end %>
 		<div class="seat-well <%= "sold" if num_of_remaining_seats <= 0 %>" data-container="body" data-toggle="tooltip" data-placement="left" data-title="Valid only until <%= o.end_date.to_formatted_s(:long) %>, with a limited weekly seats of <%= o.weekly_limit %>">
 			<div class="seat-details">
@@ -53,30 +53,37 @@
 							</td>
 							<td><b class="price-type green"><span class=""> </span> </b><br>
 								<small><span class="label label-success"><%= number_to_currency(agency_offered_price) %> CAD</span></small><br>
-								
+							</td>
+						</tr>
+						<tr>
+							
+							<td colspan="2">
+								<small><%= "<span class='label label-dates'>Available from <u><b>#{o.start_date.to_formatted_s(:long)}</b></u> to <u><b>#{o.end_date.to_formatted_s(:long)}</b></u> only.".html_safe %></small>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
 								<% if num_of_remaining_seats <= 0 %>
 									<%= link_to "#", class: "btn btn-danger btn-sm book-now btn-embossed", disabled: "disabled"  do %>
 										<i class="oi oi-ban"></i> Sold Out
 									<% end %>
 								<% else %>
-								   <% if @booking %>
-								       <%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-info btn-xs book-now btn-embossed"  do %> 
-								       <i class="glyphicon glyphicon-credit-card"></i> Book Now
+									<% if @booking %>
+										<%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-info btn-xs book-now btn-embossed"  do %>
+										<i class="glyphicon glyphicon-credit-card"></i> Book Now
+										<% end %>
+									<% else %>
+										<%= link_to "#", class: "btn btn-info btn-xs book-now btn-embossed", onclick: "alert('In order not to overwhelm you the [Book Now] function will be launched in #{time_ago_in_words @booking_launch_time, @time_now}! Launch date is #{@booking_launch_time.to_formatted_s(:long)} Toronto time!')" do -%>
+										<i class="glyphicon glyphicon-credit-card"></i> Book Now
 									<% end %>
-								   <% else %>
-								       <%= link_to "#", class: "btn btn-info btn-xs book-now btn-embossed", onclick: "alert('In order not to overwhelm you the [Book Now] function will be launched in #{time_ago_in_words @booking_launch_time, @time_now}! Launch date is #{@booking_launch_time.to_formatted_s(:long)} Toronto time!')" do -%> 
-								       <i class="glyphicon glyphicon-credit-card"></i> Book Now
-									<% end %>
-								   <% end %>
-								
-
-						
-
-									
+								<% end %>
+		
 								<% end %>
 								
 								
 							</td>
+							</tr>
 						</tr>
 						
 					</table>
