@@ -123,6 +123,7 @@ body{
 		
 		}
 
+
 	}
 
 	
@@ -137,6 +138,9 @@ body{
 	}
 	.offer-course{
 		padding-top: 10px;
+	}
+	.offer-duration{
+	font-size: .8em;
 	}
 	.offer-button{
 		margin-top: 28px;
@@ -414,7 +418,7 @@ ul.wysihtml5-toolbar > li > div.btn-group > .btn{
 
 .sold{
 	background-color: lighten($dark-gray, 25);
-	font-style: italic;
+	//font-style: italic;
 }
 
 .faq-link{
@@ -428,3 +432,5 @@ ul.wysihtml5-toolbar > li > div.btn-group > .btn{
 .q{
 	padding-top:4px;
 }
+
+

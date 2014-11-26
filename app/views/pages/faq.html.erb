@@ -45,7 +45,7 @@ The ‘Book Now’ feature works by following these 8 short steps:
 		<br>
 		<legend><%= t %>: </legend>
 			<% qs.each_with_index do |qa, num| %>
-				<li class="q"><span class="oi oi-badge"></span> <strong><a href="#q<%= "#{num}#{t}" %>", class= "faq-link" >
+				<li class="q"><span class="oi oi-badge"></span> <strong><a href="#q<%= "#{num}#{t.gsub(/\s+/, "")}" %>", class= "faq-link" >
 					<%= qa[:q] %>
 				</a></strong></li>
 			<% end %>
@@ -57,7 +57,7 @@ The ‘Book Now’ feature works by following these 8 short steps:
 		<% titles.each do |t| %>
 		<% qs = qa.select {|x| x[:title] == t} %>
 			<% qs.each_with_index do |qa, num| %>
-				<dt id="q<%= "#{num}#{t}" %>"><strong>Q: </strong><%= qa[:q] %></dt>
+				<dt id="q<%= "#{num}#{t.gsub(/\s+/, "")}" %>"><strong>Q: </strong><%= qa[:q] %></dt>
 				<dd><strong>A: </strong><%= qa[:a].html_safe %></dd>
 				<hr>
 			<% end %>
