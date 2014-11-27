@@ -39,17 +39,13 @@
 					<% agency_offered_price = o.weekly_price * @last_search.num_weeks * (1 + @increase_by) * @last_search.num_seats %>
 					<% full_price = o.regular_price * @last_search.num_weeks * @last_search.num_seats %>
 					<div class="offer-course"><span class="glyphicon glyphicon-book"></span> <%= o.course.name %></div>
-					<div class="offer-duration"><span class="oi oi-loop"></span> Available for purchases between <%= "#{o.min_num_weeks} to #{o.max_num_weeks} weeks!" %> </div>
 					<% if o.regular_price %>
 					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <%= number_to_currency((full_price) - agency_offered_price ) %> </div>
 					<% else %>
 					<div class="saving"><span class="glyphicon glyphicon-saved"></span> You are saving <%= number_to_currency(agency_full_price - agency_offered_price ) %> </div>
 					<% end %>
-					<br>
 					
-					<% if num_of_remaining_seats <= 20 && num_of_remaining_seats > 0 %>
-					<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We have only <%= num_of_remaining_seats %> seats remaining under this offer!</div>
-					<% end %>
+					
 				</div>
 				<div class="offer-price">
 					<table class="table table-condensed">
@@ -61,15 +57,16 @@
 								<small><span class="label label-success"><%= number_to_currency(agency_offered_price) %> CAD</span></small><br>
 							</td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							
 							<td colspan="2">
 								<small><%= "<span class='label label-dates'>Available from <u><b>#{o.start_date.to_formatted_s(:long)}</b></u> to <u><b>#{o.end_date.to_formatted_s(:long)}</b></u> only.".html_safe %></small>
 							</td>
-						</tr>
-						<tr>
+						</tr> -->
+						<tr class="book-button">
 							
 							<td colspan="2">
+							<br>
 								<% if num_of_remaining_seats <= 0 %>
 									<%= link_to "#", class: "btn btn-danger btn-sm book-now btn-embossed", disabled: "disabled"  do %>
 										<i class="oi oi-ban"></i> Sold Out
@@ -80,8 +77,8 @@
 										<i class="glyphicon glyphicon-credit-card"></i> Book Now
 										<% end %>
 									<% elsif @booking and !can_book %>
-										<%= link_to "#", class: "btn btn-info btn-xs book-now btn-embossed"  do %>
-										<span data-container="body" data-toggle="tooltip" data-placement="bottom" title="This offer is not available based on the search criteria choosen, please change the start date and the number of weeks to get this offer!"><span class="oi oi-circle-x"></span> Not available for your search</span>
+										<%= link_to "#", class: "btn btn-danger btn-xs book-now btn-embossed"  do %>
+										<span data-container="body" data-toggle="tooltip" data-placement="bottom" title="This offer is not available based on the search criteria choosen, please change the start date and the number of weeks to book this offer!"><span class="oi oi-circle-x"></span> Not available for your search</span>
 										<% end %>
 										
 									<% else %>
@@ -98,14 +95,31 @@
 						</tr>
 						
 					</table>
-					<div class="price-details book-now ">
+					
+				</div>
+			</div>
+
+			<div class="row">
+			<hr>
+				<div class="col-lg-7">
+					<b>Conditions</b>
+					<div class="offer-dates"><span class="oi oi-calendar"></span> <%= "Available from <u><b>#{o.start_date.to_formatted_s(:long)}</b></u> to <u><b>#{o.end_date.to_formatted_s(:long)}</b></u> only.".html_safe %></div>
+					<div class="offer-duration"><span class="oi oi-loop"></span> Available for purchases between <%= "#{o.min_num_weeks} to #{o.max_num_weeks} weeks." %> </div>
+					
+					<% if num_of_remaining_seats <= 20 && num_of_remaining_seats > 0 %>
+					<div class="offer-seats-remaining"><span class="oi oi-warning"></span> We only have <%= num_of_remaining_seats %> seats remaining under this offer!</div>
+					<% end %>
+				</div>
+				<div class="col-lg-5">
+					<div class="offer-notes">
+					<br>
 						<% if @hide_sug_price == 'No' %>
 						<span class="glyphicon glyphicon-asterisk"></span> Recommended minimum price for students: <strong class="red"><%= number_to_currency((agency_offered_price * 1.30) / (1 + @increase_by)) %></strong>.<br>
 						<% end %>
 						<% num_seats = @last_search.num_seats %>
 						<% num_weeks = @last_search.num_weeks %>
-						<span class="glyphicon glyphicon-asterisk"></span> This price is for <%= num_weeks %> <%= "week".pluralize(num_weeks) %> and for <%= num_seats %> <%= "student".pluralize(num_seats) %><br>
-						<span class="glyphicon glyphicon-asterisk"></span> This is a final offer.
+						<!-- <span class="glyphicon glyphicon-asterisk"></span> This price is for <%= num_weeks %> <%= "week".pluralize(num_weeks) %> and for <%= num_seats %> <%= "student".pluralize(num_seats) %><br> -->
+						<span class="glyphicon glyphicon-asterisk"></span> This is a final offer
 						<br>
 						<span class="glyphicon glyphicon-asterisk"></span> This offer can not be combined with other promotions
 						<br>

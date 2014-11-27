@@ -139,23 +139,28 @@ body{
 	.offer-course{
 		padding-top: 10px;
 	}
-	.offer-duration{
+	.offer-duration, .offer-dates{
 	font-size: .8em;
+	}
+	.offer-notes{
+		font-size: .65em;
+		color: darken($nice-gray,40);
 	}
 	.offer-button{
 		margin-top: 28px;
 	}
 	
 	.offer-seats-remaining{
-		padding-top: 10px;
+		//padding-top: 10px;
 		color: #c0392b;
+		font-size: .8em;
 		margin-bottom: -1px;
-		background-color: rgba(241, 196, 15, 0.39);
-		padding: 2px;
-		align-content: center;
-		text-align: center;
+		//background-color: rgba(241, 196, 15, 0.39);
+		//padding: 2px;
+		//align-content: center;
+		//text-align: center;
 		width: 344px;
-		border-radius: 5px;
+		
 	}
 
 	.offer-seats-viewing{
@@ -238,7 +243,9 @@ body{
 	.table-condensed > tbody > tr >td {
 		padding: 0px;
 		margin-top: 0px;
+		
 	}
+	
 	.price-type{
 		font-size: .5em;
 		color: #bdc3c7;
