@@ -1,6 +1,6 @@
 
 <div class="alert alert-success" role="alert">
-  <strong><span class="oi oi-check"></span> Your booking is successfully saved!</strong>
+  <strong><span class="oi oi-check"></span> Your booking is successfully <% if @order.state == 'confirmed'%>confirmed <% else %>saved<% end %>!</strong>
 </div>
 <div class="well">
 <legend><span class="oi oi-calculator"></span> Order Details</legend> 
