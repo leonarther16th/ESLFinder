@@ -2,7 +2,7 @@
 	
 
 <div class="well">
-	<legend>Order Reservation</legend>
+	<legend>Order Confirmation</legend>
 	<table class="table table-striped ">
 		<thead>
 			<tr>
@@ -19,11 +19,13 @@
 			</tr>
 		</tbody>
 	</table>
-	<span class="label label-info pull-right"><span class="oi oi-star"></span> Your credit card information is only to hold this reservation until payment is made directly to school prior to the offer deadline!</span>
-	<br>
+	<div class="alert alert-imp-info" role="alert"><stron><span class="glyphicon glyphicon-info-sign"></span></stron> Your credit card is <u>only to confirm</u> this booking until payment is made directly to the school, and <u>will not be charged</u>!</div>
+	
 </div>
 <div class="tile tile-white">
 	<%= render 'form' %>
+	<br>
+	<div class="alert alert-imp-info light" role="alert"><stron><span class="glyphicon glyphicon-info-sign"></span></stron> Please contact the school with your confirmation number once your booking has been confirmed to begin the registration process!</div>
 </div>
 <br>
 </div>

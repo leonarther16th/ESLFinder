@@ -1,7 +1,12 @@
 
-
+<div class="alert alert-success" role="alert">
+  <strong><span class="oi oi-check"></span> Your booking is successfully saved!</strong>
+</div>
 <div class="well">
-<legend><span class="oi oi-calculator"></span> Order Details</legend> <span class="pull-right"><i>Referenece number:</i> <span class="label label-default"><%= @order.offer_code %></span></span><br>
+<legend><span class="oi oi-calculator"></span> Order Details</legend> 
+<% if @order.state == 'confirmed' %>
+<span class="pull-right"><i>Confirmation number:</i> <span class="label label-default"><%= @order.offer_code %></span></span><br>
+<% end %>
 
 <table class="table table-striped ">
   <thead>
@@ -25,7 +30,12 @@
   </tbody>
 </table>
 
-<br>
+<% if @order.state != 'confirmed' %>
+  <div class="alert alert-warning" role="alert">
+    <strong><span class="oi oi-warning"></span> Your booking will be canceled automatically if you don't confirm before to <%= "#{(@order.created_at.to_date + @order.offer.pay_within).to_formatted_s(:long)} at #{@order.created_at.strftime('%I:%M%p')}" %>!</strong>
+  </div>
+<% end %>
+
 <div class="col-lg-4">
   <table class="table">
 
@@ -69,7 +79,7 @@
         <tr>
         <% if @order.state == 'pending' %>
           <td><%= link_to new_reservation_path(order_id: @order.id), class: "btn btn-md btn-primary btn-embossed" do %>
-                <span class="oi oi-credit-card"></span>&nbsp Reserve order
+                <span class="oi oi-credit-card"></span>&nbsp Confirm order
               <% end %>
           </td>
           <% end %>
@@ -83,7 +93,7 @@
   </table>
 </div>
 <p></p><br><br>
-<span class="label label-info pull-right label-big"><span class="oi oi-star"></span> Your credit card information is only to hold this reservation until payment is made directly to school prior to the offer deadline!</span>
+<!-- <span class="label label-info pull-right label-big"><span class="oi oi-star"></span> Your credit card information is only to hold this reservation until payment is made directly to school prior to the offer deadline!</span> -->
   
 <br>
 <br>

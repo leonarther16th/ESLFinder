@@ -11,7 +11,7 @@
         <th>Order summary</th>
         <th>Total price</th>
         <th>Status</th>
-        <th>Referenece #</th>
+        <th>Confirmation #</th>
         <th></th>
         <th>Student</th>
         <th></th>
@@ -34,12 +34,14 @@
           <td><strong><%= number_to_currency(order.total_price) %></strong></td>
           <td><span class="label <%= labelTag(order.state)[0] %>  label-lg"><%= order.state.humanize %>&nbsp &nbsp <span class="oi <%= labelTag(order.state)[1] %>"></span></span></td>
           <td>
+          <% if order.state == 'confirmed' %>
             <a class="btn btn-xs btn-default btn-embossed ref-popup" data-container="body" data-toggle="popover" data-content="<%= order.offer_code %>"  >Show/Hide</a>
+          <% end %>
           </td>
           <td>
           <% if order.state == 'pending' %>
             <%= link_to new_reservation_path(order_id: order.id), class: "btn btn-xs btn-primary btn-embossed" do %>
-                  <span class="oi oi-credit-card"></span>&nbsp Reserve
+                  <span class="oi oi-credit-card"></span>&nbsp Confirm
                 <% end %>
           <% end %>
           </td>
@@ -65,10 +67,5 @@
     </tbody>
   </table>
 <%= will_paginate @orders, class: "apple_pagination" %>
-  <br>
-
-    
-  <span class="label label-info pull-right label-big"><span class="oi oi-star"></span> Your credit card information is only to hold this reservation until payment is made directly to school prior to the offer deadline!</span>
-  
-<br>
+ 
 </div>

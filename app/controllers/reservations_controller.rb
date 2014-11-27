@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       @order = Order.find_by_id(@reservation.order_id)
       if @reservation.save
-        @order.state = 'reserved'
+        @order.state = 'confirmed'
         @order.save
         format.html { redirect_to @order, notice: 'Reservation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reservation }
