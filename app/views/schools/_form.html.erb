@@ -7,6 +7,7 @@
   <%= f.input :country_id, as: :select, collection: countries, value_method: :id, label_method: :name, input_html: {id: "select2-country", "style" => "width:390px"} %>
   <%= f.input :city_id , as: :select, collection: cities, value_method: :id, label_method: :name, input_html: {id: "select2-city", "style" => "width:390px"} %>
   <%= f.input :avatar, as: :string, label: "School avatar Url" %>
+  <%= f.input :reg_link, as: :string, label: "Registration Link" %>
   <%= f.input :about, as: :text, :input_html => { :cols => 5, :rows => 10, :id => "wysihtml" } %>
 </div>
 <div class="form-actions">
