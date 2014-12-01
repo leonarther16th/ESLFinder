@@ -13,6 +13,7 @@
         <th>Total seats</th>
         <th>Weekly limit</th>
         <th>Region</th>
+        <th>Orders</th>
         <th></th>
         <th></th>
       </tr>
@@ -29,6 +30,7 @@
           <td><%= offer.num_of_seats %> <span class="oi oi-tags"></span></td>
           <td><%= offer.weekly_limit %> </td>
           <td><%= offer.region.name %></td>
+          <td><%= offer.orders.count %></td>
           <td><span class='label label-default'><%= offer.flag %></span></td>
          <td><%= link_to 'x', offer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs" %></td>
           <!-- <td><% link_to 'Show', offer, class:"btn btn-info btn-xs" %>
