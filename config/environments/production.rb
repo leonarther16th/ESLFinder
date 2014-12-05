@@ -45,6 +45,18 @@ Eslfinder::Application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => "leonarther16th@gmail.com",
+    :password  => "4KqUp2wKJAMKQFLMKTviTg", # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'eslbooking.com', # your domain to identify your server when connecting
+  }
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 

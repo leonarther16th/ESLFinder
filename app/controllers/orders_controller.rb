@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
     #add school id
     
     @order.save
+    OrderMailer.order_booking(@order).deliver
     redirect_to @order, notice: 'Order was successfully created.'
   end
 
@@ -47,6 +48,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        #send email
+        OrderMailer.order_confirmation(@order.user).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
