@@ -1,7 +1,17 @@
-
+<div class="progressbar-well">
+      <ul id="progressbar">
+        <li class="active">Search</li>
+        <li class="active">Book</li>
+        <li>Confirm</li>
+          <li>Register</li>
+      </ul>
+    </div>
+    
 <div class="alert alert-success" role="alert">
   <strong><span class="oi oi-check"></span> Your booking is successfully <% if @order.state == 'confirmed'%>confirmed <% else %>saved<% end %>!</strong>
 </div>
+
+
 <div class="well">
 <legend><span class="oi oi-calculator"></span> Order Details</legend> 
 <% if @order.state == 'confirmed' %>

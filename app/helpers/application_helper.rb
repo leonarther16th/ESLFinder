@@ -49,4 +49,9 @@ module ApplicationHelper
 		u.agency.save
 	end
 
+	def rand_letter(n)
+		chars = ("A".."Z").to_a
+		Array.new(n, '').collect{chars[rand(chars.size)]}.join
+	end
+
 end

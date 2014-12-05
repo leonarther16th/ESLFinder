@@ -15,6 +15,7 @@
         <th></th>
         <th>Student</th>
         <th></th>
+       
 
       </tr>
     </thead>
@@ -24,7 +25,7 @@
         
         <tr>
           <% if current_user.current_active_state == 'admin' %>
-            <td><%= "#{order.user.email}/#{order.user.agency_name}" %></td>
+            <td><%= "<small><b>#{order.user.agency_name}</b><br>#{order.user.email}</small>".html_safe %></td>
           <% end %>
           <td><%= link_to order.school, class: "btn btn-xs btn-default btn-embossed", target: "_blank" do %>
                 <%= order.school.name %> &nbsp <span class="oi oi-external-link"></span>
@@ -32,21 +33,22 @@
           </td>
           <td><i><%= order.num_seats %> seat for <%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></i></td>
           <td><strong><%= number_to_currency(order.total_price) %></strong></td>
-          <td><span class="label <%= labelTag(order.state)[0] %>  label-lg"><%= order.state.humanize %>&nbsp &nbsp <span class="oi <%= labelTag(order.state)[1] %>"></span></span></td>
+          <td><span class="label <%= labelTag(order.currentState)[0] %>  label-lg"><%= order.currentState.humanize %>&nbsp &nbsp <span class="oi <%= labelTag(order.currentState)[1] %>"></span></span></td>
           <td>
-          <% if order.state == 'confirmed' %>
+          <% if order.currentState == 'confirmed' %>
             <a class="btn btn-xs btn-default btn-embossed ref-popup" data-container="body" data-toggle="popover" data-content="<%= order.offer_code %>"  >Show/Hide</a>
           <% end %>
           </td>
           <td>
-          <% if order.state == 'pending' %>
+          <% if order.currentState == 'pending' %>
             <%= link_to new_reservation_path(order_id: order.id), class: "btn btn-xs btn-primary btn-embossed" do %>
                   <span class="oi oi-credit-card"></span>&nbsp Confirm
                 <% end %>
           <% end %>
           </td>
+          <% if order.currentState != 'canceled' %>
           <td>
-            <% if !order.student %>
+            <% if !order.student  %>
               <%= link_to new_student_path(order_id: order.id), class: "btn btn-xs btn-info btn-embossed" do %>
                   <span class="oi oi-link-intact"></span>&nbsp Link student
               <% end %>
@@ -61,7 +63,10 @@
                 <span class="oi oi-circle-x"></span>&nbsp Cancel
               <% end %>
           </td>
-
+        <% else %>
+        <td></td>
+        <td></td>
+       <% end %>
         </tr>
       <% end %>
     </tbody>

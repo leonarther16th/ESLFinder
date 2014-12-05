@@ -24,8 +24,13 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new(order_params)
+    offer = Offer.find_by_id(params[:offer_id])
+    prime = 2711
     @order.user = current_user
-    @order.offer_code = SecureRandom.hex(8)
+    @order.offer_code = "#{(offer.weekly_price.to_i * prime).to_s}#{rand_letter(1)}#{params[:num_weeks].to_i * prime}#{rand_letter(1)}#{params[:start_date].to_date.strftime('%y%m%d').to_i * prime}#{rand_letter(1)}#{offer.regions.to_i * prime}#{rand_letter(1)}#{offer.school_id.to_i * prime}"
+
+    #add school id
+    
     @order.save
     redirect_to @order, notice: 'Order was successfully created.'
   end

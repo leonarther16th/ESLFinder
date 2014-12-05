@@ -5,4 +5,21 @@ class Order < ActiveRecord::Base
 	has_one :reservation, :dependent => :delete
 	has_one :student, :dependent => :delete
 	self.per_page = 10
+
+	def currentState
+
+		if self.state != 'confirmed' && (self.created_at.to_date + self.offer.pay_within) < DateTime.now.to_date
+			return 'canceled'
+		else
+			self.state
+		end
+		
+	end
+
+	def test
+		self.state = 'canceled'
+		self.save
+		self.state
+	end
+
 end
