@@ -37,7 +37,7 @@ class Reservation < ActiveRecord::Base
 
 	def validate_credit_card_number
 		if !credit_card_valid?(self.card_number)
-			error_message = "Please insert a valid credit card number!"
+			error_message = "Please enter a valid credit card number!"
 			errors.add(:card_number, error_message)
 		end
 	end

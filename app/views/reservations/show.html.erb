@@ -1,44 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="progressbar-well">
+      <ul id="progressbar">
+        <li class="active">Search</li>
+        <li class="active">Book</li>
+        <li class="active">Confirm</li>
+          <li class="half-active">Register</li>
+      </ul>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @reservation.user_id %>
-</p>
+<div class="col-lg-8 col-lg-offset-2">
+  <div class="alert alert-success" role="alert">
+    <strong><span class="oi oi-check"></span> Your booking is successfully <% if @order.state == 'confirmed'%>confirmed<% else %>saved<% end %>!</strong>
+  </div>
 
-<p>
-  <strong>Order:</strong>
-  <%= @reservation.order_id %>
-</p>
 
-<p>
-  <strong>Card type:</strong>
-  <%= @reservation.card_type %>
-</p>
 
-<p>
-  <strong>Card name:</strong>
-  <%= @reservation.card_name %>
-</p>
+  <div class="well">
+    <legend>Order Confirmation</legend>
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th>School</th>
+          <th>Order Summary</th>
+          <th>Total price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= link_to @order.school.name, @order.school, class: "order-school-name", target: "_blank" %></td>
+          <td><i><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></i></td>
+          <td><strong><%= number_to_currency(@order.total_price) %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+  </div>
+  <div class="tile tile-white">
+    <div class="alert alert-imp-info light" role="alert"><stron><span class="glyphicon glyphicon-info-sign"></span></stron> Please contact the school with your confirmation number once your booking has been confirmed to begin the registration process!</div>
+  
+    <%= link_to @order.school.reg_link, class: "btn btn-md btn-primary btn-embossed reg", target: "_blank" do %>
+            <span class="oi oi-credit-card"></span>&nbsp Register Student
+    <% end %>
 
-<p>
-  <strong>Card number:</strong>
-  <%= @reservation.card_number %>
-</p>
+  </div>
+  <br>
 
-<p>
-  <strong>Expiry month:</strong>
-  <%= @reservation.expiry_month %>
-</p>
+  
 
-<p>
-  <strong>Expiry year:</strong>
-  <%= @reservation.expiry_year %>
-</p>
 
-<p>
-  <strong>Cvc:</strong>
-  <%= @reservation.cvc %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+
+

@@ -1,0 +1,12 @@
+<p>Dear <%= @user.first_name %>,</p>
+<p>We are sorry that your booking below has not been confirmed by the deadline, therefore, it was automatically cancelled free of charge.</p>
+
+<p>
+<strong>School:</strong> <%= @order.school.name %><br> 
+<strong>Number of Weeks:</strong> <%= @order.num_weeks %><br>
+<strong>Start Date:</strong> <%= @order.start_date.to_formatted_s(:long) %><br> 
+<strong>Total Price:</strong> <%= number_to_currency(@order.total_price) %><br> 
+<strong>Order status: </strong> <%= @order.state %>
+</p>
+<br><br>
+<p>Please visit <a href="https://www.eslbooking.com">eslBooking</a> to search for new offers daily.</p>

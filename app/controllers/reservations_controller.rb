@@ -33,7 +33,8 @@ class ReservationsController < ApplicationController
       if @reservation.save
         @order.state = 'confirmed'
         @order.save
-        format.html { redirect_to @order, notice: 'Reservation was successfully created.' }
+        OrderMailer.order_confirmation(@order).deliver
+        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reservation }
       else
         format.html { render action: 'new'}
@@ -70,6 +71,7 @@ class ReservationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
+      @order = @reservation.order
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

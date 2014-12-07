@@ -24,4 +24,14 @@ class OrderMailer < ActionMailer::Base
          :from    => "eslBooking <info@eslbooking.com>"
   end
 
+  def order_cancelation(order)
+    @user = order.user
+    @order = order
+
+    mail :subject => "Sorry! Your booking is cancelled!",
+         :to      => @user.email,
+         :from    => "eslBooking <info@eslbooking.com>"
+  end
+
+
 end

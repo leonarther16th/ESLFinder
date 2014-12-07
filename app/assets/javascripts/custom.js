@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    $('.reg').click(function () {
+        $('.half-active').removeClass('half-active').addClass('active');
+    });
+
     $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });

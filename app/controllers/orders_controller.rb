@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         #send email
-        OrderMailer.order_confirmation(@order.user).deliver
+        OrderMailer.order_booking(@order).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @order }
       else

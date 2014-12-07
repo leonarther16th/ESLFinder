@@ -1,110 +1,99 @@
+<% if @order.state != 'confirmed' %>
 <div class="progressbar-well">
-      <ul id="progressbar">
-        <li class="active">Search</li>
-        <li class="active">Book</li>
-        <li>Confirm</li>
-          <li>Register</li>
-      </ul>
-    </div>
-    
-<div class="alert alert-success" role="alert">
-  <strong><span class="oi oi-check"></span> Your booking is successfully <% if @order.state == 'confirmed'%>confirmed <% else %>saved<% end %>!</strong>
+  <ul id="progressbar">
+    <li class="active">Search</li>
+    <li class="active">Book</li>
+    <li>Confirm</li>
+    <li>Register</li>
+  </ul>
 </div>
-
-
-<div class="well">
-<legend><span class="oi oi-calculator"></span> Order Details</legend> 
-<% if @order.state == 'confirmed' %>
-<span class="pull-right"><i>Confirmation number:</i> <span class="label label-default"><%= @order.offer_code %></span></span><br>
 <% end %>
 
-<table class="table table-striped ">
-  <thead>
-    <tr>
+<div class="alert alert-success" role="alert">
+  <strong><span class="oi oi-check"></span> Your booking is successfully <% if @order.state == 'confirmed'%>confirmed<% else %>saved<% end %>!</strong>
+</div>
 
-      <th>School</th>
-      <th>Order Summary</th>
-      <th>Total price</th>
-      <th></th>
-
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="well">
+  <legend><span class="oi oi-calculator"></span> Order Details</legend>
+  <% if @order.state == 'confirmed' %>
+  <span class="pull-right"><i>Confirmation number:</i> <span class="label label-default"><%= @order.offer_code %></span></span><br>
+  <% end %>
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Order Summary</th>
+        <th>Total price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><%= link_to @order.school.name, @order.school, class: "order-school-name", target: "_blank" %></td>
         <td><i><%= @order.num_seats %> seat for <%= @order.num_weeks %> weeks starting on <%= @order.start_date.to_formatted_s(:long) %></i></td>
         <td><strong><%= number_to_currency(@order.total_price) %></strong></td>
         <td><span class="label <%= labelTag(@order.state)[0] %> label-lg">This order is <%= @order.state %></span></td>
       </tr>
-  </tbody>
-</table>
-
-<% if @order.state != 'confirmed' %>
+    </tbody>
+  </table>
+  <% if @order.state != 'confirmed' %>
   <div class="alert alert-warning" role="alert">
     <strong><span class="oi oi-warning"></span> Your booking will be canceled automatically if you don't confirm before to <%= "#{(@order.created_at.to_date + @order.offer.pay_within).to_formatted_s(:long)} at #{@order.created_at.strftime('%I:%M%p')}" %>!</strong>
   </div>
-<% end %>
-
-<div class="col-lg-4">
-  <table class="table">
-
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
+  <% end %>
+  <div class="col-lg-4">
+    <table class="table">
+      <thead>
         <tr>
-        <% if !@order.student %>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% if !@order.student %>
           <td><span class="label label-info">This order is not linked to any student!</span></td>
           <td><%= link_to new_student_path(order_id: @order.id), class: "btn btn-md btn-info btn-embossed" do %>
-                <span class="oi oi-infinity"></span>&nbsp Link this order to a student
-              <% end %>
+            <span class="oi oi-infinity"></span>&nbsp Link this order to a student
+            <% end %>
           </td>
-        <% else %>
+          <% else %>
           <td><span class="label label-info"><%= "Linked to #{@order.student.name} from #{@order.student.country.name}" %></span></td>
           <td><%= "" %></td>
-        <% end %>
+          <% end %>
         </tr>
-    </tbody>
-  </table>
-</div>
-
-
-<div class="col-lg-4 col-lg-offset-4">
-  <table class="table">
-
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-4 col-lg-offset-4">
+    <table class="table">
+      <thead>
         <tr>
-        <% if @order.state == 'pending' %>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% if @order.state == 'pending' %>
           <td><%= link_to new_reservation_path(order_id: @order.id), class: "btn btn-md btn-primary btn-embossed" do %>
-                <span class="oi oi-credit-card"></span>&nbsp Confirm order
-              <% end %>
+            <span class="oi oi-credit-card"></span>&nbsp Confirm order
+            <% end %>
           </td>
           <% end %>
           
           <td><%= link_to @order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger btn-embossed" do %>
-                <span class="oi oi-circle-x"></span>&nbsp Cancel order
-              <% end %>
+            <span class="oi oi-circle-x"></span>&nbsp Cancel order
+            <% end %>
           </td>
         </tr>
-    </tbody>
-  </table>
-</div>
-<p></p><br><br>
-<!-- <span class="label label-info pull-right label-big"><span class="oi oi-star"></span> Your credit card information is only to hold this reservation until payment is made directly to school prior to the offer deadline!</span> -->
+      </tbody>
+    </table>
+  </div>
+  <p></p><br><br>
+  <!-- <span class="label label-info pull-right label-big"><span class="oi oi-star"></span> Your credit card information is only to hold this reservation until payment is made directly to school prior to the offer deadline!</span> -->
   
-<br>
-<br>
+  <br>
+  <br>
 </div>
