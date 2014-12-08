@@ -4,12 +4,15 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
+    redirect_to :root
     @reservations = Reservation.all
+
   end
 
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+    redirect_to :root if @reservation.user != current_user 
   end
 
   # GET /reservations/new

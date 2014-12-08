@@ -15,7 +15,7 @@
 
 
   <div class="well">
-    <legend>Order Confirmation</legend>
+    <legend>Order Confirmed</legend>
     <table class="table table-striped ">
       <thead>
         <tr>
@@ -36,7 +36,8 @@
     
   </div>
   <div class="tile tile-white">
-    <div class="alert alert-imp-info light" role="alert"><stron><span class="glyphicon glyphicon-info-sign"></span></stron> Please contact the school with your confirmation number once your booking has been confirmed to begin the registration process!</div>
+  <p><strong>Your eslBooking confirmation/reference number:</strong> <span class="label label-info"><%= @order.ref_num %></span></p>
+    <p><stron><span class="glyphicon glyphicon-info-sign"></span></stron> Please contact the school with your confirmation/reference number to begin the registration process!</p>
   
     <%= link_to @order.school.reg_link, class: "btn btn-md btn-primary btn-embossed reg", target: "_blank" do %>
             <span class="oi oi-credit-card"></span>&nbsp Register Student

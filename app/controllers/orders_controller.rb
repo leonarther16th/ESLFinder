@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     offer = Offer.find_by_id(params[:offer_id])
     prime = 2711
     @order.user = current_user
-    @order.offer_code = "#{(offer.weekly_price.to_i * prime).to_s}#{rand_letter(1)}#{params[:num_weeks].to_i * prime}#{rand_letter(1)}#{params[:start_date].to_date.strftime('%y%m%d').to_i * prime}#{rand_letter(1)}#{offer.regions.to_i * prime}#{rand_letter(1)}#{offer.school_id.to_i * prime}"
+    @order.offer_code = "#{(offer.weekly_price.to_i * prime).to_s}#{rand_letter(1)}#{params[:num_weeks].to_i * prime}#{rand_letter(1)}#{params[:start_date].to_date.strftime('%y%m%d').to_i * prime}#{rand_letter(1)}#{offer.regions.to_i * prime}#{rand_letter(1)}#{offer.school_id.to_i * prime}#{rand_letter(1)}#{offer.course_id.to_i * prime}#{rand_letter(1)}#{(Order.last.id+1) * prime}"
 
     #add school id
     

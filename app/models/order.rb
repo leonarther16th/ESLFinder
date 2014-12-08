@@ -22,4 +22,8 @@ class Order < ActiveRecord::Base
 		self.state
 	end
 
+	def ref_num
+		self.offer_code
+	end
+
 end
