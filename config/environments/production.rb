@@ -45,7 +45,7 @@ Eslfinder::Application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
-
+  config.action_mailer.default_url_options = { host: 'https://www.eslbooking.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
