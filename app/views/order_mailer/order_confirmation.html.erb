@@ -7,6 +7,7 @@
 <strong>Start Date:</strong> <%= @order.start_date.to_formatted_s(:long) %><br> 
 <strong>Total Price:</strong> <%= number_to_currency(@order.total_price) %><br> 
 <strong>Order status: </strong> <%= @order.state %>
+<strong>Confirmation/Reference Number: </strong> <%= @order.ref_num %>
 </p>
 
 <br>
