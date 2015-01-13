@@ -94,7 +94,7 @@ class SearchesController < ApplicationController
     # old search results
     #@offers = Offer.where('? between start_date and end_date and ? between min_num_weeks and max_num_weeks and (regions = ? or regions = ?)', @last_search.start_date, @last_search.num_weeks, @last_search.country.region.id.to_s, all_region_id.to_s)
     @school = School.find_all_by_city_id(@last_search.city_id)
-    @offers = Offer.where('(regions = ? or regions = ?) and school_id in (?)', @last_search.country.region.id.to_s, all_region_id.to_s, @school.map{|x| x.id})
+    @offers = Offer.where('(regions = ? or regions = ?) and school_id in (?) and end_date >= ?', @last_search.country.region.id.to_s, all_region_id.to_s, @school.map{|x| x.id}, Time.now)
     @s = 'toronto-drowing.jpg'
     user_settings = current_user.user_setting
     @increase_by = user_settings.setting['increase_prices_by'].to_f

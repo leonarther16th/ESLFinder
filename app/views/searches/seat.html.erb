@@ -82,7 +82,7 @@
 									<% end %>
 								<% else %>
 									<% if @booking and can_book  %>
-										<%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-info btn-xs book-now btn-embossed"  do %>
+										<%= link_to new_order_path(:offer_id => o.id, :state => :pending, :num_weeks => @last_search.num_weeks, :total_price => agency_full_price, :start_date => @last_search.start_date, :expire_date => Date.today + o.pay_within, :num_seats => @last_search.num_seats), class: "btn btn-info btn-xs book-now btn-embossed", :disable_with => "Booking..."  do %>
 										<i class="glyphicon glyphicon-credit-card"></i> Book Now
 										<% end %>
 									<% elsif @booking and !can_book %>

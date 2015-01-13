@@ -7,7 +7,11 @@ class OffersController < ApplicationController
   # GET /offers.json
   def index
     #@offers = current_user.offers.all
-    @offers = Offer.all
+    if current_user.current_active_state != 'admin'
+      render 'public/404'
+    else
+      @offers = Offer.all
+    end
   end
 
   # GET /offers/1
