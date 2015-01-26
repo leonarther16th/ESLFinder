@@ -33,7 +33,7 @@
           </td>
           <td><i><%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></i></td>
           <td><strong><%= number_to_currency(order.total_price) %></strong></td>
-          <td><span class="label <%= labelTag(order.currentState)[0] %>  label-lg"><%= order.currentState.humanize %>&nbsp &nbsp <span class="oi <%= labelTag(order.currentState)[1] %>"></span></span></td>
+          <td><span class="label <%= labelTag(order.currentState)[0] %>  label-lg"><%= order.currentState.humanize %> <%= "until #{order.expire_date.to_formatted_s(:long)}" if order.currentState == 'pending' %>&nbsp &nbsp <span class="oi <%= labelTag(order.currentState)[1] %>"></span></span></td>
           <td>
           <% if order.currentState == 'confirmed' %>
             <a class="btn btn-xs btn-default btn-embossed ref-popup" data-container="body" data-toggle="popover" data-content="<%= order.offer_code %>"  >Show/Hide</a>
