@@ -84,7 +84,13 @@ class UserSettingsController < ApplicationController
     def set_some_vars
        @agency = current_user.agency
        @countries = Country.all
-       @all_users = User.paginate(:page => params[:page])
+
+       if params[:search] != ''
+        @all_users = User.where("email like ?", "%#{params[:search]}%".paginate(:page => params[:page])
+       else
+         @all_users = User.paginate(:page => params[:page])
+       end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
