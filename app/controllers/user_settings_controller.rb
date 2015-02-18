@@ -86,7 +86,7 @@ class UserSettingsController < ApplicationController
        @countries = Country.all
 
        if params[:search] != ''
-        @all_users = User.where("email like ?", "%#{params[:search]}%".paginate(:page => params[:page])
+        @all_users = User.where("email like ?", "%#{params[:search]}%").paginate(:page => params[:page])
        else
          @all_users = User.paginate(:page => params[:page])
        end
