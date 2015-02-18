@@ -116,7 +116,7 @@
 						  	<td>
 							  <% if u.last_sign_in_at %>
 								  <label class="label label-primary">
-							  	<%= u.last_sign_in_at.to_formatted_s(:short)  %>
+							  	<%= u.current_sign_in_at.to_formatted_s(:short)  %>
 								  </label>
 							  <% else  %>
 								  <label class="label label-danger">
