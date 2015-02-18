@@ -113,7 +113,17 @@
 							<td><%= u.first_name %> <%= u.last_name %></td>
 							<td><%= u.email %></td>
 							<td><%= u.agency_name %></td>
-						  	<td><label class="label label-primary"><%= u.last_sign_in_at.to_formatted_s(:short)  %></label></td>
+						  	<td>
+							  <% if u.last_sign_in_at %>
+								  <label class="label label-primary">
+							  	<%= u.last_sign_in_at.to_formatted_s(:short)  %>
+								  </label>
+							  <% else  %>
+								  <label class="label label-danger">
+							  	never
+								  </label>
+							  <% end %>
+							</label></td>
 							<% user_state = u.current_active_state %>
 							<td><label class="label label-default"><%= user_state %></label></td>
 							<% if user_state == 'n/a' %>
