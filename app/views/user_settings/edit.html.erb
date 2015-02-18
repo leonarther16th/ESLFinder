@@ -102,6 +102,7 @@
 							<th>Name</th>
 							<th>Email</th>
 							<th>Company name</th>
+						  	<th>Last Signed</th>
 							<th>Current state</th>
 							<th>Activate as</th>
 							<th>Deactivate</th>
@@ -112,6 +113,7 @@
 							<td><%= u.first_name %> <%= u.last_name %></td>
 							<td><%= u.email %></td>
 							<td><%= u.agency_name %></td>
+						  	<td><label class="label label-primary"><%= u.last_sign_in_at.to_formatted_s(:short)  %></label></td>
 							<% user_state = u.current_active_state %>
 							<td><label class="label label-default"><%= user_state %></label></td>
 							<% if user_state == 'n/a' %>
