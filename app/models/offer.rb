@@ -11,9 +11,9 @@ class Offer < ActiveRecord::Base
 	def can_book(search)
 		range = (self.start_date..self.end_date)
 		if range.include?(search[start_date]) and search[num_weeks].between?(this.min_num_weeks, this.max_num_weeks)
-			return 1
-		else
 			return -1
+		else
+			return 1
 		end
 	end
 
