@@ -8,7 +8,7 @@ class Offer < ActiveRecord::Base
 	
 	validates :school_id, :regions, :flag, :course_id, :weekly_price, :regular_price, :pay_within, :min_num_weeks, :max_num_weeks, :start_date, :end_date, :num_of_seats, :weekly_limit, presence: { message: "This field is required, please!"}
 
-	def can_book(search)
+	def sort(search)
 		range = (self.start_date..self.end_date)
 		if range.include?(search[:start_date]) and search[:num_weeks].between?(self.min_num_weeks, self.max_num_weeks)
 			return -1
