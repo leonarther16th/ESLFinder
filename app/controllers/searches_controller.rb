@@ -90,9 +90,14 @@ class SearchesController < ApplicationController
     @search.user_id = current_user.id
     @search.num_seats = 1
     @last_search = Search.find(params[:id])
+    @search.city = @last_search.city
+    @search.country = @last_search.country
+    @search.num_weeks = @last_search.num_weeks
+    @search.start_date = @last_search.start_date
     all_region_id = Region.where("name = ?", "All").first.id
     # old search results
-    #@offers = Offer.where('? between start_date and end_date and ? between min_num_weeks and max_num_weeks and (regions = ? or regions = ?)', @last_search.start_date, @last_search.num_weeks, @last_search.country.region.id.to_s, all_region_id.to_s)
+    @bookable_offers = Offer.where('? between start_date and end_date and ? between min_num_weeks and max_num_weeks and (regions = ? or regions = ?)',
+                                   @last_search.start_date, @last_search.num_weeks, @last_search.country.region.id.to_s, all_region_id.to_s).count
     @school = School.find_all_by_city_id(@last_search.city_id)
     @offers = Offer.where('(regions = ? or regions = ?) and school_id in (?) and end_date >= ?', @last_search.country.region.id.to_s,
                           all_region_id.to_s, @school.map{|x| x.id}, Time.now).sort_by {|offer| offer.sort({start_date: @last_search.start_date, num_weeks: @last_search.num_weeks})}
