@@ -13,4 +13,17 @@ class School < ActiveRecord::Base
 	def avg_rate
 		q = Rate.where('rateable_type = ? and rateable_id = ?' ,'School', self.id).average(:stars).to_i
 	end
+
+
+	def sold_weeks(state = 'confirmed')
+
+		total_sold_weeks = 0
+		offers = Offer.where('school_id = ?', self.id)
+		offers.each do |offer|
+			total_sold_weeks = total_sold_weeks + orders = Order.where('offer_id = ? and state = ?', offer.id, state).sum(:num_weeks)
+		end
+
+		return total_sold_weeks
+
+	end
 end
