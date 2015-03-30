@@ -7,9 +7,11 @@ class OrdersController < ApplicationController
   def index
     if current_user.current_active_state == 'admin'
       @orders = Order.all.paginate(:page => params[:page])
+      @schools = School.all
     else
       @orders = current_user.orders.paginate(:page => params[:page])
     end
+
   end
 
   # GET /orders/1

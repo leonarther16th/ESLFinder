@@ -20,7 +20,7 @@ class School < ActiveRecord::Base
 		total_sold_weeks = 0
 		offers = Offer.where('school_id = ?', self.id)
 		offers.each do |offer|
-			total_sold_weeks = total_sold_weeks + orders = Order.where('offer_id = ? and state = ?', offer.id, state).sum(:num_weeks)
+			total_sold_weeks = total_sold_weeks + orders = Order.where('offer_id = ? and (state = ? or "all" = ?)', offer.id, state, state).sum(:num_weeks)
 		end
 
 		return total_sold_weeks
