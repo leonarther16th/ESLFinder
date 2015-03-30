@@ -8,7 +8,9 @@ class Order < ActiveRecord::Base
 
 	def currentState
 
-		if self.state != 'confirmed' && (self.created_at.to_date + self.offer.pay_within) < DateTime.now.to_date
+		if self.state != 'confirmed' && (self.created_at.to_date + self.offer.pay_within) < DateTime.now.to_date && self.state != 'canceled'
+			self.state = 'canceled'
+			self.save
 			return 'canceled'
 		else
 			self.state
