@@ -11,15 +11,26 @@ class OrdersController < ApplicationController
       @hide_canceled = params[:canceled]
     end
     @schools = School.all
-    if current_user.current_active_state == 'admin'
+    if current_user.current_active_state == 'admin' && params[:search]
       @orders = Order.joins(:school, :user).where('(schools.name like ? or orders.state like ? or users.email like ? or "" = ?) and orders.state != ?',
                                                   "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", @hide_canceled)
       .paginate(:page => params[:page]).order(created_at: :desc)
-    elsif current_user.current_active_state != 'admin'
+
+    elsif current_user.current_active_state == 'admin' && !params[:search]
+      @orders = Order.where('orders.state != ?', @hide_canceled)
+      .paginate(:page => params[:page]).order(created_at: :desc)
+
+    elsif current_user.current_active_state != 'admin' && !params[:search]
       @orders = current_user.orders.joins(:school, :user)
       .where('(schools.name like ? or orders.state like ? or users.email like ? or "" = ?) and orders.state != ?',
              "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", @hide_canceled)
       .paginate(:page => params[:page]).order(created_at: :desc)
+
+    elsif current_user.current_active_state != 'admin' && !params[:search]
+      @orders = current_user.orders.joins(:school, :user)
+      .where('orders.state != ?', @hide_canceled)
+      .paginate(:page => params[:page]).order(created_at: :desc)
+
     end
 
   end
