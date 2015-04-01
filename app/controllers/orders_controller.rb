@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
       .paginate(:page => params[:page]).order(created_at: :desc)
 
     elsif current_user.current_active_state != 'admin' && !params[:search]
-      @orders = current_user.orders.joins(:school, :user)
+      @orders = current_user.orders
       .where('orders.state != ?', @hide_canceled)
       .paginate(:page => params[:page]).order(created_at: :desc)
 
