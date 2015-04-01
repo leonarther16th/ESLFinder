@@ -5,11 +5,21 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    if current_user.current_active_state == 'admin'
-      @orders = Order.all.paginate(:page => params[:page])
-      @schools = School.all
+    if !params[:canceled]
+      @hide_canceled = 'canceled'
     else
-      @orders = current_user.orders.paginate(:page => params[:page])
+      @hide_canceled = params[:canceled]
+    end
+    @schools = School.all
+    if current_user.current_active_state == 'admin'
+      @orders = Order.joins(:school, :user).where('(schools.name like ? or orders.state like ? or users.email like ? or "" = ?) and orders.state != ?',
+                                                  "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", @hide_canceled)
+      .paginate(:page => params[:page]).order(created_at: :desc)
+    elsif current_user.current_active_state != 'admin'
+      @orders = current_user.orders.joins(:school, :user)
+      .where('(schools.name like ? or orders.state like ? or users.email like ? or "" = ?) and orders.state != ?',
+             "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", @hide_canceled)
+      .paginate(:page => params[:page]).order(created_at: :desc)
     end
 
   end

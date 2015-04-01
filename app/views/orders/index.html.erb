@@ -1,6 +1,7 @@
 <% if current_user.current_active_state == 'admin' %>
   <div class="well">
     <legend><i class="oi oi-bar-chart"></i> Orders Statistics</legend>
+
     <table class="table table-striped">
       <thead>
       <tr>
@@ -35,6 +36,29 @@
 <div class="well">
   <legend><span class="oi oi-calculator"></span> Orders Management</legend>
 
+  <%= simple_form_for(orders_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="form-inputs">
+            <%= text_field_tag :search, params[:search], class: "email agency-settings-field form-control", placeholder: "Search By School or Status" %>
+          </div>
+        </div>
+
+
+        <div class="form-actions col-lg-2">
+           <%= button_tag( class: "btn btn-sm btn-success btn-embossed btn-block", id: "save-settings") do %>
+               <span class="oi oi-magnifying-glass"></span> Search
+           <% end %>
+        </div>
+      </div>
+   <% end %>
+            <br>
+            <% if @hide_canceled == 'canceled' %>
+              <%= link_to "Show canceled", orders_path(canceled: 'show'), class: "btn btn-xs btn-link pull-right" %>
+            <% else %>
+              <%= link_to "Hide canceled", orders_path(canceled: 'canceled'), class: "btn btn-xs btn-link pull-right" %>
+            <% end  %>
+                <br><br>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -47,16 +71,16 @@
         <th>Status</th>
         <th>Confirmation</th>
         <th></th>
-        <th>Student</th>
         <th></th>
-       
+        <th></th>
+
 
       </tr>
     </thead>
-   
+
    <tbody>
       <% @orders.each do |order| %>
-        
+
         <tr>
           <% if current_user.current_active_state == 'admin' %>
             <td><%= "<small><b>#{order.user.agency_name}</b><br>#{order.user.email}</small>".html_safe %></td>
@@ -65,7 +89,7 @@
                 <%= order.school.name %> &nbsp <span class="oi oi-external-link"></span>
               <% end %>
           </td>
-          <td><i><%= order.num_weeks %> weeks starting on <%= order.start_date.to_formatted_s(:long) if order.start_date %></i></td>
+          <td><i><%= order.num_weeks %>w on <%= order.start_date.to_formatted_s(:long) if order.start_date %></i></td>
           <td><strong><%= number_to_currency(order.total_price) %></strong></td>
           <td><span class="label <%= labelTag(order.currentState)[0] %>  label-lg"><%= order.currentState.humanize %> <%= "until #{order.expire_date.to_formatted_s(:long)}" if order.currentState == 'pending' %>&nbsp &nbsp <span class="oi <%= labelTag(order.currentState)[1] %>"></span></span></td>
           <td>
@@ -84,7 +108,7 @@
           <td>
             <% if !order.student  %>
               <%= link_to new_student_path(order_id: order.id), class: "btn btn-xs btn-info btn-embossed" do %>
-                  <span class="oi oi-link-intact"></span>&nbsp Link student
+                  <span class="oi oi-link-intact"></span>&nbsp Student
               <% end %>
               <% else %>
                 <% student = "<strong>#{order.student.first_name} #{order.student.last_name}</strong> from #{order.student.country.name}" %>
@@ -106,5 +130,5 @@
     </tbody>
   </table>
 <%= will_paginate @orders, class: "apple_pagination" %>
- 
+
 </div>
