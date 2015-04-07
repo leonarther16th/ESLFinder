@@ -33,6 +33,7 @@ gem 'jquery-turbolinks'
 
 gem 'will_paginate', '~> 3.0.5'
 
+gem 'creditcard', '~> 1.0'
 
 
 gem 'zebra-datepicker-rails'

@@ -69,6 +69,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    creditcard (1.0)
     debug_inspector (0.0.2)
     devise (3.3.0)
       bcrypt (~> 3.0)
@@ -240,6 +241,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   bourbon
   coffee-rails (~> 4.0.0)
+  creditcard (~> 1.0)
   devise
   factory_girl_rails
   faker
