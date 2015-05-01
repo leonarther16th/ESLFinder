@@ -77,6 +77,11 @@
 	<% if current_user.current_active_state == 'admin' %>
 		<div class="col-lg-12">
 			<div class="well">
+				<%= link_to "Application's Settings", admin_app_settings_path, class: "btn btn-sm btn-embossed btn-primary"  %>
+			</div>
+		</div>
+		<div class="col-lg-12">
+			<div class="well">
 				<legend><span class="oi oi-people"></span> Users Activation</legend>
 
 

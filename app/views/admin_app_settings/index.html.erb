@@ -1,0 +1,24 @@
+<div class="well">
+  <legend>Application Settings</legend>
+
+
+  <table class="table">
+  
+    <tbody>
+      <% @admin_app_settings.each do |admin_app_setting| %>
+        <tr>
+          <td><%= admin_app_setting.name.humanize %></td>
+          <td><%= number_to_currency(admin_app_setting.value) %></td>
+          <!-- <td><%= link_to 'Show', admin_app_setting %></td> -->
+          <td><%= link_to 'Edit', edit_admin_app_setting_path(admin_app_setting) %></td>
+         <!--  <td><%= link_to 'Destroy', admin_app_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- 
+<%= link_to 'New Admin app setting', new_admin_app_setting_path %>
+-->
