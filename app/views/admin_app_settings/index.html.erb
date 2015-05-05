@@ -10,7 +10,10 @@
           <td><%= admin_app_setting.name.humanize %></td>
           <td><%= number_to_currency(admin_app_setting.value) %></td>
           <!-- <td><%= link_to 'Show', admin_app_setting %></td> -->
-          <td><%= link_to 'Edit', edit_admin_app_setting_path(admin_app_setting) %></td>
+          <td><%= link_to edit_admin_app_setting_path(admin_app_setting) do %>
+            <span class="oi oi-pencil"></span>
+          <% end %>
+          </td>
          <!--  <td><%= link_to 'Destroy', admin_app_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         </tr>
       <% end %>

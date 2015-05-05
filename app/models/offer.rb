@@ -17,4 +17,13 @@ class Offer < ActiveRecord::Base
 		end
 	end
 
+	def final_weekly_price
+		eslBooking_extra = AdminAppSetting.where('name = ?', 'increase_school_offer_price_by')[0].value.to_i
+		if eslBooking_extra
+			return self.weekly_price + eslBooking_extra
+		else
+			self.weekly_price
+		end
+	end
+
 end

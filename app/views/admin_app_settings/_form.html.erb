@@ -1,4 +1,4 @@
-<div class="well">
+
 	<legend>
 		Application Settings
 	</legend>
@@ -11,7 +11,10 @@
 	  </div>
 
 	  <div class="form-actions">
-	    <%= f.button :submit %>
+	    <%= button_tag(class: "btn btn-success btn-sm btn-embossed pull-right") do %>
+		<i class="glyphicon glyphicon-floppy-disk"></i> Save Changes
+
+	    <% end %>
+	
 	  </div>
 	<% end %>
-</div>
