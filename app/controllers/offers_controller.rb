@@ -10,7 +10,8 @@ class OffersController < ApplicationController
     if current_user.current_active_state != 'admin'
       render 'public/404'
     else
-      @offers = Offer.all
+      #@offers = Offer.where("end_date >= ?", Date.today).order(:start_date)
+      @offers = Offer.all.order(:start_date)
     end
   end
 
