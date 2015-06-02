@@ -12,6 +12,14 @@ GIT
   specs:
     ratyrate (1.2.2.alpha)
 
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 8ba1a0e4908cccf20198791aa8f72acc63575589
+  specs:
+    stripe (1.21.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -78,6 +86,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
@@ -101,6 +111,8 @@ GEM
     high_voltage (2.2.1)
     hike (1.2.3)
     hitimes (1.2.2)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.6.11)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -130,6 +142,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.10.1)
+    netrc (0.10.3)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.5)
@@ -166,6 +179,10 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.2)
       json (~> 1.4)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -223,6 +240,9 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.7)
@@ -263,6 +283,7 @@ DEPENDENCIES
   simple_form (~> 3.1.0.rc1)!
   sqlite3
   state_machine
+  stripe!
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0.5)

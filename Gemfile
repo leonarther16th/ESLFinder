@@ -25,6 +25,8 @@ group :production do
 	gem 'rails_12factor'
 end
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'ratyrate', :github => 'wazery/ratyrate'
 
 gem 'high_voltage', '~> 2.2.1'
