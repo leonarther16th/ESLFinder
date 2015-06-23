@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501025014) do
+ActiveRecord::Schema.define(version: 20150612181228) do
 
   create_table "admin_app_settings", force: true do |t|
     t.string   "name"
@@ -225,6 +225,9 @@ ActiveRecord::Schema.define(version: 20150501025014) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "birth_date"
+    t.string   "eng_level"
+    t.string   "gender"
   end
 
   create_table "user_settings", force: true do |t|

@@ -1,20 +1,20 @@
 module ApplicationHelper
 	def footer
 		@footer = 	{
-			school: ["eslBooking is an easy way for you to increase your revenue without increasing your costs",
-					 "eslBooking gives you the option of offering aggressive promotions without harming your brand ",
-					 "eslBooking ensures that agents don’t take your low pricing for granted as it is offered through a third party site",
-					 "eslBooking allows you to promote your prices without extra costs or effort by your Marketing team",
-					 "eslBooking is online and updated regularly so you can enjoy 24/7 access"],
-			agency: ["eslBooking is the first of its kind in the ESL industry, so you can be a part of history",
-					 "eslBooking is the perfect place to find the best deals and benefit from the lowest discounted prices",
-					 "eslBooking helps you sell the empty seats in your partners classrooms",
-					 "eslBooking is online and updated regularly so you can enjoy 24/7 access"],
-			admin: ["eslBooking is an easy way for you to increase your revenue without increasing your costs",
-					"eslBooking gives you the option of offering aggressive promotions without harming your brand ",
-					"eslBooking ensures that agents don’t take your low pricing for granted as it is offered through a third party site",
-					"eslBooking allows you to promote your prices without extra costs or effort by your Marketing team",
-					"eslBooking is online and updated regularly so you can enjoy 24/7 access"]}
+			school: ["lugza is an easy way for you to increase your revenue without increasing your costs",
+					 "lugza gives you the option of offering aggressive promotions without harming your brand ",
+					 "lugza ensures that agents don’t take your low pricing for granted as it is offered through a third party site",
+					 "lugza allows you to promote your prices without extra costs or effort by your Marketing team",
+					 "lugza is online and updated regularly so you can enjoy 24/7 access"],
+			agency: ["lugza is the first of its kind in the ESL industry, so you can be a part of history",
+					 "lugza is the perfect place to find the best deals and benefit from the lowest discounted prices",
+					 "lugza helps you sell the empty seats in your partners classrooms",
+					 "lugza is online and updated regularly so you can enjoy 24/7 access"],
+			admin: ["lugza is an easy way for you to increase your revenue without increasing your costs",
+					"lugza gives you the option of offering aggressive promotions without harming your brand ",
+					"lugza ensures that agents don’t take your low pricing for granted as it is offered through a third party site",
+					"lugza allows you to promote your prices without extra costs or effort by your Marketing team",
+					"lugza is online and updated regularly so you can enjoy 24/7 access"]}
 	end
 
 

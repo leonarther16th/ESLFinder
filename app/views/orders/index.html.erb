@@ -106,20 +106,22 @@
           </td>
           <% if order.currentState != 'canceled' %>
           <td>
-            <% if !order.student  %>
+            <% if !order.student && order.currentState != 'confirmed' %>
               <%= link_to new_student_path(order_id: order.id), class: "btn btn-xs btn-info btn-embossed" do %>
                   <span class="oi oi-link-intact"></span>&nbsp Student
               <% end %>
-              <% else %>
+              <% elsif order.student %>
                 <% student = "<strong>#{order.student.first_name} #{order.student.last_name}</strong> from #{order.student.country.name}" %>
                 <a class="btn btn-xs btn-default btn-embossed ref-popup" data-toggle="popover" title="Order is linked to"  data-content="<%= student %>" data-html="true" >Show/Hide</a>
             <% end %>
           </td>
 
           <td>
-          <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn-embossed" do %>
+          <% if order.currentState != 'confirmed' %>
+              <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn-embossed" do %>
                 <span class="oi oi-circle-x"></span>&nbsp Cancel
               <% end %>
+          <% end %>
           </td>
         <% else %>
         <td></td>

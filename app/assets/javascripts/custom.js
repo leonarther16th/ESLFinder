@@ -23,10 +23,17 @@ $(document).ready(function() {
         autoclose: true
     });
 
+
     $('.datepicker').datepicker({
         daysOfWeekDisabled: [0, 1, 2, 3, 4, 6],
         autoclose: true
     });
+
+    $('#datepicker-open').datepicker({
+        autoclose: true,
+        startView: "decade"
+    });
+
 
     $(".select2").select2({
         placeholder: "Please select..."

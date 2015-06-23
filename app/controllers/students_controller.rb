@@ -30,8 +30,9 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       @order = Order.find_by_id(@student.order_id)
+      @reservation = Reservation.new(order_id: @student.order_id)
       if @student.save
-        format.html { redirect_to Order, notice: 'Student was successfully created.' }
+        format.html { redirect_to new_reservation_path(order_id: @student.order_id), notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else
         format.html { render action: 'new' }

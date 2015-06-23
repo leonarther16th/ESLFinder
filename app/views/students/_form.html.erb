@@ -1,17 +1,53 @@
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+
+
 <%= simple_form_for(@student) do |f| %>
   <%= f.error_notification %>
+  <% countries = Country.all.order(:name) %>
 
   <div class="form-inputs">
+
+  <legend>Student Information:</legend>
     <%= f.input :order_id, as: :hidden %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <% countries = Country.all.order(:name) %>
-  <%= f.input :country_id, as: :select, collection: countries, value_method: :id, label_method: :name, input_html: {id: "select2-country"} %>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.input :first_name, required: true %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :last_name, required: true %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.input :birth_date, as: :string, input_html: { class: "",  id: "datepicker-open", 'data-date-format' => "yyyy-mm-dd" }, required: true  %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :country_id, as: :select, collection: countries, value_method: :id, label_method: :name, input_html: {id: "select2-country"}, required: true %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-6">
+        <abbr title="required">*</abbr> Gender<br>
+        <%= f.collection_radio_buttons :gender,  [['male', 'Male'] ,['female', 'Female']], :first, :last, required: true  %>
+      </div>
+      <div class="col-lg-6">
+        <abbr title="required">*</abbr> English Level<br>
+        <%= f.collection_radio_buttons :eng_level,  [['beginner', 'Beginner'] ,['intermediate', 'Intermediate'], ['advanced', 'Advanced']], :first, :last, required: true  %>
+      </div>
+    </div>
+
   </div>
+    <br>
 
   <div class="form-actions">
     <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
-        <span class="oi oi-paperclip"></span>&nbsp Link student
+        <span class="oi oi-arrow-circle-right"></span>&nbsp Next
       <% end %>
   </div>
 <% end %>
+
+

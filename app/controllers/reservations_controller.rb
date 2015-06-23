@@ -20,6 +20,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(order_id: params[:order_id])
     @reservation.user = current_user
     @order = Order.find_by_id(params[:order_id])
+    @amount = @order.num_weeks * 1500
   end
 
   # GET /reservations/1/edit
@@ -29,21 +30,35 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
 
-    respond_to do |format|
-      @order = Order.find_by_id(@reservation.order_id)
-      if @reservation.save
-        @order.state = 'confirmed'
-        @order.save
-        OrderMailer.order_confirmation(@order).deliver
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @reservation }
-      else
-        format.html { render action: 'new'}
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+      @reservation = Reservation.new(reservation_params)
+      respond_to do |format|
+        @order = Order.find_by_id(@reservation.order.id)
+
+        @amount = @order.num_weeks * 1500
+
+        token = params[:stripeToken]
+
+        customer = Stripe::Customer.create(
+          #:email => current_user.email,
+          :card  => token
+        )
+
+        charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @amount,
+          :description => 'Confirmation for order #' + @order.id.to_s,
+          :currency    => 'cad'
+        )
+
+          @order.state = 'confirmed'
+          @order.save
+          OrderMailer.order_confirmation(@order).deliver
+          format.html { redirect_to orders_path, notice: 'Reservation was successfully created.'}
       end
-    end
+      rescue Stripe::CardError => e
+          flash[:error] = e.message
+    
   end
 
   # PATCH/PUT /reservations/1

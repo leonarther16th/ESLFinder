@@ -4,26 +4,39 @@
   <%= f.input :user_id, as: :hidden %>
   <%= f.input :order_id, as: :hidden %>
   <div class="row">
+
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="lugza.com"
+          data-description="Reserve your seat"
+          data-image=<%= asset_path('logo-solo.svg')  %>
+          data-label="Make your payment"
+          data-currency="cad"
+          data-amount="<%= @amount %>"></script>
+
+
     <div class="col-lg-12">
-      <%= f.input :card_type do %>
-        <%= f.input_field :card_type, as: :select, collection: ['Visa Card', 'Master Card', 'American Express'], input_html:{ class: "user-settings-field"}, prompt: "Please select...", required: true %>
+      <%! f.input :card_type do %>
+        <%! f.input_field :card_type, as: :select, collection: ['Visa Card', 'Master Card', 'American Express'], input_html:{ class: "user-settings-field"}, prompt: "Please select...", required: true %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <%= f.input :card_name, label: "Name on card" %>
+      <%! f.input :card_name, label: "Name on card" %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <%= f.input :card_number %>
+      <%! f.input :card_number %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-6">
-      <%= f.input :expiry_month do %>
-        <%= f.input_field :expiry_month, as: :select, collection: [["01 - Jan", 1],
+      <%! f.input :expiry_month do %>
+        <%! f.input_field :expiry_month, as: :select, collection: [["01 - Jan", 1],
         ["02 - Feb", 2],
         ["03 - Mar", 3],
         ["04 - Apr", 4],
@@ -39,14 +52,14 @@
       <% end %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :expiry_year do %>
-        <%= f.input_field :expiry_year, as: :select, collection: Date.today.year..Date.today.year+10, input_html:{ class: "user-settings-field"}, prompt: "Please select..." %>
+      <%! f.input :expiry_year do %>
+        <%! f.input_field :expiry_year, as: :select, collection: Date.today.year..Date.today.year+10, input_html:{ class: "user-settings-field"}, prompt: "Please select..." %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <%= f.input :cvc, label: "CVC - Card Verification Code" %>
+      <%! f.input :cvc, label: "CVC - Card Verification Code" %>
     </div>
   </div>
 </div>
@@ -54,13 +67,13 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="form-actions">
-      <%= link_to orders_path, class: "btn btn-md btn-danger btn-embossed btn-block" do %>
+      <%! link_to orders_path, class: "btn btn-md btn-danger btn-embossed btn-block" do %>
       <span class="oi oi-circle-x"></span>&nbsp Cancel
     <% end %>
     </div>
   </div>
   <div class="col-lg-6">
-  <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
+  <%! button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
         <span class="oi oi-credit-card"></span>&nbsp Confirm order
       <% end %>
   </div>
