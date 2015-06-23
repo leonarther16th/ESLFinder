@@ -1,33 +1,46 @@
-<h1>Listing faqs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Question</th>
-      <th>Answer</th>
-      <th>Category</th>
-      <th>Active</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @faqs.each do |faq| %>
-      <tr>
-        <td><%= faq.question %></td>
-        <td><%= faq.answer %></td>
-        <td><%= faq.category %></td>
-        <td><%= faq.active %></td>
-        <td><%= link_to 'Show', faq %></td>
-        <td><%= link_to 'Edit', edit_faq_path(faq) %></td>
-        <td><%= link_to 'Destroy', faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="col-lg-8 col-lg-offset-2">
+  <div class="well">
+    <legend><span class="oi oi-bookmark"></span> FAQ 
+    <% if current_user.current_active_state == 'admin' %>
+      <%= link_to 'Create new FAQ', new_faq_path, class: "btn btn-sm btn-primary btn-embossed pull-right" %>
     <% end %>
-  </tbody>
-</table>
+      </legend>
+    <hr>
+    <ul class="list-unstyled">
+    <% @titles.each do |t| %>
+      <% qs = @faqs.select {|x| x[:category] == t} %>
+      <br>
+      <legend><%= t %>: </legend>
+        <% qs.each_with_index do |qa, num| %>
+          <li class="q"><span class="oi oi-badge"></span> <strong><a href="#q<%= "#{num}#{t.gsub(/\s+/, "")}" %>", class= "faq-link" >
+            <%= qa[:question] %>
+          </a></strong>
+          <% if current_user.current_active_state == 'admin' %>
+            <%= link_to  edit_faq_path(qa) do %>
+                <span class="glyphicon glyphicon-edit blue">  </span>
+            <% end %>
+            <%= link_to qa, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="oi oi-trash red"></span>
+            <% end %>
+          <% end %>
+          </li>
+        <% end %>
+    <% end %>
 
-<br>
+    </ul>
+    <hr>
+    <dl>
+    <% @titles.each do |t| %>
+    <% qs = @faqs.select {|x| x[:category] == t} %>
+      <% qs.each_with_index do |qa, num| %>
+        <dt id="q<%= "#{num}#{t.gsub(/\s+/, "")}" %>"><strong>Q: </strong><%= qa[:question] %></dt>
+        <dd><strong>A: </strong><%= qa[:answer].html_safe %></dd>
+        <hr>
+      <% end %>
+    <% end %>
+    </dl>
+  </div>
+</div>
 
-<%= link_to 'New Faq', new_faq_path %>
+
+

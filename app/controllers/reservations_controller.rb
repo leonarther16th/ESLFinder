@@ -40,7 +40,7 @@ class ReservationsController < ApplicationController
         token = params[:stripeToken]
 
         customer = Stripe::Customer.create(
-          #:email => current_user.email,
+          :email => current_user.email,
           :card  => token
         )
 

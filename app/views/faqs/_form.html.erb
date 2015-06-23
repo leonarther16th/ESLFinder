@@ -3,12 +3,16 @@
 
   <div class="form-inputs">
     <%= f.input :question %>
-    <%= f.input :answer %>
-    <%= f.input :category %>
+    <%= f.input :answer, :input_html => { :cols => 5, :rows => 10, :id => "wysihtml" }  %>
+      <abbr title="required">*</abbr> Category<br>
+    <%= f.collection_radio_buttons :category, [["How to use the system", "How to use the system"], ["Strategy", "Strategy"], ["Sales", "Sales"], ["Marketing", "Marketing"]] , :first, :last, required: true %>
     <%= f.input :active %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+   
+    <%= button_tag  class: "btn btn-success btn-embossed btn-block", method: :submit do %>
+        <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp Save
+      <% end %>
   </div>
 <% end %>

@@ -5,6 +5,7 @@ class FaqsController < ApplicationController
   # GET /faqs.json
   def index
     @faqs = Faq.all
+    @titles = Faq.select(:category).map(&:category).uniq
   end
 
   # GET /faqs/1
@@ -15,6 +16,12 @@ class FaqsController < ApplicationController
   # GET /faqs/new
   def new
     @faq = Faq.new
+    titles = Faq.select(:category).map(&:category).uniq
+    @title_list = []
+    titles.each do |t|
+      @title_list.push([t,t])
+    end
+
   end
 
   # GET /faqs/1/edit
@@ -28,7 +35,7 @@ class FaqsController < ApplicationController
 
     respond_to do |format|
       if @faq.save
-        format.html { redirect_to @faq, notice: 'Faq was successfully created.' }
+        format.html { redirect_to faqs_path, notice: 'Faq was successfully created.' }
         format.json { render action: 'show', status: :created, location: @faq }
       else
         format.html { render action: 'new' }
@@ -42,7 +49,7 @@ class FaqsController < ApplicationController
   def update
     respond_to do |format|
       if @faq.update(faq_params)
-        format.html { redirect_to @faq, notice: 'Faq was successfully updated.' }
+        format.html { redirect_to faqs_path, notice: 'Faq was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
