@@ -22,6 +22,9 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
+    if current_user.current_active_state != 'admin'
+      render 'public/404'
+    end
     @offer = Offer.new
   end
 

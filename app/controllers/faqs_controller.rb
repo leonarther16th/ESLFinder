@@ -4,7 +4,7 @@ class FaqsController < ApplicationController
   # GET /faqs
   # GET /faqs.json
   def index
-    @faqs = Faq.all
+    @faqs = Faq.where('active is ?', true)
     @titles = Faq.select(:category).map(&:category).uniq
   end
 
@@ -26,6 +26,9 @@ class FaqsController < ApplicationController
 
   # GET /faqs/1/edit
   def edit
+    if current_user.current_active_state != 'admin'
+      render 'public/404'
+    end
   end
 
   # POST /faqs
