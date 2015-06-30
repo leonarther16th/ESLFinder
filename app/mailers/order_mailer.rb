@@ -12,7 +12,7 @@ class OrderMailer < ActionMailer::Base
 
     mail :subject => "Thank you for your confirmation!",
          :to      => @user.email,
-         :from    => "eslBooking <info@eslbooking.com>"
+         :from    => "lugza <info@eslbooking.com>"
   end
 
   def order_booking(order)
@@ -21,7 +21,7 @@ class OrderMailer < ActionMailer::Base
 
     mail :subject => "Thank you for your booking!",
          :to      => @user.email,
-         :from    => "eslBooking <info@eslbooking.com>"
+         :from    => "lugza <info@eslbooking.com>"
   end
 
   def order_cancelation(order)
@@ -30,7 +30,7 @@ class OrderMailer < ActionMailer::Base
 
     mail :subject => "Sorry! Your booking is cancelled!",
          :to      => @user.email,
-         :from    => "eslBooking <info@eslbooking.com>"
+         :from    => "lugza <info@eslbooking.com>"
   end
 
 
