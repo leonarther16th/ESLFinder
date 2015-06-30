@@ -54,7 +54,8 @@ class ReservationsController < ApplicationController
           @order.state = 'confirmed'
           @order.save
           OrderMailer.order_confirmation(@order).deliver
-          format.html { redirect_to orders_path, notice: 'Reservation was successfully created.'}
+          @reservation.save
+          format.html { redirect_to @reservation, notice: 'Reservation was successfully created.'}
       end
       rescue Stripe::CardError => e
           flash[:error] = e.message

@@ -1,20 +1,23 @@
 module ApplicationHelper
 	def footer
 		@footer = 	{
-			school: ["lugza is an easy way for you to increase your revenue without increasing your costs",
-					 "lugza gives you the option of offering aggressive promotions without harming your brand ",
-					 "lugza ensures that agents don’t take your low pricing for granted as it is offered through a third party site",
-					 "lugza allows you to promote your prices without extra costs or effort by your Marketing team",
-					 "lugza is online and updated regularly so you can enjoy 24/7 access"],
-			agency: ["lugza is the first of its kind in the ESL industry, so you can be a part of history",
-					 "lugza is the perfect place to find the best deals and benefit from the lowest discounted prices",
-					 "lugza helps you sell the empty seats in your partners classrooms",
-					 "lugza is online and updated regularly so you can enjoy 24/7 access"],
-			admin: ["lugza is an easy way for you to increase your revenue without increasing your costs",
-					"lugza gives you the option of offering aggressive promotions without harming your brand ",
-					"lugza ensures that agents don’t take your low pricing for granted as it is offered through a third party site",
-					"lugza allows you to promote your prices without extra costs or effort by your Marketing team",
-					"lugza is online and updated regularly so you can enjoy 24/7 access"]}
+			school: ["Research shows that 20% of a school’s seats are empty at any given time; Yield management is not your solution, it’s your revolution",
+					"Use cutting edge Yield Management & Dynamic Pricing to fill your empty seats",
+					"Seats booked through a third party site protect your brand by making a clear difference between deals and your everyday pricing",
+					"Used by over 250  agents worldwide with more added every week",
+					"Activate and deactivate your deals at any time",
+					"Activate deals in specific regions to control your school’s diversity"],
+			agency: ["Control your commission! Lugza allows you to set your own commission rates up to 60%",
+					"Use cutting edge Yield Management & Dynamic Pricing to get the best possible pricing",
+					"Get access to the best prices for your students as research shows that at least 20% of school’s seats are empty at any given time",
+					"Due to the extreme low prices offered by schools you can attract a new middle class student segment",
+					"Schools are rated by agents like you to ensure the highest quality programs"],
+			admin: ["Research shows that 20% of a school’s seats are empty at any given time; Yield management is not your solution, it’s your revolution",
+					"Use cutting edge Yield Management & Dynamic Pricing to fill your empty seats",
+					"Seats booked through a third party site protect your brand by making a clear difference between deals and your everyday pricing",
+					"Used by over 250  agents worldwide with more added every week",
+					"Activate and deactivate your deals at any time",
+					"Activate deals in specific regions to control your school’s diversity"]}
 	end
 
 
