@@ -4,7 +4,7 @@ class FaqsController < ApplicationController
   # GET /faqs
   # GET /faqs.json
   def index
-    @faqs = Faq.where('active is true')
+    @faqs = Faq.where(active: true )
     @titles = Faq.select(:category).map(&:category).uniq
   end
 
